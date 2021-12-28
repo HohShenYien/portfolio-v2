@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <top-nav-bar/>
     <Nuxt/>
     <bottom-bar/>
   </v-app>
@@ -7,6 +8,7 @@
 
 <script>
 import bottomBar from "@/components/bottomBar";
+import topNavBar from "@/components/topNavBar";
 export default {
   component: {bottomBar},
   data() {

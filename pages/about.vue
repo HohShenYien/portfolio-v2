@@ -1,6 +1,5 @@
 <template>
   <div>
-    <top-nav-bar cur="2"></top-nav-bar>
     <div>
       <div class="section section1" id="section1">
         <div id="bottom-bar">
@@ -19,7 +18,7 @@
         </div>
         <div id="window">
           <div class="window-title disappear">
-            <h1>About Me</h1>
+            <h1 class="page-title">About Me</h1>
             <div class="underlines">
               <div id="underline1"></div>
               <div id="underline2"></div>
@@ -131,7 +130,8 @@
           </v-col>
         </v-row>
         <div class="section4-note">
-          Updated on 26th December 2021.<br>Based on what I think how much more to know.</div>
+          Updated on 26th December 2021.<br>Based on what I think how much more to know.
+        </div>
       </div>
     </div>
   </div>
@@ -187,7 +187,7 @@ export default {
           data: [{name: "Android Studio (Java)", img: "android.svg", progress: "70%"},
             {name: "Electron", img: "electron.svg", progress: "55%"},
             {name: "QT", img: "qt.svg", progress: "45%"}
-            ]
+          ]
         },
         language: {
           name: "Other languages",
@@ -280,6 +280,7 @@ export default {
   font-size: 0.9rem;
   text-align: right;
 }
+
 .same-height {
   display: flex;
   flex-direction: column;
@@ -315,11 +316,18 @@ export default {
   text-align: center;
   padding: 10px;
   height: 100%;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.skill-card:hover {
+  box-shadow: -4px 6px #444;
+  transform: translateX(4px) translateY(-8px);
 }
 
 .section4-content {
   padding: 0 130px;
 }
+
 /*Style for third section */
 .section3-content {
   padding: 0 130px;
@@ -395,11 +403,11 @@ export default {
 .myPic img {
   width: 80%;
   box-shadow: chocolate 15px 15px;
+  transition: box-shadow 300ms;
 }
 
 .myPic img:hover {
-  animation: picture-shadow 0.2s ease-in;
-  animation-fill-mode: forwards;
+  box-shadow: chocolate 35px 35px;
 }
 
 .section2-content {
@@ -549,12 +557,8 @@ export default {
 }
 
 .window-title h1 {
-  font-size: 100px;
+  animation: fade-from-left-for-title 0.4s ease-in forwards;
   margin-top: 50px;
-  letter-spacing: 20px;
-  font-weight: 600;
-  animation: fade-from-left-for-title 0.4s ease-in;
-  animation-fill-mode: forwards;
 }
 
 .window-title .subtitle {
@@ -704,15 +708,6 @@ export default {
   }
 }
 
-@keyframes picture-shadow {
-  0% {
-    box-shadow: chocolate 15px 15px;
-  }
-  100% {
-    box-shadow: chocolate 35px 35px;
-  }
-}
-
 @keyframes wave-hand {
   0% {
     transform: rotate(40deg);
@@ -744,11 +739,6 @@ export default {
     z-index: 1;
     position: absolute;
     bottom: 80px;
-  }
-
-  .window-title h1 {
-    font-size: 44px;
-    letter-spacing: 4px;
   }
 
   .window-title .subtitle {

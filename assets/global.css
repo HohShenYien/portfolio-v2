@@ -9,11 +9,19 @@
   font-size: 32px !important;
 }
 
+.page-title {
+  font-size: 100px;
+  letter-spacing: 10px;
+  font-weight: 600;
+}
+.page-subtitle {
+  font-size: 50px;
+}
 * {
   font-family: Roboto, sans-serif;
 }
 
-.selected {
+.nuxt-link-exact-active .v-btn:not(.no-highlight) {
   color: gold !important;
 }
 
@@ -51,6 +59,14 @@ a {
 
   .v-navigation-drawer__content .v-list {
     margin-top: 70px;
+  }
+
+  .page-title {
+    font-size: 44px;
+    letter-spacing: 4px;
+  }
+  .page-subtitle {
+    font-size: 36px;
   }
 }
 

@@ -1,8 +1,7 @@
 <template>
   <div>
-    <top-nav-bar cur="0"></top-nav-bar>
     <div>
-      <div class="section section1">
+      <div class="section section1" id="section1">
         <particles-bg :connected="false"/>
         <div class="section1-content">
           <div class="terminal">
@@ -12,8 +11,8 @@
               <img src="frontpage/minimize-btn.svg" alt="" class="terminal-icons">
             </div>
             <div class="terminal-content pt-8">
-              <h1 class="text-center">CS Diary</h1>
-              <div class="subheader">
+              <h1 class="text-center page-title">CS Diary</h1>
+              <div class="subheader page-subtitle">
                 <v-icon :size="isMobile? 30 : 70">mdi-chevron-right</v-icon>
                 <span id="typing"></span>
               </div>
@@ -21,19 +20,19 @@
           </div>
         </div>
         <div class="text-center" v-if="!isMobile">
-          <button @click="$refs.fullpage.api.moveSectionDown()" class="go-down">
+          <button @click="goTo('section2')" class="go-down">
             Scroll down<br>
             <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
           </button>
         </div>
         <div v-else class="text-center">
-          <button @click="$refs.fullpage.api.moveSectionDown()" class="go-down">
+          <button @click="goTo('section2')" class="go-down">
             Read them here<br>
             <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
           </button>
         </div>
       </div>
-      <div class="section">
+      <div class="section" id="section2">
         <button @click="$refs.fullpage.api.moveSectionUp()">
           Prev
         </button>
@@ -45,11 +44,9 @@
 
 <script>
 import Typewriter from 'typewriter-effect/dist/core';
-import topNavBar from "@/components/topNavBar";
 
 export default {
   name: "index",
-  components: {topNavBar},
   data() {
     return {
       jump: {
@@ -73,6 +70,9 @@ export default {
         .pauseFor(100)
         .typeString('Here is where I write blogs about my journey in computer science! ')
         .start();
+    },
+    goTo(section) {
+      this.$goTo(section);
     }
   },
   computed: {
@@ -90,17 +90,13 @@ export default {
 .section {
   min-height: 100vh;
 }
-h1 {
-  font-size: 130px;
-}
 
 .subheader {
-  font-size: 50px;
   padding-left: 40px;
 }
 
 .section1-content {
-  padding-top: 40px;
+  padding-top: 60px;
   height: 80%;
   position: relative;
   z-index: 1;
@@ -144,6 +140,7 @@ h1 {
 }
 
 .go-down {
+  margin-top: 15px;
   padding: 5px 20px;
   opacity: 0;
   transform: translateY(100px);
