@@ -320,7 +320,7 @@ export default {
 }
 
 .skill-card:hover {
-  box-shadow: -4px 6px #444;
+  box-shadow: -4px 6px #444444 !important;
   transform: translateX(4px) translateY(-8px);
 }
 
