@@ -33,9 +33,7 @@
           <div class="me disappear">
             <img src="/about/me.png" alt="">
           </div>
-          <div class="point-down disappear" @click="goTo('section2')">
-            👇 Scroll down
-          </div>
+          <hLink @click="goTo('section2')" text="👇 Scroll down" class="point-down disappear"></hLink>
         </div>
       </div>
       <div class="section section2" id="section2">
@@ -115,7 +113,7 @@
               <div>
                 <h3 class="skill-title mb-3">{{ group.name }}</h3>
               </div>
-              <div class="skill" v-for="skill in group.data" key="name">
+              <div class="skill" v-for="skill in group.data" :key="skill.name">
                 <img :src="'/about/' + skill.img" alt="" width="15%" class="skill-img">
                 <div class="skill-progress-wrapper">
                   <div class="d-flex">
@@ -205,6 +203,11 @@ export default {
     }
   },
   methods: {
+    startAnim() {
+      this.bottomBar.classList.add('start');
+      document.getElementsByClassName('cursor')[0].classList.add('start');
+      document.getElementsByClassName('wrapper')[0].classList.add('start');
+    },
     getItems() {
       this.pointer = document.getElementById('pointer-cursor');
       this.select = document.getElementById('select-cursor');
@@ -249,6 +252,7 @@ export default {
       })
     },
     goTo(section) {
+      console.log("asdf");
       this.$goTo(section);
     }
   },
@@ -256,6 +260,7 @@ export default {
     this.getItems();
     setTimeout(this.checkTouch, 500);
     AOS.init();
+    this.startAnim();
   },
   head() {
     return {
@@ -467,11 +472,11 @@ export default {
   height: 40px;
   bottom: -50px;
   text-align: center;
+}
+#bottom-bar.start {
   animation: bottom-bar-animation 1s linear;
-  animation-delay: 1.5s;
   animation-fill-mode: forwards;
 }
-
 #bottom-bar .img-wrapper {
   padding: 4px;
   display: inline-block;
@@ -505,11 +510,12 @@ export default {
 
 .cursor {
   width: 20px;
+  z-index: 1;
+}
+.cursor.start {
   animation: x-axis 1s linear;
   animation-fill-mode: forwards;
-  animation-delay: 2s;
   position: relative;
-  z-index: 1;
 }
 
 .cursor img {
@@ -524,12 +530,13 @@ export default {
 }
 
 .wrapper {
-  animation: y-axis 1s cubic-bezier(.69, .22, .73, .49);
   position: absolute;
   right: -40px;
   top: -40px;
+}
+.wrapper.start {
+  animation: y-axis 1s cubic-bezier(.69, .22, .73, .49);
   animation-fill-mode: forwards;
-  animation-delay: 2s;
 }
 
 .wrapper .show {

@@ -13,7 +13,7 @@
           <img src="/analysis/holding_magnifying.png" height="240px" alt="">
         </div>
       </div>
-      <v-btn id="check-btn" text>👇 Check them out </v-btn>
+      <hLink id="check-btn" text="👇 Check them out"></hLink>
     </div>
   </div>
 
@@ -173,6 +173,29 @@ export default {
   100% {
     opacity: 1;
     bottom: 5px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h1 {
+    text-align: center;
+  }
+  .page-subtitle {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  #section1 .content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .underlines {
+    display: none;
+  }
+  #hand {
+    margin-top: 120px;
+  }
+  #check-btn {
+    left: 0;
   }
 }
 </style>

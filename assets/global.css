@@ -21,26 +21,13 @@
 * {
   font-family: Roboto, sans-serif;
 }
-
-.nuxt-link-exact-active .v-btn:not(.no-highlight) {
-  color: gold !important;
-}
-
-.v-btn--plain:not(.v-btn--active):not(.v-btn--loading):hover .v-btn__content {
-  color: darkgoldenrod;
-}
-
-.v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
-  opacity: 1 !important;
-  -webkit-transition: color 200ms ease-in;
-  -ms-transition: color 200ms ease-in;
-  transition: color 200ms ease-in;
-}
-
 .v-application {
   overflow-x: hidden !important;
 }
 
+.v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
+  opacity: 1 !important;
+}
 a {
   text-decoration: none;
 }

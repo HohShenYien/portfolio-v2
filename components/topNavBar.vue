@@ -6,8 +6,8 @@
       v-if="!isMobile"
       style="transition: background-color 0.2s linear;"
     >
-      <NuxtLink to="/">
-        <v-btn text plain :ripple="false" class="no-highlight">
+      <NuxtLink to="/" class="no-highlight">
+        <v-btn text plain :ripple="false" class="no-highlight" color="white" style="opacity: 1 !important;">
           <img src="/favicon.ico" alt="" height="36px" class="mr-3">
           <v-toolbar-title class="bold-title navbar-title">
             Hoh Shen Yien</v-toolbar-title>
@@ -15,24 +15,16 @@
       </NuxtLink>
       <v-spacer></v-spacer>
       <NuxtLink to="/">
-        <v-btn text :ripple="false" plain>
           CS Diary
-        </v-btn>
       </NuxtLink>
       <NuxtLink to="/analysis">
-        <v-btn text plain :ripple="false">
           Analysis
-        </v-btn>
       </NuxtLink>
       <NuxtLink to="/about">
-        <v-btn text plain :ripple="false">
           About Me
-        </v-btn>
       </NuxtLink>
       <NuxtLink to="/projects">
-        <v-btn text plain :ripple="false">
           Projects
-        </v-btn>
       </NuxtLink>
     </v-app-bar>
     <v-app-bar v-else
@@ -137,5 +129,18 @@ export default {
 </script>
 
 <style scoped>
-
+a {
+  margin: 0 16px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active {
+  color: gold;
+}
+a:hover {
+  color: goldenrod;
+}
 </style>

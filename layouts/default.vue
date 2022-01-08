@@ -33,6 +33,9 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
+  },
+  mounted() {
+
   }
 }
 </script>

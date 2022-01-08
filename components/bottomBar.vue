@@ -63,6 +63,9 @@ export default {
 .social-btn {
   margin: 0 10px;
 }
+.social-btn:hover i{
+  color: goldenrod;
+}
 #social-icons {
   display: flex;
   justify-content: center;

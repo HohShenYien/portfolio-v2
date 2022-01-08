@@ -1,45 +1,41 @@
 <template>
   <div>
-    <div>
-      <div class="section section1" id="section1">
-        <particles-bg :connected="false"/>
-        <div class="section1-content">
-          <div class="terminal">
-            <div class="terminal-top-bar">
-              <img src="frontpage/close-btn.svg" alt="" class="terminal-icons">
-              <img src="frontpage/enlarge-btn.svg" alt="" class="terminal-icons">
-              <img src="frontpage/minimize-btn.svg" alt="" class="terminal-icons">
-            </div>
-            <div class="terminal-content pt-8">
-              <h1 class="text-center page-title">CS Diary</h1>
-              <div class="subheader page-subtitle">
-                <v-icon :size="isMobile? 30 : 70">mdi-chevron-right</v-icon>
-                <span id="typing"></span>
-              </div>
+    <div class="section section1" id="section1">
+      <particlesBg id="particle-bg"/>
+      <div class="section1-content">
+        <div class="terminal">
+          <div class="terminal-top-bar">
+            <img src="frontpage/close-btn.svg" alt="" class="terminal-icons">
+            <img src="frontpage/enlarge-btn.svg" alt="" class="terminal-icons">
+            <img src="frontpage/minimize-btn.svg" alt="" class="terminal-icons">
+          </div>
+          <div class="terminal-content pt-8">
+            <h1 class="text-center page-title">CS Diary</h1>
+            <div class="subheader page-subtitle">
+              <v-icon :size="isMobile? 30 : 70">mdi-chevron-right</v-icon>
+              <span id="typing"></span>
             </div>
           </div>
         </div>
-        <div class="text-center" v-if="!isMobile">
-          <button @click="goTo('section2')" class="go-down">
-            Scroll down<br>
-            <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
-          </button>
-        </div>
-        <div v-else class="text-center">
-          <button @click="goTo('section2')" class="go-down">
-            Read them here<br>
-            <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
-          </button>
-        </div>
+      </div>
+      <div class="text-center" v-if="!isMobile">
+        <button @click="goTo('section2')" class="go-down">
+          Scroll down<br>
+          <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
+        </button>
+      </div>
+      <div v-else class="text-center">
+        <button @click="goTo('section2')" class="go-down">
+          Read them here<br>
+          <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
+        </button>
+      </div>
+
       </div>
       <div class="section" id="section2">
-        <button @click="$refs.fullpage.api.moveSectionUp()">
-          Prev
-        </button>
         Section 2
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -87,6 +83,14 @@ export default {
 </script>
 
 <style scoped>
+#particle-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
 .section {
   min-height: 100vh;
 }
@@ -149,6 +153,10 @@ export default {
   animation-delay: 1.5s;
 }
 
+#section1 {
+  position: relative;
+}
+
 @keyframes bounce-7 {
   0% {
     transform: scale(1, 1) translateY(0);
@@ -188,22 +196,25 @@ export default {
   h1 {
     font-size: 60px;
   }
-
   .terminal {
-    margin-top: 25%;
+    margin-top: 15%;
     width: 95%;
-    height: 70%;
+    min-height: 0;
+    height: 40vh;
   }
-
+  .terminal-content {
+    min-height: 0;
+  }
   .subheader {
     font-size: 24px;
     padding-left: 10px;
   }
-
   .section1-content {
     padding-top: 40px;
-    height: 70%;
+    height: 50%;
   }
-
+  .section {
+    min-height: 50vh;
+  }
 }
 </style>
