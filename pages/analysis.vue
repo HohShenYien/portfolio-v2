@@ -13,7 +13,7 @@
           <img src="/analysis/holding_magnifying.png" height="240px" alt="">
         </div>
       </div>
-      <hLink id="check-btn" text="👇 Check them out"></hLink>
+      <hLink id="check-btn" text="👇 Check them out" ref="checkBtn"></hLink>
     </div>
   </div>
 
@@ -64,7 +64,7 @@ export default {
     },
     startComponents() {
       document.getElementById('hand').classList.add('start');
-      document.getElementById('check-btn').classList.add('start');
+      this.$refs['checkBtn'].$el.classList.value = this.$refs['checkBtn'].$el.classList.value + ' start'
     }
   },
   mounted() {

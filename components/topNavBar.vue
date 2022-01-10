@@ -15,16 +15,16 @@
       </NuxtLink>
       <v-spacer></v-spacer>
       <NuxtLink to="/">
-          CS Diary
+        <hLink text="CS Diary" class="nav-bar-link"></hLink>
       </NuxtLink>
       <NuxtLink to="/analysis">
-          Analysis
+        <hLink text="Analysis" class="nav-bar-link"></hLink>
       </NuxtLink>
       <NuxtLink to="/about">
-          About Me
+        <hLink text="About Me" class="nav-bar-link"></hLink>
       </NuxtLink>
       <NuxtLink to="/projects">
-          Projects
+        <hLink text="Projects" class="nav-bar-link"></hLink>
       </NuxtLink>
     </v-app-bar>
     <v-app-bar v-else
@@ -48,12 +48,14 @@
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
-      absolute
       temporary
+      fixed
+      app
     >
       <v-list
         nav
         dense
+        class="side-nav-drawer-items"
       >
         <v-list-item>
           <img src="/favicon.ico" alt="" height="80px" class="mx-auto">
@@ -95,8 +97,10 @@
 </template>
 
 <script>
+import HLink from "./hLink";
 export default {
   name: "topNavBar",
+  components: {HLink},
   data() {
     return {
       drawer: false,
@@ -129,18 +133,26 @@ export default {
 </script>
 
 <style scoped>
-a {
+.nav-bar-link {
   margin: 0 16px;
+}
+</style>
+
+<style>
+a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover) .nav-bar-link span{
+  color: gold !important;
+}
+.nav-bar-link span{
   text-transform: uppercase;
   font-size: 0.875rem;
-  color: white;
+  color: white !important;
   font-weight: bold;
   letter-spacing: 2px;
 }
-a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active {
-  color: gold;
+.nav-bar-link:hover span{
+  color: goldenrod !important;
 }
-a:hover {
-  color: goldenrod;
+.side-nav-drawer-items .nuxt-link-exact-active.nuxt-link-active .v-btn span {
+  color: gold;
 }
 </style>

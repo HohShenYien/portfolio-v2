@@ -2,19 +2,29 @@
   <div>
     <div class="section" id="section1">
       <canvas id="matrix"></canvas>
-      <div class="page-header" id="page-box">
+      <div class="page-header start" id="page-box">
         <h1 class="page-title">Projects</h1>
         <div class="page-subtitle">Some of my best / favourite projects<br> that I have done</div>
       </div>
-      <div class="down-btn-wrapper" id="down-btn">
-        <div class="down-btn" @click="test">
+      <div class="down-btn-wrapper start" id="down-btn">
+        <div class="down-btn" @click="goTo('section2')">
           <span>Take a look <v-icon>mdi-arrow-down</v-icon></span>
         </div>
-        <img src="/projects/finger.svg" alt="" class="after" id="finger">
+        <img src="/projects/finger.svg" alt="" class="after" id="finger" ref="finger">
       </div>
     </div>
-    <div class="section">
-
+    <div class="section" id="section2">
+      <div v-for="(project,idx) in projects">
+        <projectPreview :key="project.slug"
+                        :title="project.title" :pic="project.image"
+                        :project_type="project.type"
+                        :text="project.description"
+                        :date="project.date"
+                        :tags="project.tags"
+                        :position="idx"
+        />
+        <v-divider v-if="idx != projects.lastIndex" class="my-10"/>
+      </div>
     </div>
   </div>
 </template>
@@ -27,9 +37,16 @@ export default {
       canvas: null,
       drops: null,
       fontSize: 12,
+      projects: []
     }
   },
   methods: {
+    startAnim() {
+      setTimeout(() => {
+        document.getElementById('page-box').classList.add("start");
+        document.getElementById('finger').classList.add('start');
+      }, 100);
+    },
     initMatrix() {
       this.canvas = document.querySelector('#matrix');
       this.canvas.height = this.canvas.offsetHeight;
@@ -42,9 +59,6 @@ export default {
         this.drops[i] = 1;
       }
       setInterval(this.draw, 33);
-      document.getElementById('page-box').classList.add("start");
-      document.getElementById('down-btn').classList.add("start");
-      document.getElementById('finger').classList.add("start");
     },
     draw() {
       this.ctx.fillStyle = 'rgba(0, 0, 0, .04)';
@@ -61,17 +75,30 @@ export default {
         }
       }
     },
-    test() {
-      console.log("Test")
-    }
+    goTo(section) {
+      this.$goTo(section);
+    },
+    async asyncData() {
+      this.projects = await this.$content('project')
+        .only(['title', 'image', 'tags', 'slug', 'createdAt', 'type', 'description', 'date'])
+        .fetch()
+      this.projects.sort((a,b) => {
+        return new Date(b.date) - new Date(a.date);
+      })
+    },
   },
   mounted() {
     this.initMatrix();
+    this.asyncData();
+    this.startAnim();
   }
 }
 </script>
 
 <style scoped>
+#section2 {
+  padding: 120px 130px;
+}
 .down-btn-wrapper {
   z-index: 1;
   position: absolute;
@@ -113,7 +140,7 @@ export default {
   transform: translateX(0);
   animation: linear rotate-finger 3s;
   animation-iteration-count: infinite;
-  animation-delay: 1.2s;
+  animation-delay: 1.4s;
 }
 #finger {
   transform: rotateZ(-90deg);
@@ -124,7 +151,7 @@ export default {
   width: 40px;
   position: absolute;
   display: block;
-  transition: right 1.2s linear 1s;
+  transition: right 1.2s linear 1.4s;
 }
 .down-btn:hover {
   color: black !important;
@@ -148,7 +175,7 @@ export default {
 }
 .page-header.start, .down-btn-wrapper.start {
   animation: linear fade-flip-up 0.5s;
-  animation-delay: 1s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
 }
 .page-title {
@@ -167,9 +194,12 @@ export default {
   perspective: 1000px;
   perspective-origin: center;
   flex-direction: column;
+  padding-bottom: 70px;
 }
 .section {
   min-height: 100vh;
+  padding-top: 70px;
+  overflow: hidden;
 }
 @keyframes rotate-finger {
   0% {
@@ -201,6 +231,16 @@ export default {
 @media only screen and (max-width: 600px) {
   .page-header {
     padding: 60px 20px;
+  }
+  .section {
+    min-height: 50vh;
+  }
+  .page-header {
+    margin-bottom: 100px;
+  }
+  #section2 {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 </style>

@@ -205,8 +205,11 @@ export default {
   methods: {
     startAnim() {
       this.bottomBar.classList.add('start');
-      document.getElementsByClassName('cursor')[0].classList.add('start');
-      document.getElementsByClassName('wrapper')[0].classList.add('start');
+      setTimeout(() => {
+        document.getElementsByClassName('cursor')[0].classList.add('start');
+        document.getElementsByClassName('wrapper')[0].classList.add('start');
+      }, 1000);
+
     },
     getItems() {
       this.pointer = document.getElementById('pointer-cursor');
@@ -391,7 +394,6 @@ export default {
   margin-bottom: 15px;
   font-size: 26px;
   color: gray;
-  padding-right: 80px;
 }
 
 .right-part {
