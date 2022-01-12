@@ -17,10 +17,11 @@ export default {
 
 <style scoped lang="scss">
 .link {
-  color: #F0E68C;
+  color: $link;
   cursor: pointer;
   font-weight: 400;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .link--arrowed {

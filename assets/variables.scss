@@ -2,3 +2,16 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+
+$primary: gold;
+$secondary: goldenrod;
+$secondary-text: #cecece;
+$link: #F0E68C;
+$random-orange: #D2691E;
+
+@mixin section {
+  padding: 120px 130px;
+  @media only screen and (max-width: 600px) {
+    padding: 120px 20px;
+  }
+}

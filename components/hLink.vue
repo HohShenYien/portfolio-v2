@@ -1,5 +1,7 @@
 <template>
-  <a :href="href" class="nice-link" @click="$emit('click')"><span class="link-txt">{{text}}</span></a>
+  <span>
+    <a :href="href" class="nice-link" @click="$emit('click')"><span class="link-txt">{{text}}</span></a>
+  </span>
 </template>
 
 <script>
@@ -9,15 +11,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .link-txt {
-  color: #F0E68C;
+  color: $link;
   display: inline-block;
   transition: transform 0.3s;
 }
 .nice-link:hover .link-txt {
-  transform: translateY(-5px);
-  color: goldenrod;
+  transform: translateY(-3px);
+  color: $secondary;
 }
 .nice-link {
   text-decoration: none;
@@ -30,7 +32,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 1px;
-  background: goldenrod;
+  background: $secondary;
   top: 100%;
   left: 0;
   pointer-events: none;

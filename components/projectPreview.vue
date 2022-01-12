@@ -12,13 +12,13 @@
     </v-col>
     <v-col cols="12" md="5" class="vertically-center">
       <h2 class="project-title">{{ title }}</h2>
-      <div class="project-date">{{ date }}</div>
+      <div class="project-date"><v-icon color="#808080" size="1rem" class="mr-1">mdi-calendar</v-icon>{{ date }}</div>
       <div class="project-description">{{ text }}</div>
       <div class="check-it">
         <arrowLink text="Check it out"></arrowLink>
       </div>
       <div>
-        <v-chip v-for="tag in tags" outlined color="#daa520" class="mr-3">{{ tag }}</v-chip>
+        <v-chip v-for="tag in tags" outlined color="#daa520" class="mr-3" :key="tag">{{ tag }}</v-chip>
       </div>
     </v-col>
   </v-row>
@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .project-row {
   margin-bottom: 30px;
 }
@@ -95,11 +95,13 @@ export default {
   margin-top: -5px;
   color: gray;
   margin-bottom: 15px;
+  font-size: 0.9rem;
 }
 
 .project-description {
   margin-bottom: 30px;
   padding-left: 10px;
+  color: $secondary-text;
 }
 
 .check-it {

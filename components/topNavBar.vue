@@ -14,7 +14,7 @@
         </v-btn>
       </NuxtLink>
       <v-spacer></v-spacer>
-      <NuxtLink to="/">
+      <NuxtLink to="/csdiary">
         <hLink text="CS Diary" class="nav-bar-link"></hLink>
       </NuxtLink>
       <NuxtLink to="/analysis">
@@ -61,7 +61,7 @@
           <img src="/favicon.ico" alt="" height="80px" class="mx-auto">
         </v-list-item>
         <v-list-item>
-          <NuxtLink to="/">
+          <NuxtLink to="/csdiary">
             <v-btn text :ripple="false">
               CS Diary
             </v-btn>

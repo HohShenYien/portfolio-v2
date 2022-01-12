@@ -50,8 +50,8 @@
               I am Shen Yien, currently studying Computer Science (Data Analytics) in Asia Pacific University, Malaysia.
             </div>
             <div data-aos="fade-left" data-aos-duration="400" data-aos-delay="400">
-              Throughout my journey in computer science, I seek to be a jack of all trades while constantly improving
-              on my current skills.
+              I seek to be a jack of all trades while constantly improving
+              on my current skills. I also enjoy using my skills to build anything that is useful.
             </div>
             <div data-aos="fade-left" data-aos-duration="400" data-aos-delay="600">
               I believe that continuous learning is the key to success in the world of computer science.
@@ -255,7 +255,6 @@ export default {
       })
     },
     goTo(section) {
-      console.log("asdf");
       this.$goTo(section);
     }
   },
@@ -345,6 +344,7 @@ export default {
   padding: 20px 40px;
   position: relative;
   height: 100%;
+  transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .fact-part .wrapper-section3 div {
@@ -413,6 +413,10 @@ export default {
   transition: box-shadow 300ms;
 }
 
+.section3 {
+  background-color: black;
+}
+
 .myPic img:hover {
   box-shadow: chocolate 35px 35px;
 }
@@ -424,7 +428,7 @@ export default {
 }
 
 .section-title {
-  font-weight: 400;
+  font-weight: bold;
   font-size: 40px;
   text-transform: uppercase;
   letter-spacing: 10px;
@@ -863,6 +867,12 @@ export default {
 
   .section4-note {
     margin-right: 20px;
+  }
+}
+
+@media only screen and (max-height: 660px) {
+  .window-title .page-title {
+    margin-top: 0;
   }
 }
 </style>

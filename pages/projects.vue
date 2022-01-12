@@ -175,7 +175,7 @@ export default {
 }
 .page-header.start, .down-btn-wrapper.start {
   animation: linear fade-flip-up 0.5s;
-  animation-delay: 2s;
+  animation-delay: 1.5s;
   animation-fill-mode: forwards;
 }
 .page-title {

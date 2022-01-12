@@ -27,7 +27,7 @@ export default {
       let particleMaterial = new THREE.PointsMaterial({
         color: 'rgb(255, 255, 255)',
         size: 0.3,
-        map: new THREE.TextureLoader().load('/frontpage/star.jpeg'),
+        map: new THREE.TextureLoader().load('/csdiary/star.jpeg'),
         transparent: true,
         blending: THREE.AdditiveBlending,
       });

@@ -1,160 +1,275 @@
 <template>
   <div>
-    <div class="section section1" id="section1">
-      <particlesBg id="particle-bg"/>
-      <div class="section1-content">
-        <div class="terminal">
-          <div class="terminal-top-bar">
-            <img src="frontpage/close-btn.svg" alt="" class="terminal-icons">
-            <img src="frontpage/enlarge-btn.svg" alt="" class="terminal-icons">
-            <img src="frontpage/minimize-btn.svg" alt="" class="terminal-icons">
-          </div>
-          <div class="terminal-content pt-8">
-            <h1 class="text-center page-title">CS Diary</h1>
-            <div class="subheader page-subtitle">
-              <v-icon :size="isMobile? 30 : 70">mdi-chevron-right</v-icon>
-              <span id="typing"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center" v-if="!isMobile">
+    <div class="section" id="section1">
+      <div class="enter-animation" v-if="start">
+        <glitchText text="YOU FOUND ME"/>
         <button @click="goTo('section2')" class="go-down">
           Scroll down<br>
           <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
         </button>
       </div>
-      <div v-else class="text-center">
-        <button @click="goTo('section2')" class="go-down">
-          Read them here<br>
-          <v-icon class="bounce-7" size="50">mdi-chevron-down</v-icon>
-        </button>
-      </div>
+    </div>
+    <div id="section2" class="section">
+      <v-row>
+        <v-col cols="12" md="8">
+          <h2 class="somewhat-big" data-aos="fade-right" data-aos-duration="300">I am a...
+            <span style="color: white" class="strike">Student</span><br>
+            <span class="big" data-aos="fade-right" data-aos-duration="400" data-aos-delay="1000"><span
+              style="color: darkgoldenrod">future</span> developer /<br> data analyst</span>
+          </h2>
+          <div class="description">
+            <span data-aos="fade-right" data-aos-duration="500" data-aos-delay="1400">
+              As I progressed in my programming journey since 2019, I started to discover more and more fields, some of
+            which got my interest, i.e., Data Science & Web Development.<br><br>
+            </span>
+            <span data-aos="fade-right" data-aos-duration="500" data-aos-delay="1600">
+              I look forward to using my skills to build programs or anything that can contribute to the world.
+            </span>
+          </div>
+          <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="2000">
+            <arrowLink text="Learn more about me" href="/about"
+                       style="font-weight: bold; margin-top: 80px;"></arrowLink>
+          </div>
 
-      </div>
-      <div class="section" id="section2">
-        Section 2
+        </v-col>
+        <v-col cols="12" md="4">
+          <div>
+            <img src="/index/person.svg" alt="" width="100%" data-aos="zoom-in-left">
+          </div>
+        </v-col>
+      </v-row>
+    </div>
+    <div class="section" id="section3">
+      <h2 class="section-title">What is this site?</h2>
+      <div class="section-content">
+        <div><span class="center">Beside programming, I enjoy writing too! <br></span>
+          In this website, I write stories of my life as well as
+          sharing projects and analysis that I have done previously.
+        </div>
+        <v-row class="mt-8">
+          <v-col cols="4" v-for="card in cards">
+            <v-card class="writing-cards" elevation="10px" outlined :href="card.href">
+              <img :src="card.img" alt="" height="300px">
+              <arrowLink :text="card.name"/>
+            </v-card>
+          </v-col>
+        </v-row>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
-import Typewriter from 'typewriter-effect/dist/core';
+import 'animate.css'
+import 'aos/dist/aos.css'
+import AOS from 'aos'
 
 export default {
   name: "index",
   data() {
     return {
-      jump: {
-        classes: 'fadeIn',
-        duration: 5000,
-        iteration: 'infinite'
-      },
-      drawer: false
+      start: false,
+      cards: [
+        {
+          img: '/index/csdiary.svg',
+          name: "CS Diary",
+          href: "/csdiary"
+        },
+        {
+          img: '/index/analysis.svg',
+          name: "Analysis",
+          href: "/analysis"
+        },
+        {
+          img: '/index/project.svg',
+          name: "Projects",
+          href: "/projects"
+        }
+      ]
     }
   },
   methods: {
-    typing() {
-      let position = document.getElementById('typing');
-
-      let typewriter = new Typewriter(position, {
-        loop: false,
-        cursor: '█',
-        delay: 30
-      });
-      typewriter
-        .pauseFor(100)
-        .typeString('Here is where I write blogs about my journey in computer science! ')
-        .start();
-    },
     goTo(section) {
       this.$goTo(section);
     }
   },
-  computed: {
-    isMobile: function () {
-      return this.$vuetify.breakpoint.smAndDown;
-    },
-  },
   mounted() {
-    this.typing();
+    AOS.init();
+    this.start = true;
   }
 }
 </script>
 
-<style scoped>
-#particle-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
+<style scoped lang="scss">
+#section3 {
+  background-color: black;
+  padding-left: 0;
+  padding-top: 70px;
+  padding-right: 0;
+
+  .section-title {
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    position: relative;
+    padding-left: 4.8rem;
+    color: whitesmoke;
+    margin-bottom: 10px;
+  }
+
+  .section-title::before {
+    content: '';
+    width: 4rem;
+    height: 4px;
+    background-color: darkgoldenrod;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .section-content {
+    @include section;
+    padding-top: 0;
+    font-size: 1.5rem;
+    color: $secondary-text;
+
+    .center {
+      display: block;
+      text-align: center;
+      margin-bottom: 5px;
+      font-size: 2rem;
+      color: $secondary;
+    }
+  }
+
+  .writing-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-color: $primary;
+    font-size: 24px;
+
+    img {
+      margin-bottom: 40px;
+      filter: brightness(50%);
+      transition: all 0.2s linear;
+    }
+
+    &:hover img {
+      filter: brightness(100%);
+      transform: scale(1.1);
+    }
+  }
 }
+
+#section2 {
+  .somewhat-big {
+    font-size: 2rem;
+
+    .strike {
+      display: inline-block;
+      position: relative;
+    }
+
+    .strike::after {
+      content: ' ';
+      position: absolute;
+      top: calc(50% - 5px);
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: #8B4513;
+    }
+
+    &.aos-animate .strike::after {
+      animation: strike 0.3s ease-in both 0.3s;
+    }
+  }
+
+  .big {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: gold;
+    font-weight: bolder;
+  }
+
+  .description {
+    color: $secondary-text;
+    margin-left: 20px;
+    margin-right: 150px;
+    font-size: 1.2rem;
+
+    span {
+      display: block;
+    }
+  }
+}
+
 .section {
   min-height: 100vh;
-}
-
-.subheader {
-  padding-left: 40px;
-}
-
-.section1-content {
-  padding-top: 60px;
-  height: 80%;
   position: relative;
-  z-index: 1;
-}
-
-.terminal-content {
-  width: 100%;
-  height: calc(100% - 20px);
-  background-color: rgba(0, 0, 0, 0.5);
-  min-height: 70vh;
-  padding-bottom: 20px;
-}
-
-.terminal {
-  width: 80%;
-  background-color: rgba(25, 25, 112, 0.6);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  height: 90%;
-  padding: 5px;
-}
-
-.terminal-top-bar {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-  margin-bottom: 5px;
-}
-
-.terminal-icons {
-  width: 18px;
-  margin-left: 5px;
-}
-
-.bounce-7 {
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-name: bounce-7;
-  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
-}
-
-.go-down {
-  margin-top: 15px;
-  padding: 5px 20px;
-  opacity: 0;
-  transform: translateY(100px);
-  animation: fade-from-bottom 0.4s ease-in;
-  animation-fill-mode: forwards;
-  animation-delay: 1.5s;
+  @include section;
 }
 
 #section1 {
-  position: relative;
+  background-color: black;
+
+  .enter-animation {
+    animation: ease-out enterAnim 0.8s;
+    animation-delay: 0.8s;
+    animation-fill-mode: both;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .bounce-7 {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+  }
+
+  .go-down {
+    margin-top: 80px;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: fade-from-bottom 0.4s ease-in;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+  }
+}
+
+@keyframes strike {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes enterAnim {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  95% {
+    opacity: 0.3;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes bounce-7 {
@@ -193,28 +308,40 @@ export default {
 }
 
 @media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 60px;
+  #section2 {
+    .description {
+      margin-right: 0;
+    }
+
+    .big {
+      font-size: 2.5rem;
+    }
   }
-  .terminal {
-    margin-top: 15%;
-    width: 95%;
-    min-height: 0;
-    height: 40vh;
-  }
-  .terminal-content {
-    min-height: 0;
-  }
-  .subheader {
+}
+
+</style>
+<style lang="scss">
+.writing-cards {
+  .link {
     font-size: 24px;
-    padding-left: 10px;
   }
-  .section1-content {
-    padding-top: 40px;
-    height: 50%;
+
+  &:hover {
+    .link {
+      font-size: 27px;
+
+      .arrow-icon {
+        transform: translate3d(5px, 0, 0);
+      }
+
+      .arrow-icon--circle {
+        stroke-dashoffset: 0;
+      }
+    }
   }
-  .section {
-    min-height: 50vh;
+
+  .link:hover {
+
   }
 }
 </style>

@@ -1,7 +1,7 @@
 ---
 title: Pomodoro Focus
 image: https://github.com/HohShenYien/Pomodoro_Focus/raw/master/preview/Screenshot_20200705-231823.jpg
-date: Feb 28, 2021
+date: 5 July 2020
 tags:
 - Java
 - Android

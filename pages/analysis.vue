@@ -64,7 +64,6 @@ export default {
     },
     startComponents() {
       document.getElementById('hand').classList.add('start');
-      this.$refs['checkBtn'].$el.classList.value = this.$refs['checkBtn'].$el.classList.value + ' start'
     }
   },
   mounted() {
@@ -81,9 +80,9 @@ export default {
   left: 40px;
   font-size: 20px;
 }
-#check-btn.start {
+#check-btn{
   animation: fade-from-bottom 1s linear forwards;
-  animation-delay: 1s;
+  animation-delay: 1.8s;
 }
 #hand {
   position: relative;
