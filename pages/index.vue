@@ -40,18 +40,34 @@
       </v-row>
     </div>
     <div class="section" id="section3">
-      <h2 class="section-title">What is this site?</h2>
+      <h2 class="section-title" data-aos="fade-right" data-aos-duration="500">What is this site?</h2>
       <div class="section-content">
-        <div><span class="center">Beside programming, I enjoy writing too! <br></span>
-          In this website, I write stories of my life as well as
-          sharing projects and analysis that I have done previously.
+        <div><div class="center" data-aos="fade-up" data-aos-duration="300" data-aos-delay="300">Beside programming, I enjoy writing too! <br></div>
+          <div data-aos="fade-up" data-aos-duration="300" data-aos-delay="600">
+            In this website, I write stories of my life as well as
+            sharing projects and analysis that I have done previously.
+          </div>
         </div>
-        <v-row class="mt-8">
-          <v-col cols="4" v-for="card in cards">
+        <v-row class="mt-md-8 mt-2">
+          <v-col cols="12" md="4" v-for="(card, idx) in cards" data-aos="flip-left" data-aos-duration="400"
+                 :data-aos-delay="700 + 200 * idx" :key="idx">
             <v-card class="writing-cards" elevation="10px" outlined :href="card.href">
               <img :src="card.img" alt="" height="300px">
               <arrowLink :text="card.name"/>
             </v-card>
+          </v-col>
+        </v-row>
+      </div>
+    </div>
+    <div class="section" id="section4">
+      <h2 class="section-title" data-aos="fade-right" data-aos-duration="500">Life Style</h2>
+      <div class="section-content">
+        <v-row>
+          <v-col cols="5">
+            <img src="/index/reading.svg" alt="" height="600px" data-aos="zoom-in-right">
+          </v-col>
+          <v-col cols="7">
+
           </v-col>
         </v-row>
       </div>
@@ -72,7 +88,7 @@ export default {
       cards: [
         {
           img: '/index/csdiary.svg',
-          name: "CS Diary",
+          name: "CS Diary (Blog)",
           href: "/csdiary"
         },
         {
@@ -101,34 +117,44 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.section-title {
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  position: relative;
+  padding-left: 4.8rem;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.section-title::before {
+  content: '';
+  width: 4rem;
+  height: 4px;
+  background-color: darkgoldenrod;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+#section4 {
+  padding-left: 0;
+  padding-top: 70px;
+  padding-right: 0;
+  .section-content {
+    @include section;
+    padding-top: 0;
+    font-size: 1.5rem;
+    color: $secondary-text;
+  }
+}
 #section3 {
   background-color: black;
   padding-left: 0;
   padding-top: 70px;
   padding-right: 0;
-
-  .section-title {
-    font-weight: bold;
-    font-size: 40px;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    position: relative;
-    padding-left: 4.8rem;
-    color: whitesmoke;
-    margin-bottom: 10px;
-  }
-
-  .section-title::before {
-    content: '';
-    width: 4rem;
-    height: 4px;
-    background-color: darkgoldenrod;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-  }
 
   .section-content {
     @include section;
@@ -163,6 +189,9 @@ export default {
     &:hover img {
       filter: brightness(100%);
       transform: scale(1.1);
+    }
+    &+a {
+      display: none;
     }
   }
 }
@@ -317,17 +346,33 @@ export default {
       font-size: 2.5rem;
     }
   }
+  #section3 {
+    .section-content {
+      padding-top: 0;
+      font-size: 1.2rem;
+      .center {
+        text-align: left;
+        font-size: 1.5rem;
+      }
+    }
+    .writing-cards img{
+      filter: brightness(100%);
+    }
+  }
+  .section-title {
+    font-size: 30px;
+  }
 }
 
 </style>
 <style lang="scss">
 .writing-cards {
-  .link {
+  a.link {
     font-size: 24px;
   }
 
   &:hover {
-    .link {
+    a.link {
       font-size: 27px;
 
       .arrow-icon {
