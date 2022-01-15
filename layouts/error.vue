@@ -1,11 +1,11 @@
 <template>
   <v-app dark>
-    <section class="section">
-      <v-row v-if="start">
+    <section class="section" ref="content">
+      <v-row>
         <v-col cols="12" md="7">
           <div class="error-wrapper">
             <img src="https://i.imgur.com/iMwuSH7.png" alt="a ufo" id="ufo"
-                 class="animate__animated animate__fadeInDown">
+                 class="animate__animated animate__fadeInDown animate-delay-6">
             <div id="error-code"><h1 v-for="(code, idx) in codes" :key="idx"
                                      :class="{[`animate-delay-${(idx + 1) * 3}`]: true}"
                                      class="animate__fadeInUp animate__animated">{{ code }}</h1></div>
@@ -33,9 +33,9 @@
 
         <v-col cols="12" md="5" class="right">
           <img src="https://i.imgur.com/Oj89UKU.png" alt="An Alien" width="45%"
-               class="alien mr-4 animate__animated animate__fadeInBottomRight">
+               class="alien mr-4 animate__animated animate__fadeInBottomRight animate-delay-6">
           <img src="https://i.imgur.com/Oj89UKU.png" alt="An Alien" width="45%"
-               class="alien animate__animated animate__fadeInBottomRight animate-delay-4">
+               class="alien animate__animated animate__fadeInBottomRight animate-delay-9">
         </v-col>
       </v-row>
     </section>
@@ -63,18 +63,7 @@ export default {
     }
   },
   mounted() {
-    this.images = 3;
-    document.querySelectorAll('img').forEach(el => {
-      el.onload = () => {
-        console.log(this.images);
-        if (--this.images == 0) {
-          setTimeout(() => {
-            this.start = true;
-          }, 600)
 
-        }
-      }
-    })
   },
   created() {
     if (this.error.statusCode !== 404) {
