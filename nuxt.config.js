@@ -68,5 +68,9 @@ export default {
     transpile: [
       "three"
     ]
+  },
+  // generate error page for netlify
+  generate: {
+    fallback: true
   }
 }

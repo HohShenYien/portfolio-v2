@@ -76,13 +76,18 @@ export default {
       }
     })
   },
+  created() {
+    if (this.error.statusCode !== 404) {
+      this.codes = ["E", "R", "R", "O", "R"];
+    }
+  },
   head() {
     const title =
       this.error.statusCode === 404 ? 'Page Not Found' : this.otherError
     return {
       title
     }
-  }
+  },
 }
 </script>
 
