@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="section section1" id="section1">
+      <section class="section section1" id="section1">
         <div id="bottom-bar">
           <div class="img-wrapper">
             <img src="/about/home.png" alt="" height="22px" class="images">
@@ -35,12 +35,12 @@
           </div>
           <hLink @click="goTo('section2')" text="👇 Scroll down" class="point-down disappear"></hLink>
         </div>
-      </div>
-      <div class="section section2" id="section2">
+      </section>
+      <section class="section section2" id="section2">
         <h2 class="section-title" data-aos="fade-right">Who I am</h2>
         <div class="section2-content">
           <div class="myPic">
-            <img src="/about/avatar.png" alt="" data-aos="flip-left">
+            <img src="/about/avatar.png" alt="" data-aos="flip-left" data-aos-duration="700">
           </div>
           <div class="right-part">
             <div class="top-part" data-aos="fade-left" data-aos-duration="700">
@@ -58,8 +58,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="section section3" id="section3">
+      </section>
+      <section class="section section3" id="section3">
         <h2 class="section-title" data-aos="fade-right">Facts About Me</h2>
         <v-row class="section3-content">
           <v-col class="col-12 col-md-3 same-height" style="width: 25%">
@@ -104,8 +104,8 @@
             </v-card>
           </v-col>
         </v-row>
-      </div>
-      <div class="section section4">
+      </section>
+      <section class="section section4">
         <h2 class="section-title" data-aos="fade-right">My Skills</h2>
         <v-row class="section4-content">
           <v-col class="col-12 col-md-4 same-height" v-for="(group, idx) in skills" :key="idx">
@@ -130,7 +130,7 @@
         <div class="section4-note">
           Updated on 26th December 2021.<br>Based on what I think how much more to know.
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </template>
@@ -224,6 +224,7 @@ export default {
     showEverything() {
       this.window.classList.add('popup')
       this.bottomBar.classList.add('solid');
+      this.bottomBar.classList.add('start')
       this.logo.classList.add("opened")
       setTimeout(this.cursorAway, 100);
       setTimeout(this.delayShow, 400);
@@ -471,17 +472,15 @@ export default {
 
 #bottom-bar {
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   width: 100vw;
   height: 40px;
-  bottom: -50px;
   text-align: center;
-}
-#bottom-bar.start {
-  animation: bottom-bar-animation 1s linear;
-  animation-fill-mode: forwards;
+  animation: bottom-bar-animation 1.5s linear;
+  animation-delay: 1s;
+  animation-fill-mode: both;
 }
 #bottom-bar .img-wrapper {
   padding: 4px;
@@ -489,10 +488,6 @@ export default {
   margin-top: 5px;
   height: 30px;
   border-radius: 2px;
-}
-
-#bottom-bar .show {
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #logo {

@@ -1,7 +1,9 @@
 <template>
   <v-app dark>
     <top-nav-bar/>
-    <Nuxt/>
+    <main>
+      <Nuxt/>
+    </main>
     <bottom-bar/>
   </v-app>
 </template>

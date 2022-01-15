@@ -60,14 +60,23 @@
       </div>
     </div>
     <div class="section" id="section4">
-      <h2 class="section-title" data-aos="fade-right" data-aos-duration="500">Life Style</h2>
+      <h2 class="section-title" data-aos="fade-right" data-aos-duration="500">LifeStyle</h2>
       <div class="section-content">
         <v-row>
-          <v-col cols="5">
-            <img src="/index/reading.svg" alt="" height="600px" data-aos="zoom-in-right">
+          <v-col cols="12" md="6">
+            <img src="/index/reading.svg" alt="" width="100%" data-aos="zoom-in-right" data-aos-delay="200ms">
           </v-col>
-          <v-col cols="7">
-
+          <v-col cols="12" md="6" class="right">
+            <v-spacer></v-spacer>
+            <div class="some-header" data-aos="fade-left">I like to read as well</div>
+            <div data-aos="fade-left" data-aos-delay="400ms">Though not a big fan of fictions, I love reading
+            tutorial or self-help books that can improve me mentally.</div>
+            <v-spacer></v-spacer>
+            <div data-aos="fade-left" data-aos-delay="800ms">
+              <nuxt-link to="/goals"><arrowLink text="Check them out"/></nuxt-link>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="1200ms" class="sub-text">I have listed my annual resolutions and their progress there too!</div>
+            <v-spacer></v-spacer>
           </v-col>
         </v-row>
       </div>
@@ -140,14 +149,38 @@ export default {
   margin: auto;
 }
 #section4 {
-  padding-left: 0;
-  padding-top: 70px;
-  padding-right: 0;
+  padding: 70px 0;
+
   .section-content {
     @include section;
     padding-top: 0;
     font-size: 1.5rem;
     color: $secondary-text;
+  }
+  .some-header {
+    font-size: 2rem;
+    color: goldenrod;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    a {
+      display: inline-block;
+      height: 50px;
+      margin-top: 8px;
+      .link--arrowed {
+        font-size: 24px;
+        &:hover {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+  .sub-text {
+    color: gray;
+    font-size: 1.3rem;
   }
 }
 #section3 {
@@ -155,6 +188,7 @@ export default {
   padding-left: 0;
   padding-top: 70px;
   padding-right: 0;
+  padding-bottom: 70px;
 
   .section-content {
     @include section;
@@ -362,6 +396,29 @@ export default {
   .section-title {
     font-size: 30px;
   }
+  #section4 {
+    .section-content {
+      padding-top: 20px;
+      .right {
+        padding-left: 20px;
+        .some-header {
+          font-size: 1.5rem;
+        }
+        div {
+          font-size: 1.2rem;
+        }
+        .sub-text {
+          font-size: 1rem;
+        }
+        .link--arrowed {
+          font-size: 1.2rem;
+          &:hover {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 </style>
@@ -374,6 +431,7 @@ export default {
   &:hover {
     a.link {
       font-size: 27px;
+      font-weight: bold;
 
       .arrow-icon {
         transform: translate3d(5px, 0, 0);
@@ -383,10 +441,6 @@ export default {
         stroke-dashoffset: 0;
       }
     }
-  }
-
-  .link:hover {
-
   }
 }
 </style>

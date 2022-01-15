@@ -14,18 +14,20 @@
         </v-btn>
       </NuxtLink>
       <v-spacer></v-spacer>
-      <NuxtLink to="/csdiary">
-        <hLink text="CS Diary" class="nav-bar-link"></hLink>
-      </NuxtLink>
-      <NuxtLink to="/analysis">
-        <hLink text="Analysis" class="nav-bar-link"></hLink>
-      </NuxtLink>
-      <NuxtLink to="/about">
-        <hLink text="About Me" class="nav-bar-link"></hLink>
-      </NuxtLink>
-      <NuxtLink to="/projects">
-        <hLink text="Projects" class="nav-bar-link"></hLink>
-      </NuxtLink>
+      <nav>
+        <NuxtLink to="/csdiary">
+          <hLink text="CS Diary" class="nav-bar-link"></hLink>
+        </NuxtLink>
+        <NuxtLink to="/analysis">
+          <hLink text="Analysis" class="nav-bar-link"></hLink>
+        </NuxtLink>
+        <NuxtLink to="/about">
+          <hLink text="About Me" class="nav-bar-link"></hLink>
+        </NuxtLink>
+        <NuxtLink to="/projects">
+          <hLink text="Projects" class="nav-bar-link"></hLink>
+        </NuxtLink>
+      </nav>
     </v-app-bar>
     <v-app-bar v-else
                fixed
@@ -51,15 +53,26 @@
       temporary
       fixed
       app
+      width="100%"
+      color="#000"
     >
+      <div class="drawer-bar">
+        <nuxt-link to="/">
+          <div class="bold-title navbar-title">Hoh Shen Yien</div>
+        </nuxt-link>
+        <v-btn text plain :ripple="false" @click="drawer = false">
+          <v-icon>mdi-close</v-icon>
+          <div class="bold-title text-none" style="font-size: 0.875rem">
+            Close
+          </div>
+        </v-btn>
+      </div>
       <v-list
         nav
         dense
         class="side-nav-drawer-items"
+        style="margin-top: 0;"
       >
-        <v-list-item>
-          <img src="/favicon.ico" alt="" height="80px" class="mx-auto">
-        </v-list-item>
         <v-list-item>
           <NuxtLink to="/csdiary">
             <v-btn text :ripple="false">
@@ -67,7 +80,7 @@
             </v-btn>
           </NuxtLink>
         </v-list-item>
-
+        <v-divider class="nav-border"></v-divider>
         <v-list-item>
           <NuxtLink to="/analysis">
             <v-btn text plain :ripple="false">
@@ -75,7 +88,7 @@
             </v-btn>
           </NuxtLink>
         </v-list-item>
-
+        <v-divider  class="nav-border"></v-divider>
         <v-list-item>
           <NuxtLink to="/about">
             <v-btn text plain :ripple="false">
@@ -83,7 +96,7 @@
             </v-btn>
           </NuxtLink>
         </v-list-item>
-
+        <v-divider  class="nav-border"></v-divider>
         <v-list-item>
           <NuxtLink to="/projects">
             <v-btn text plain :ripple="false">
@@ -91,7 +104,9 @@
             </v-btn>
           </NuxtLink>
         </v-list-item>
+        <v-divider  class="nav-border"></v-divider>
       </v-list>
+      <bottomBar :isDrawer="true"/>
     </v-navigation-drawer>
   </div>
 </template>
@@ -136,6 +151,21 @@ export default {
 .nav-bar-link {
   margin: 0 16px;
 }
+.drawer-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 56px;
+  padding: 10px 29px;
+}
+.navbar-title {
+  text-transform: uppercase;
+  color: white;
+}
+.nav-border {
+  margin: 20px 160px;
+  border-width: 4px 0 0;
+}
 </style>
 
 <style>
@@ -154,5 +184,27 @@ a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover) .nav-ba
 }
 .side-nav-drawer-items .nuxt-link-exact-active.nuxt-link-active .v-btn span {
   color: gold;
+}
+.v-list--nav .v-list-item {
+  justify-content: center;
+}
+.v-navigation-drawer__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.v-navigation-drawer .v-list--nav a span{
+  display: inline-block;
+  transform: translateY(25px);
+  transition: transform 0.2s ease-in;
+  transition-delay: 0.2s;
+}
+
+.v-navigation-drawer--open .v-list--nav a span{
+  transform: translateY(0);
+}
+.v-navigation-drawer--open .v-list--nav a{
+  overflow: hidden;
 }
 </style>

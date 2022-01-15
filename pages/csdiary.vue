@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="section section1" id="section1">
+    <section class="section section1" id="section1">
       <particlesBg id="particle-bg"/>
       <div class="section1-content">
         <div class="terminal">
@@ -31,14 +31,14 @@
         </button>
       </div>
 
-      </div>
-      <div class="section" id="section2">
+      </section>
+      <section class="section" id="section2">
         <postPreview></postPreview>
         <postPreview></postPreview>
         <postPreview></postPreview>
         <postPreview></postPreview>
         <postPreview></postPreview>
-      </div>
+      </section>
     </div>
 </template>
 

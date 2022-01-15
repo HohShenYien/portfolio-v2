@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="section" id="section1">
+    <section class="section" id="section1">
       <canvas id="matrix"></canvas>
       <div class="page-header start" id="page-box">
         <h1 class="page-title">Projects</h1>
@@ -12,8 +12,8 @@
         </div>
         <img src="/projects/finger.svg" alt="" class="after" id="finger" ref="finger">
       </div>
-    </div>
-    <div class="section" id="section2">
+    </section>
+    <section class="section" id="section2">
       <div v-for="(project,idx) in projects">
         <projectPreview :key="project.slug"
                         :title="project.title" :pic="project.image"
@@ -25,7 +25,7 @@
         />
         <v-divider v-if="idx != projects.lastIndex" class="my-10"/>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 <script>

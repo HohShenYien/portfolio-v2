@@ -15,3 +15,16 @@ $random-orange: #D2691E;
     padding: 120px 20px;
   }
 }
+
+@mixin smaller-section {
+  padding: 80px 130px;
+  @media only screen and (max-width: 600px) {
+    padding: 90px 20px;
+  }
+}
+
+@for $i from 1 through 20 {
+  .animate-delay-#{$i} {
+    animation-delay: $i * 100ms !important;
+  }
+}

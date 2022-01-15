@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="section" id="section1">
+    <section class="section" id="section1">
       <div class="background" data-aos="zoom-in-left"><canvas id="canvas"/></div>
       <div class="content">
         <h1 class="page-title" data-aos="fade-right" data-aos-delay="250">Analysis</h1>
@@ -14,7 +14,7 @@
         </div>
       </div>
       <hLink id="check-btn" text="👇 Check them out" ref="checkBtn"></hLink>
-    </div>
+    </section>
   </div>
 
 </template>

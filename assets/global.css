@@ -31,8 +31,26 @@
 a {
   text-decoration: none;
 }
+.v-application a {
+  color: #F0E68C;
+  transition: all 0.1s linear;
+}
+.v-application a:hover {
+  color: #BDB76B;
+}
 .no-overflow {
   overflow: hidden;
+}
+
+.page-leave-active,
+.page-enter-active {
+  transition: transform 0.5s;
+  overflow: hidden;
+}
+.page-leave-to {
+  background-color: black;
+  filter: brightness(0) grayscale(100%);
+  transform: translate(-100%, 0);
 }
 
 @media only screen and (max-width: 600px){

@@ -1,10 +1,10 @@
 <template>
-  <div id="bottom-bar">
-    <v-icon size="90" id="up-btn" @click="goTop">mdi-chevron-up</v-icon>
+  <footer id="bottom-bar">
+    <v-icon size="90" id="up-btn" @click="goTop" v-if="!isDrawer">mdi-chevron-up</v-icon>
     <div class="quote">Stay Hungry, Stay Foolish</div>
     <div id="social-icons">
       <v-btn fab class="social-btn" large color="#141314" :href="social.url"
-             v-for="social in socials" :key="social.url">
+             v-for="social in socials" :key="social.url" target="_blank">
         <v-icon size="36" dark>{{social.icon}}</v-icon>
       </v-btn>
     </div>
@@ -16,12 +16,13 @@
         We live in a free world! <div id="peace-wrapper"><img src="/public/peace.svg" id="peace" alt=""></div>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>
 export default {
   name: "bottomBar",
+  props: ['isDrawer'],
   data() {
     return {
       socials: [{icon: "mdi-facebook", url: "https://www.facebook.com/wenwen.hoh"},
