@@ -10,22 +10,23 @@
         <v-btn text plain :ripple="false" class="no-highlight" color="white" style="opacity: 1 !important;">
           <img src="/favicon.ico" alt="" height="36px" class="mr-3">
           <v-toolbar-title class="bold-title navbar-title">
-            Hoh Shen Yien</v-toolbar-title>
+            Hoh Shen Yien
+          </v-toolbar-title>
         </v-btn>
       </NuxtLink>
       <v-spacer></v-spacer>
       <nav>
         <NuxtLink to="/csdiary">
-          <hLink text="CS Diary" class="nav-bar-link"></hLink>
+          <hLink class="nav-bar-link">CS Diary</hLink>
         </NuxtLink>
         <NuxtLink to="/analysis">
-          <hLink text="Analysis" class="nav-bar-link"></hLink>
+          <hLink class="nav-bar-link">Analysis</hLink>
         </NuxtLink>
         <NuxtLink to="/about">
-          <hLink text="About Me" class="nav-bar-link"></hLink>
+          <hLink class="nav-bar-link">About Me</hLink>
         </NuxtLink>
         <NuxtLink to="/projects">
-          <hLink text="Projects" class="nav-bar-link"></hLink>
+          <hLink class="nav-bar-link">Projects</hLink>
         </NuxtLink>
       </nav>
     </v-app-bar>
@@ -33,17 +34,18 @@
                fixed
                :color="scrollChangeColor"
                style="width: 100vw"
-               >
+    >
       <NuxtLink to="/">
         <v-btn text plain :ripple="false" class="no-highlight">
           <v-toolbar-title class="bold-title navbar-title">
-            Hoh Shen Yien</v-toolbar-title>
+            Hoh Shen Yien
+          </v-toolbar-title>
         </v-btn>
       </NuxtLink>
       <v-spacer></v-spacer>
       <v-btn text plain :ripple="false" @click="drawer = true">
         <v-icon>mdi-menu</v-icon>
-        <div class="bold-title text-none" >
+        <div class="bold-title text-none">
           Menu
         </div>
       </v-btn>
@@ -88,7 +90,7 @@
             </v-btn>
           </NuxtLink>
         </v-list-item>
-        <v-divider  class="nav-border"></v-divider>
+        <v-divider class="nav-border"></v-divider>
         <v-list-item>
           <NuxtLink to="/about">
             <v-btn text plain :ripple="false">
@@ -96,7 +98,7 @@
             </v-btn>
           </NuxtLink>
         </v-list-item>
-        <v-divider  class="nav-border"></v-divider>
+        <v-divider class="nav-border"></v-divider>
         <v-list-item>
           <NuxtLink to="/projects">
             <v-btn text plain :ripple="false">
@@ -104,7 +106,7 @@
             </v-btn>
           </NuxtLink>
         </v-list-item>
-        <v-divider  class="nav-border"></v-divider>
+        <v-divider class="nav-border"></v-divider>
       </v-list>
       <bottomBar :isDrawer="true"/>
     </v-navigation-drawer>
@@ -113,6 +115,7 @@
 
 <script>
 import HLink from "./hLink";
+
 export default {
   name: "topNavBar",
   components: {HLink},
@@ -123,7 +126,7 @@ export default {
     }
   },
   computed: {
-    isMobile: function() {
+    isMobile: function () {
       return this.$vuetify.breakpoint.smAndDown;
     },
   },
@@ -141,7 +144,7 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
   },
 }
@@ -151,6 +154,7 @@ export default {
 .nav-bar-link {
   margin: 0 16px;
 }
+
 .drawer-bar {
   display: flex;
   flex-direction: row;
@@ -158,10 +162,12 @@ export default {
   height: 56px;
   padding: 10px 29px;
 }
+
 .navbar-title {
   text-transform: uppercase;
   color: white;
 }
+
 .nav-border {
   margin: 20px 160px;
   border-width: 4px 0 0;
@@ -169,42 +175,48 @@ export default {
 </style>
 
 <style>
-a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover) .nav-bar-link span{
+a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover) .nav-bar-link span {
   color: gold !important;
 }
-.nav-bar-link span{
+
+.nav-bar-link span {
   text-transform: uppercase;
   font-size: 0.875rem;
   color: white !important;
   font-weight: bold;
   letter-spacing: 2px;
 }
-.nav-bar-link:hover span{
+
+.nav-bar-link:hover span {
   color: goldenrod !important;
 }
+
 .side-nav-drawer-items .nuxt-link-exact-active.nuxt-link-active .v-btn span {
   color: gold;
 }
+
 .v-list--nav .v-list-item {
   justify-content: center;
 }
+
 .v-navigation-drawer__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.v-navigation-drawer .v-list--nav a span{
+.v-navigation-drawer .v-list--nav a span {
   display: inline-block;
   transform: translateY(25px);
   transition: transform 0.2s ease-in;
   transition-delay: 0.2s;
 }
 
-.v-navigation-drawer--open .v-list--nav a span{
+.v-navigation-drawer--open .v-list--nav a span {
   transform: translateY(0);
 }
-.v-navigation-drawer--open .v-list--nav a{
+
+.v-navigation-drawer--open .v-list--nav a {
   overflow: hidden;
 }
 </style>

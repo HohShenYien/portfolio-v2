@@ -31,7 +31,7 @@
 a {
   text-decoration: none;
 }
-.v-application a {
+.v-application .section a {
   color: #F0E68C;
   transition: all 0.1s linear;
 }
@@ -42,16 +42,15 @@ a {
   overflow: hidden;
 }
 
-.page-leave-active,
-.page-enter-active {
-  transition: transform 0.5s;
-  overflow: hidden;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
 }
+.page-enter,
 .page-leave-to {
-  background-color: black;
-  filter: brightness(0) grayscale(100%);
-  transform: translate(-100%, 0);
+  opacity: 0;
 }
+
 
 @media only screen and (max-width: 600px){
   .navbar-title {

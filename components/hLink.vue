@@ -1,13 +1,17 @@
 <template>
   <span>
-    <a :href="href" class="nice-link" @click="$emit('click')"><span class="link-txt">{{text}}</span></a>
+    <a :href="href" class="nice-link" @click="$emit('click')" :target="target">
+      <span class="link-txt">
+        <slot></slot>
+      </span>
+    </a>
   </span>
 </template>
 
 <script>
 export default {
   name: "hLink",
-  props: ['href', 'text'],
+  props: ['href', 'target'],
 }
 </script>
 
@@ -17,16 +21,19 @@ export default {
   display: inline-block;
   transition: transform 0.3s;
 }
+
 .nice-link:hover .link-txt {
   transform: translateY(-3px);
   color: $secondary;
 }
+
 .nice-link {
   text-decoration: none;
   display: inline-block;
   position: relative;
   transition: color 0.3s;
 }
+
 .nice-link::after {
   content: '';
   position: absolute;
@@ -40,10 +47,12 @@ export default {
   transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
   clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
 }
+
 .nice-link:hover::after {
   transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
   clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
 }
+
 .nice-link:hover {
   color: goldenrod !important;
 }

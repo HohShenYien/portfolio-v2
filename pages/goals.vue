@@ -97,7 +97,7 @@ export default {
             "Nevertheless, I have already read half of it, hopefully I can finish the remaining this year."
         },
         {
-          name: 'Finish the book "Introduction to Statistics"',
+          name: 'Finish the book "Introduction to Mathematical Statistics"',
           status: false,
           description: ''
         },
@@ -314,6 +314,7 @@ export default {
     color: $random-orange;
   }
 }
+
 @media only screen and (max-width: 600px) {
   .list-row {
     column-count: 1;

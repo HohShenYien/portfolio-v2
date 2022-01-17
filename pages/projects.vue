@@ -197,7 +197,7 @@ export default {
   padding-bottom: 70px;
 }
 .section {
-  min-height: 100vh;
+  min-height: max(100vh , 705px);
   padding-top: 70px;
   overflow: hidden;
 }

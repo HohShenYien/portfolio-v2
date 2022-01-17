@@ -56,8 +56,8 @@ export default {
 }
 
 .desktop-frame {
-  width: 650px;
-  height: 415px;
+  width: 100%;
+  aspect-ratio: 726 / 460;
   position: absolute;
   left: 0;
   top: 0;
@@ -68,7 +68,7 @@ export default {
 }
 
 .desktop-img {
-  width: 640px;
+  width: calc(100% - 10px);
   position: absolute;
   left: 8px;
   top: 6px;

@@ -1,19 +1,23 @@
 <template>
   <div>
     <section class="section" id="section1">
-      <div class="background" data-aos="zoom-in-left"><canvas id="canvas"/></div>
+      <div class="background" data-aos="zoom-in-left">
+        <canvas id="canvas"/>
+      </div>
       <div class="content">
         <h1 class="page-title" data-aos="fade-right" data-aos-delay="250">Analysis</h1>
         <div class="underlines" data-aos="fade-right" data-aos-delay="350">
           <div id="underline1"></div>
           <div id="underline2"></div>
         </div>
-        <div class="page-subtitle" data-aos="fade-right" data-aos-delay="550">My data analysis projects on various topics</div>
+        <div class="page-subtitle" data-aos="fade-right" data-aos-delay="550">My data analysis projects on various
+          topics
+        </div>
         <div id="hand">
           <img src="/analysis/holding_magnifying.png" height="240px" alt="">
         </div>
       </div>
-      <hLink id="check-btn" text="👇 Check them out" ref="checkBtn"></hLink>
+      <hLink id="check-btn" ref="checkBtn">👇 Check them out</hLink>
     </section>
   </div>
 
@@ -23,6 +27,7 @@
 import * as THREE from 'three'
 import AOS from 'aos'
 import 'animate.css'
+
 export default {
   name: "analysis",
   methods: {
@@ -52,6 +57,7 @@ export default {
           camera.updateProjectionMatrix();
         }
       }
+
       function render(time) {
         time *= 0.0002;
         resize();
@@ -60,6 +66,7 @@ export default {
         renderer.render(scene, camera);
         requestAnimationFrame(render);
       }
+
       render();
     },
     startComponents() {
@@ -80,26 +87,31 @@ export default {
   left: 40px;
   font-size: 20px;
 }
-#check-btn{
+
+#check-btn {
   animation: fade-from-bottom 1s linear forwards;
   animation-delay: 1.8s;
 }
+
 #hand {
   position: relative;
   margin-top: 60px;
   margin-left: -130px;
   visibility: hidden;
 }
+
 #hand.start {
   visibility: visible !important;
 }
+
 #hand.start img {
   position: absolute;
   transform-origin: left bottom;
   transform: rotate(-90deg);
-  animation: swingMag 1s cubic-bezier(.55,1.02,.72,.65) forwards;
+  animation: swingMag 1s cubic-bezier(.55, 1.02, .72, .65) forwards;
   animation-delay: 600ms;
 }
+
 .underlines {
   margin-top: -20px;
   margin-bottom: 30px;
@@ -124,19 +136,23 @@ export default {
   margin-left: 70px;
   margin-top: 15px;
 }
+
 #section1 {
   background-color: black;
 }
+
 #section1 .content {
   z-index: 1;
   padding-top: 100px;
   padding-left: 50px;
   position: relative;
 }
+
 .section {
-  min-height: 100vh;
+  min-height: max(100vh, 705px);
   position: relative;
 }
+
 .background {
   left: 0;
   right: 0;
@@ -145,6 +161,7 @@ export default {
   position: absolute;
   z-index: 0;
 }
+
 #canvas {
   height: 100%;
   width: 100%;
@@ -164,6 +181,7 @@ export default {
     transform: rotate(-5deg);
   }
 }
+
 @keyframes fade-from-bottom {
   0% {
     opacity: 0;
@@ -174,25 +192,31 @@ export default {
     bottom: 5px;
   }
 }
+
 @media only screen and (max-width: 600px) {
   h1 {
     text-align: center;
   }
+
   .page-subtitle {
     text-align: center;
     margin-left: 0;
     margin-top: 20px;
   }
+
   #section1 .content {
     padding-left: 10px;
     padding-right: 10px;
   }
+
   .underlines {
     display: none;
   }
+
   #hand {
     margin-top: 120px;
   }
+
   #check-btn {
     left: 0;
   }

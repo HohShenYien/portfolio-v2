@@ -1,5 +1,5 @@
 <template>
-  <footer id="bottom-bar">
+  <footer id="footer">
     <v-icon size="90" id="up-btn" @click="goTop" v-if="!isDrawer">mdi-chevron-up</v-icon>
     <div class="quote">Stay Hungry, Stay Foolish</div>
     <div id="social-icons">
@@ -75,7 +75,7 @@ export default {
 #up-btn::after {
   all: unset;
 }
-#bottom-bar {
+#footer {
   position: relative;
   padding: 50px 130px;
   background-color: #222;
@@ -90,7 +90,7 @@ export default {
   height: 110px;
   text-align: center;
   right: 50%;
-  transition: transform 200ms ease-in;
+  transition: transform 200ms ease-in, opacity 100ms linear;
 }
 
 #up-btn:hover {
@@ -116,7 +116,7 @@ export default {
 }
 
 @media only screen and (max-width: 600px) {
-  #bottom-bar {
+  #footer {
     padding: 30px 20px;
   }
   .quote {
@@ -129,5 +129,11 @@ export default {
   #peace {
     margin-top: 15px;
   }
+}
+</style>
+
+<style>
+#footer.hide #up-btn {
+  opacity: 0;
 }
 </style>

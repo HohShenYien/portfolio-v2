@@ -33,7 +33,7 @@
           <div class="me disappear">
             <img src="/about/me.png" alt="">
           </div>
-          <hLink @click="goTo('section2')" text="👇 Scroll down" class="point-down disappear"></hLink>
+          <hLink @click="goTo('section2')" class="point-down disappear">👇 Scroll down</hLink>
         </div>
       </section>
       <section class="section section2" id="section2">
@@ -225,6 +225,7 @@ export default {
       this.window.classList.add('popup')
       this.bottomBar.classList.add('solid');
       this.bottomBar.classList.add('start')
+      console.log(this.bottomBar);
       this.logo.classList.add("opened")
       setTimeout(this.cursorAway, 100);
       setTimeout(this.delayShow, 400);
@@ -466,7 +467,7 @@ export default {
 }
 
 .section {
-  min-height: 100vh;
+  min-height: max(100vh, 705px);
   padding-bottom: 100px;
 }
 
@@ -478,10 +479,11 @@ export default {
   width: 100vw;
   height: 40px;
   text-align: center;
-  animation: bottom-bar-animation 1.5s linear;
+  animation: bottom-bar-animation 1s linear;
   animation-delay: 1s;
   animation-fill-mode: both;
 }
+
 #bottom-bar .img-wrapper {
   padding: 4px;
   display: inline-block;
@@ -513,6 +515,7 @@ export default {
   width: 20px;
   z-index: 1;
 }
+
 .cursor.start {
   animation: x-axis 1s linear;
   animation-fill-mode: forwards;
@@ -535,6 +538,7 @@ export default {
   right: -40px;
   top: -40px;
 }
+
 .wrapper.start {
   animation: y-axis 1s cubic-bezier(.69, .22, .73, .49);
   animation-fill-mode: forwards;

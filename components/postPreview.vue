@@ -1,32 +1,51 @@
 <template>
-  <div class="post-preview-card">
-    <div class="no-overflow">
-      <img src="https://images.unsplash.com/photo-1641865264156-bbe3d9784ff0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" alt="" class="post-preview-img">
-    </div>
-    <div class="post-preview-content">
-      <div>
-        <v-chip v-for="tag in tags" outlined color="#daa520" class="mr-3 post-preview-tags" :key="tag">{{ tag }}</v-chip>
+  <nuxt-link :to="'/blog/' + post.slug">
+    <div class="post-preview-card">
+      <div class="no-overflow">
+        <v-img :lazy-src="post.lazy" :src="post.image" alt="" class="post-preview-img">
+          <template v-slot:placeholder>
+            <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center"
+              style="min-height: 150px;"
+            >
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
       </div>
-      <h2 class="post-preview-title">This is title</h2>
-      <div class="post-preview-text">This is content</div>
-      <v-row class="post-preview-bottom" no-gutters>
-        <arrowLink text="View More"/>
-        <v-spacer/>
-        <div class="post-preview-date"><v-icon color="#808080" size="1rem" class="mr-1">mdi-calendar</v-icon>13 June 2021</div>
-      </v-row>
-
+      <div class="post-preview-content">
+        <div class="tags">
+          <span class="tag-label">Tags:</span>
+          <v-btn text v-for="tag in post.tags" color="#daa520" class="mr-3 post-preview-tags" :key="tag" x-small>{{
+              tag
+            }}
+          </v-btn>
+        </div>
+        <h2 class="post-preview-title">{{ post.title }}</h2>
+        <div class="post-preview-text">{{ post.description }}</div>
+        <div class="post-preview-date">{{ post.date }} · {{ post.read }} min read</div>
+        <v-row class="post-preview-bottom" no-gutters>
+          <v-spacer/>
+          <arrowLink text="Read More"/>
+        </v-row>
+      </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
   name: "postPreview",
+  props: ['post'],
   data() {
-    return {
-      tags: ['asd', 'asdf', 'asdfg', 'asdfasdf']
-    }
-  }
+    return {}
+  },
+  methods: {}
 }
 </script>
 
@@ -35,35 +54,61 @@ export default {
   border: $secondary 2px solid;
   border-radius: 5px;
   overflow: hidden;
-  &:hover .post-preview-img{
-    transform: scale(1.1);
+  transition: all 0.2s linear;
+
+  &:hover {
+    border-color: $primary;
+    box-shadow: 0 0 10px 3px darkgoldenrod;
+    transform: scale(1.02);
+
+    .post-preview-title {
+      color: $primary;
+    }
   }
+
+  .post-preview-title {
+    transition: all 0.2s linear;
+  }
+
+  .tags {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 0.7rem;
+
+    .tag-label {
+      color: gray;
+    }
+  }
+
 }
+
 .post-preview-bottom {
   padding-bottom: 20px;
 }
+
 .post-preview-tags {
   margin: 8px 0;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
-.post-preview-title {
-}
+
 .post-preview-content {
-  padding: 5px 20px;
+  padding: 0 20px 5px;
 }
+
 .post-preview-date {
   color: gray;
   font-size: 0.9rem;
 }
+
 .post-preview-text {
   margin-left: 10px;
   margin-bottom: 25px;
   margin-top: 15px;
   color: $secondary-text;
 }
+
 .post-preview-img {
   width: 100%;
-  transition: transform 0.2s ease-in;
   height: auto;
 }
 </style>

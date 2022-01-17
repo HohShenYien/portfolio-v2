@@ -42,7 +42,9 @@
     <div class="section" id="section3">
       <h2 class="section-title" data-aos="fade-right" data-aos-duration="500">What is this site?</h2>
       <div class="section-content">
-        <div><div class="center" data-aos="fade-up" data-aos-duration="300" data-aos-delay="300">Beside programming, I enjoy writing too! <br></div>
+        <div>
+          <div class="center" data-aos="fade-up" data-aos-duration="300" data-aos-delay="300">Beside programming, I
+            enjoy writing too! <br></div>
           <div data-aos="fade-up" data-aos-duration="300" data-aos-delay="600">
             In this website, I write stories of my life as well as
             sharing projects and analysis that I have done previously.
@@ -51,10 +53,13 @@
         <v-row class="mt-md-8 mt-2">
           <v-col cols="12" md="4" v-for="(card, idx) in cards" data-aos="flip-left" data-aos-duration="400"
                  :data-aos-delay="700 + 200 * idx" :key="idx">
-            <v-card class="writing-cards" elevation="10px" outlined :href="card.href">
-              <img :src="card.img" alt="" height="300px">
-              <arrowLink :text="card.name"/>
-            </v-card>
+            <nuxt-link :to="card.href">
+              <v-card class="writing-cards" elevation="10px" outlined>
+                <img :src="card.img" alt="" height="300px">
+                <arrowLink :text="card.name"/>
+              </v-card>
+            </nuxt-link>
+
           </v-col>
         </v-row>
       </div>
@@ -70,12 +75,17 @@
             <v-spacer></v-spacer>
             <div class="some-header" data-aos="fade-left">I like to read as well</div>
             <div data-aos="fade-left" data-aos-delay="400ms">Though not a big fan of fictions, I love reading
-            tutorial or self-help books that can improve me mentally.</div>
+              tutorials and self-help books that can improve me mentally.
+            </div>
             <v-spacer></v-spacer>
             <div data-aos="fade-left" data-aos-delay="800ms">
-              <nuxt-link to="/goals"><arrowLink text="Check them out"/></nuxt-link>
+              <nuxt-link to="/goals">
+                <arrowLink text="Check them out"/>
+              </nuxt-link>
             </div>
-            <div data-aos="fade-left" data-aos-delay="1200ms" class="sub-text">I have listed my annual resolutions and their progress there too!</div>
+            <div data-aos="fade-left" data-aos-delay="1200ms" class="sub-text">I have listed my annual resolutions and
+              their progress there too!
+            </div>
             <v-spacer></v-spacer>
           </v-col>
         </v-row>
@@ -148,6 +158,7 @@ export default {
   bottom: 0;
   margin: auto;
 }
+
 #section4 {
   padding: 70px 0;
 
@@ -157,32 +168,39 @@ export default {
     font-size: 1.5rem;
     color: $secondary-text;
   }
+
   .some-header {
     font-size: 2rem;
     color: goldenrod;
   }
+
   .right {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 40px;
+
     a {
       display: inline-block;
       height: 50px;
       margin-top: 8px;
+
       .link--arrowed {
         font-size: 24px;
+
         &:hover {
           font-size: 28px;
         }
       }
     }
   }
+
   .sub-text {
     color: gray;
     font-size: 1.3rem;
   }
 }
+
 #section3 {
   background-color: black;
   padding-left: 0;
@@ -224,7 +242,8 @@ export default {
       filter: brightness(100%);
       transform: scale(1.1);
     }
-    &+a {
+
+    & + a {
       display: none;
     }
   }
@@ -384,12 +403,14 @@ export default {
     .section-content {
       padding-top: 0;
       font-size: 1.2rem;
+
       .center {
         text-align: left;
         font-size: 1.5rem;
       }
     }
-    .writing-cards img{
+
+    .writing-cards img {
       filter: brightness(100%);
     }
   }
@@ -399,19 +420,25 @@ export default {
   #section4 {
     .section-content {
       padding-top: 20px;
+
       .right {
         padding-left: 20px;
+
         .some-header {
           font-size: 1.5rem;
         }
+
         div {
           font-size: 1.2rem;
         }
+
         .sub-text {
           font-size: 1rem;
         }
+
         .link--arrowed {
           font-size: 1.2rem;
+
           &:hover {
             font-size: 1.5rem;
           }

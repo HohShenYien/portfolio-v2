@@ -31,15 +31,11 @@
         </button>
       </div>
 
-      </section>
-      <section class="section" id="section2">
-        <postPreview></postPreview>
-        <postPreview></postPreview>
-        <postPreview></postPreview>
-        <postPreview></postPreview>
-        <postPreview></postPreview>
-      </section>
-    </div>
+    </section>
+    <section class="section" id="section2">
+      <postPreview v-for="post in posts" :key="post.slug" :post="post"></postPreview>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -54,7 +50,8 @@ export default {
         duration: 5000,
         iteration: 'infinite'
       },
-      drawer: false
+      drawer: false,
+      posts: []
     }
   },
   methods: {
@@ -68,12 +65,21 @@ export default {
       });
       typewriter
         .pauseFor(100)
-        .typeString('Here is where I write blogs about my journey in computer science! ')
+        .typeString('Here is where I write blog about my journey in computer science! ')
         .start();
     },
     goTo(section) {
       this.$goTo(section);
-    }
+    },
+    async asyncData() {
+      this.posts = await this.$content('blog')
+        .only(['title', 'image', 'tags', 'slug', 'createdAt', 'description', 'date', 'read', 'lazy'])
+        .fetch();
+      this.posts.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      })
+      console.log(this.posts);
+    },
   },
   computed: {
     isMobile: function () {
@@ -81,6 +87,7 @@ export default {
     },
   },
   mounted() {
+    this.asyncData();
     this.typing();
   }
 }
@@ -91,6 +98,7 @@ export default {
   @include section;
   column-count: 2;
   column-gap: 60px;
+
   div {
     margin-bottom: 60px;
   }
@@ -104,8 +112,9 @@ export default {
   right: 0;
   z-index: 0;
 }
+
 .section {
-  min-height: 100vh;
+  min-height: max(100vh, 705px);
 }
 
 .subheader {
