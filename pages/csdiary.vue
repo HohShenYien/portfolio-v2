@@ -106,6 +106,11 @@ export default {
           content: 'https://i.imgur.com/0wuU2uXm.png',
           vmid: 'og:image'
         },
+        {
+          name: 'keywords',
+          content: `Blog,CS Diary`,
+          vmid: 'keywords'
+        }
       ]
     }
   },

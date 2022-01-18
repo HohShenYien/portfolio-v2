@@ -83,6 +83,11 @@ export default {
           content: 'https://i.imgur.com/4bbHVNym.png',
           vmid: 'og:image'
         },
+        {
+          name: 'keywords',
+          content: `Data Analysis`,
+          vmid: 'keywords'
+        }
       ]
     }
   },

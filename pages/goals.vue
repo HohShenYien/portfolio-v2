@@ -115,6 +115,11 @@ export default {
           name: 'twitter:card',
           content: `summary_large_image`,
           vmid: 'twitter:card'
+        },
+        {
+          name: 'keywords',
+          content: `Goals,2022 Resolutions`,
+          vmid: 'keywords'
         }
       ]
     }

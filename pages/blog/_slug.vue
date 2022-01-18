@@ -94,6 +94,11 @@ export default {
           content: this.post.lazy,
           vmid: 'og:image'
         },
+        {
+          name: 'keywords',
+          content: this.post.tags.join(","),
+          vmid: 'keywords'
+        }
       ]
     }
   },

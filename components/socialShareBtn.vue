@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="icon">
-      <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=${url}`" target="_blank">
+      <a :href="`https://www.linkedin.com/sharing/share-offsite/?url={url}`" target="_blank">
         <v-icon color="#FFF">mdi-linkedin</v-icon>
       </a>
     </div>

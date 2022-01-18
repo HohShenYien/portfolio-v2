@@ -83,6 +83,11 @@ export default {
           content: 'https://i.imgur.com/UG9AtP0m.png',
           vmid: 'og:image'
         },
+        {
+          name: 'keywords',
+          content: `Personal Projects`,
+          vmid: 'keywords'
+        }
       ]
     }
   },

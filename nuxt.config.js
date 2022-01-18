@@ -62,6 +62,11 @@ export default {
         name: 'twitter:card',
         content: `summary_large_image`,
         vmid: 'twitter:card'
+      },
+      {
+        name: 'keywords',
+        content: `Hoh Shen Yien`,
+        vmid: 'keywords'
       }
     ],
     link: [
