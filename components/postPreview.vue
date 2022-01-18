@@ -21,7 +21,7 @@
       <div class="post-preview-content">
         <div class="tags">
           <span class="tag-label">Tags:</span>
-          <v-btn text v-for="tag in post.tags" color="#daa520" class="mr-3 post-preview-tags" :key="tag" x-small>{{
+          <v-btn text v-for="tag in post.tags" color="#daa520" class="mr-1 post-preview-tags px-1" :key="tag" x-small>{{
               tag
             }}
           </v-btn>
@@ -84,11 +84,6 @@ export default {
 
 .post-preview-bottom {
   padding-bottom: 20px;
-}
-
-.post-preview-tags {
-  margin: 8px 0;
-  font-size: 0.7rem;
 }
 
 .post-preview-content {

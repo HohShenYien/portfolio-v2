@@ -12,13 +12,60 @@ export default {
       lang: 'en'
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!'
+      },
+      {name: 'format-detection', content: 'telephone=no'},
+      {
+        property: 'og:title',
+        content: 'CS Diary',
+        template: chunk => `${chunk} | Hoh Shen Yien`,
+        vmid: 'og:title'
+      },
+      {
+        property: 'og:image',
+        content: '/favicon.ico',
+        vmid: 'og:image'
+      },
+      {
+        property: 'og:description',
+        content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
+        vmid: 'og:description'
+      },
+      {
+        property: 'og:url',
+        content: '',
+        template: chunk => `https://shenyien.cyou/${chunk}`,
+        vmid: 'og:url'
+      },
+      {
+        property: 'twitter:title',
+        content: 'CS Diary',
+        template: chunk => `${chunk} | Hoh Shen Yien`,
+        vmid: 'twitter:title'
+      },
+      {
+        property: 'twitter:image',
+        content: 'https://shenyien.cyou/favicon.ico',
+        vmid: 'twitter:image'
+      },
+      {
+        property: 'twitter:description',
+        content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
+        vmid: 'twitter:description'
+      },
+      {
+        name: 'twitter:card',
+        content: `summary_large_image`,
+        vmid: 'twitter:card'
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ],
   },
 
@@ -29,7 +76,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/myCustoms', ssr: false },
+    {src: '@/plugins/myCustoms', ssr: false},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,7 +89,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [ "@nuxt/content"
+  modules: ["@nuxt/content"
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -67,7 +114,7 @@ export default {
   build: {
     transpile: [
       "three"
-    ]
+    ],
   },
   // generate error page for netlify
   generate: {

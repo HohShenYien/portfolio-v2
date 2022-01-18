@@ -77,6 +77,48 @@
 export default {
   name: "goals",
   computed: {},
+  head() {
+    return {
+      title: 'Goal Page',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My annual resolutions and reading list. You can view my goals and their progresses here!'
+        },
+        {
+          property: 'og:title',
+          content: 'Goal Page',
+          vmid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: 'My annual resolutions and reading list. You can view my goals and their progresses here!',
+          vmid: 'og:description'
+        },
+        {
+          property: 'og:url',
+          content: 'goals',
+          vmid: 'og:url'
+        },
+        {
+          property: 'twitter:title',
+          content: 'Goal Page',
+          vmid: 'twitter:title'
+        },
+        {
+          property: 'twitter:description',
+          content: 'My annual resolutions and reading list. You can view my goals and their progresses here!',
+          vmid: 'twitter:description'
+        },
+        {
+          name: 'twitter:card',
+          content: `summary_large_image`,
+          vmid: 'twitter:card'
+        }
+      ]
+    }
+  },
   data() {
     return {
       resolutions: [

@@ -31,6 +31,61 @@
 <script>
 export default {
   name: "projects",
+  head() {
+    return {
+      title: 'Project Page',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Some of my best / favourite projects that I have done before. You can also check out what I ' +
+            'used to build them here!'
+        },
+        {
+          property: 'og:title',
+          content: 'Project Page',
+          vmid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: 'Some of my best / favourite projects that I have done before. You can also check out what I ' +
+            'used to build them here!',
+          vmid: 'og:description'
+        },
+        {
+          property: 'og:url',
+          content: 'projects',
+          vmid: 'og:url'
+        },
+        {
+          property: 'twitter:title',
+          content: 'Project Page',
+          vmid: 'twitter:title'
+        },
+        {
+          property: 'twitter:description',
+          content: 'Some of my best / favourite projects that I have done before. You can also check out what I ' +
+            'used to build them here!',
+          vmid: 'twitter:description'
+        },
+        {
+          name: 'twitter:card',
+          content: `summary_large_image`,
+          vmid: 'twitter:card'
+        },
+        {
+          property: 'twitter:image',
+          content: 'https://i.imgur.com/UG9AtP0m.png',
+          vmid: 'twitter:image'
+        },
+        {
+          property: 'og:image',
+          content: 'https://i.imgur.com/UG9AtP0m.png',
+          vmid: 'og:image'
+        },
+      ]
+    }
+  },
   data() {
     return {
       ctx: null,
@@ -82,7 +137,7 @@ export default {
       this.projects = await this.$content('project')
         .only(['title', 'image', 'tags', 'slug', 'createdAt', 'type', 'description', 'date'])
         .fetch()
-      this.projects.sort((a,b) => {
+      this.projects.sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
       })
     },
@@ -99,12 +154,14 @@ export default {
 #section2 {
   padding: 120px 130px;
 }
+
 .down-btn-wrapper {
   z-index: 1;
   position: absolute;
   bottom: 5%;
   opacity: 0;
 }
+
 .down-btn {
   position: relative;
   padding: 8px 20px;
@@ -114,11 +171,13 @@ export default {
   overflow: hidden;
   transition: all 0.6s cubic-bezier(1, 0, 0.55, 1);
 }
+
 .down-btn span {
   z-index: 2;
   display: block;
   position: relative;
 }
+
 .down-btn::after {
   content: "";
   position: absolute;
@@ -131,17 +190,20 @@ export default {
   transition: all 0.6s cubic-bezier(1, 0, 0.55, 1);
   z-index: 1;
 }
+
 .down-btn:hover::after {
   content: "";
   bottom: -20px;
 }
-#finger.start{
+
+#finger.start {
   right: -40px;
   transform: translateX(0);
   animation: linear rotate-finger 3s;
   animation-iteration-count: infinite;
   animation-delay: 1.4s;
 }
+
 #finger {
   transform: rotateZ(-90deg);
   right: -999px;
@@ -153,15 +215,19 @@ export default {
   display: block;
   transition: right 1.2s linear 1.4s;
 }
+
 .down-btn:hover {
   color: black !important;
 }
+
 .down-btn:hover .mdi {
   color: black !important;
 }
+
 .down-btn .mdi {
   transition: all 0.6s cubic-bezier(1, 0, 0.55, 1) !important;
 }
+
 .page-header {
   z-index: 1;
   color: white;
@@ -173,19 +239,23 @@ export default {
   opacity: 0;
   margin: 0 20px;
 }
+
 .page-header.start, .down-btn-wrapper.start {
   animation: linear fade-flip-up 0.5s;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
 }
+
 .page-title {
   margin-bottom: 40px;
 }
+
 #matrix {
   position: absolute;
   height: 100%;
   width: 100%;
 }
+
 #section1 {
   position: relative;
   display: flex;
@@ -196,11 +266,13 @@ export default {
   flex-direction: column;
   padding-bottom: 70px;
 }
+
 .section {
-  min-height: max(100vh , 705px);
+  min-height: max(100vh, 705px);
   padding-top: 70px;
   overflow: hidden;
 }
+
 @keyframes rotate-finger {
   0% {
     transform: rotateZ(-90deg) translateX(0);
@@ -218,6 +290,7 @@ export default {
     transform: rotateZ(-90deg) translateX(0);
   }
 }
+
 @keyframes fade-flip-up {
   0% {
     transform: translateY(90px) rotateX(30deg);
@@ -228,16 +301,20 @@ export default {
     opacity: 1;
   }
 }
+
 @media only screen and (max-width: 600px) {
   .page-header {
     padding: 60px 20px;
   }
+
   .section {
     min-height: 50vh;
   }
+
   .page-header {
     margin-bottom: 100px;
   }
+
   #section2 {
     padding-left: 20px;
     padding-right: 20px;

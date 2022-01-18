@@ -14,13 +14,16 @@
   letter-spacing: 10px;
   font-weight: 600;
 }
+
 .page-subtitle {
   font-size: 50px;
   font-weight: 300;
 }
+
 * {
   font-family: Roboto, sans-serif;
 }
+
 .v-application {
   overflow-x: hidden !important;
 }
@@ -28,16 +31,49 @@
 .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
   opacity: 1 !important;
 }
+
 a {
   text-decoration: none;
 }
-.v-application .section a {
+
+.v-application .section a, .v-application .markdown-content a {
   color: #F0E68C;
   transition: all 0.1s linear;
 }
-.v-application a:hover {
-  color: #BDB76B;
+
+.markdown-content h1 {
+  font-size: 5rem;
+  text-align: center;
 }
+
+.markdown-content h2 {
+  font-size: 3rem;
+}
+
+.markdown-content h3 {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.markdown-content h4 {
+  font-size: 1.4rem;
+}
+
+.v-application .markdown-content p {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px !important;
+}
+
+.markdown-content strong {
+  color: white;
+}
+
+.v-application a:hover {
+  color: gold;
+}
+
 .no-overflow {
   overflow: hidden;
 }
@@ -46,13 +82,14 @@ a {
 .page-leave-active {
   transition: opacity 0.5s;
 }
+
 .page-enter,
 .page-leave-to {
   opacity: 0;
 }
 
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) {
   .navbar-title {
     font-size: 24px !important;
   }
@@ -73,6 +110,7 @@ a {
     font-size: 44px;
     letter-spacing: 4px;
   }
+
   .page-subtitle {
     font-size: 36px;
   }

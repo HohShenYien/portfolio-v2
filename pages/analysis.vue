@@ -19,6 +19,7 @@
       </div>
       <hLink id="check-btn" ref="checkBtn">👇 Check them out</hLink>
     </section>
+    <section class="section" id="section2"></section>
   </div>
 
 </template>
@@ -30,6 +31,61 @@ import 'animate.css'
 
 export default {
   name: "analysis",
+  head() {
+    return {
+      title: 'Analysis Page',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My data analysis projects on various topics that I am interested in. This is part of my journey' +
+            'as a Data Analytics student.s'
+        },
+        {
+          property: 'og:title',
+          content: 'Analysis Page',
+          vmid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: 'My data analysis projects on various topics that I am interested in. This is part of my journey' +
+            'as a Data Analytics students.',
+          vmid: 'og:description'
+        },
+        {
+          property: 'og:url',
+          content: 'analysis',
+          vmid: 'og:url'
+        },
+        {
+          property: 'twitter:title',
+          content: 'Analysis Page',
+          vmid: 'twitter:title'
+        },
+        {
+          property: 'twitter:description',
+          content: 'My data analysis projects on various topics that I am interested in. This is part of my journey' +
+            'as a Data Analytics students.',
+          vmid: 'twitter:description'
+        },
+        {
+          name: 'twitter:card',
+          content: `summary_large_image`,
+          vmid: 'twitter:card'
+        },
+        {
+          property: 'twitter:image',
+          content: 'https://i.imgur.com/4bbHVNym.png',
+          vmid: 'twitter:image'
+        },
+        {
+          property: 'og:image',
+          content: 'https://i.imgur.com/4bbHVNym.png',
+          vmid: 'og:image'
+        },
+      ]
+    }
+  },
   methods: {
     startBackground() {
       let scene = new THREE.Scene();

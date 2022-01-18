@@ -101,6 +101,48 @@ import AOS from 'aos'
 
 export default {
   name: "index",
+  head() {
+    return {
+      title: 'Home Page',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!'
+        },
+        {
+          property: 'og:title',
+          content: 'Home Page',
+          vmid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
+          vmid: 'og:description'
+        },
+        {
+          property: 'og:url',
+          content: '',
+          vmid: 'og:url'
+        },
+        {
+          property: 'twitter:title',
+          content: 'Home Page',
+          vmid: 'twitter:title'
+        },
+        {
+          property: 'twitter:description',
+          content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
+          vmid: 'twitter:description'
+        },
+        {
+          name: 'twitter:card',
+          content: `summary_large_image`,
+          vmid: 'twitter:card'
+        }
+      ]
+    }
+  },
   data() {
     return {
       start: false,

@@ -10,8 +10,7 @@ import * as THREE from "three";
 export default {
   name: "ParticlesBg",
   data() {
-    return {
-    }
+    return {}
   },
   methods: {
     startBackground() {
@@ -31,10 +30,10 @@ export default {
         transparent: true,
         blending: THREE.AdditiveBlending,
       });
-      let particleCount = 5800;
+      let particleCount = 700;
       let vertices = [];
       let particleDistance = 53;
-      for (var i=0; i<particleCount; i++) {
+      for (var i = 0; i < particleCount; i++) {
         let posX = (Math.random() - 0.5) * particleDistance;
         let posY = (Math.random() - 0.5) * particleDistance;
         let posZ = (Math.random() - 0.5) * particleDistance;
@@ -55,6 +54,7 @@ export default {
           camera.updateProjectionMatrix();
         }
       }
+
       function render(time) {
         requestAnimationFrame(render);
         resize();
@@ -62,7 +62,7 @@ export default {
         let position = particleSys.geometry.attributes.position.array;
         for (let i = 0; i < position.length; i++) {
           if ((i + 1) % 3 === 0) {
-            position[i] += 0.1;
+            position[i] += 0.06;
             if (position[i] > 30) {
               position[i] = -10;
             }
@@ -71,6 +71,7 @@ export default {
         particleSys.geometry.attributes.position.needsUpdate = true;
         renderer.render(scene, camera);
       }
+
       render();
     },
   },

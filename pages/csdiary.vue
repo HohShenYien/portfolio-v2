@@ -54,6 +54,61 @@ export default {
       posts: []
     }
   },
+  head() {
+    return {
+      title: 'CS Diary',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Here are where I write blogs about my journey in Computer Science. Read the stories / tips ' +
+            'that I will post when I am free.'
+        },
+        {
+          property: 'og:title',
+          content: 'CS Diary',
+          vmid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: 'Here are where I write blogs about my journey in Computer Science. Read the stories / tips ' +
+            'that I will post when I am free.',
+          vmid: 'og:description'
+        },
+        {
+          property: 'og:url',
+          content: 'csdiary',
+          vmid: 'og:url'
+        },
+        {
+          property: 'twitter:title',
+          content: 'CS Diary',
+          vmid: 'twitter:title'
+        },
+        {
+          property: 'twitter:description',
+          content: 'Here are where I write blogs about my journey in Computer Science. Read the stories / tips ' +
+            'that I will post when I am free.',
+          vmid: 'twitter:description'
+        },
+        {
+          name: 'twitter:card',
+          content: `summary_large_image`,
+          vmid: 'twitter:card'
+        },
+        {
+          property: 'twitter:image',
+          content: 'https://i.imgur.com/0wuU2uXm.png',
+          vmid: 'twitter:image'
+        },
+        {
+          property: 'og:image',
+          content: 'https://i.imgur.com/0wuU2uXm.png',
+          vmid: 'og:image'
+        },
+      ]
+    }
+  },
   methods: {
     typing() {
       let position = document.getElementById('typing');
@@ -78,7 +133,6 @@ export default {
       this.posts.sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
       })
-      console.log(this.posts);
     },
   },
   computed: {

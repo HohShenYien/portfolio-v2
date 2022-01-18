@@ -268,13 +268,53 @@ export default {
   },
   head() {
     return {
-      title: "About Me",
+      title: 'About Me',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'About Me'
-        }
+          content: 'Curious about who I am? Check out my skills and learn more about me here!'
+        },
+        {
+          property: 'og:title',
+          content: 'About Me',
+          vmid: 'og:title'
+        },
+        {
+          property: 'og:description',
+          content: 'Curious about who I am? Check out my skills and learn more about me here!',
+          vmid: 'og:description'
+        },
+        {
+          property: 'og:url',
+          content: 'about',
+          vmid: 'og:url'
+        },
+        {
+          property: 'twitter:title',
+          content: 'About Me',
+          vmid: 'twitter:title'
+        },
+        {
+          property: 'twitter:description',
+          content: 'Curious about who I am? Check out my skills and learn more about me here!',
+          vmid: 'twitter:description'
+        },
+        {
+          name: 'twitter:card',
+          content: `summary_large_image`,
+          vmid: 'twitter:card'
+        },
+        {
+          property: 'twitter:image',
+          content: 'https://i.imgur.com/neGo44Cm.png',
+          vmid: 'twitter:image'
+        },
+        {
+          property: 'og:image',
+          content: 'https://i.imgur.com/neGo44Cm.png',
+          vmid: 'og:image'
+        },
       ]
     }
   },
@@ -473,7 +513,7 @@ export default {
 
 #bottom-bar {
   position: absolute;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   width: 100vw;
@@ -655,7 +695,7 @@ export default {
 
 @keyframes y-axis {
   100% {
-    transform: translateY(calc(100vh + 20px));
+    transform: translateY(calc(max(100vh, 705px) + 20px));
   }
 }
 
@@ -670,7 +710,7 @@ export default {
   100% {
     bottom: 40px;
     width: 100vw;
-    height: calc(100vh - 40px);
+    height: calc(max(100vh, 705px) - 40px);
     top: 0;
     left: 0;
   }
