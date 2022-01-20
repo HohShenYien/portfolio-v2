@@ -60,7 +60,7 @@ foundations in building this website.
       <v-img src="https://i.imgur.com/Do4t4Xk.png" lazy-src="https://i.imgur.com/DFQby1zt.png" height="900px" position="top center"></v-img>
     </v-col>
   <v-col cols="12" md="6">
-      <v-img src="https://i.imgur.com/8aD0bUK.png" lazy-src="https://i.imgur.com/8aD0bUKt.png" height="900px" position="top center"></v-img>
+      <v-img src="https://i.imgur.com/hBMUI5m.png" lazy-src="https://i.imgur.com/hBMUI5mt.png" height="900px" position="top center"></v-img>
     </v-col>
   </v-row>
 </div>

@@ -3,34 +3,20 @@ import colors from 'vuetify/es5/util/colors'
 const path = require('path');
 const fs = require('fs');
 
-// Quickly read all  markdown files in blog and append to routes
-let directoryPath = path.join(__dirname, 'content/blog');
-let blogs = [];
-fs.readdir(directoryPath, function (err, files) {
-  //handling error
-  if (err) {
-    return console.log('Unable to scan directory: ' + err);
-  }
-  //listing all files using forEach
-  files.forEach(function (file) {
-    // Do whatever you want to do with the file
-    blogs.push(file.split('.')[0]);
-  });
-});
+let blogPath = path.join(__dirname, 'content/blog');
+let projectPath = path.join(__dirname, 'content/project');
 
-directoryPath = path.join(__dirname, 'content/project');
-let projects = [];
-fs.readdir(directoryPath, function (err, files) {
-  //handling error
-  if (err) {
-    return console.log('Unable to scan directory: ' + err);
-  }
-  //listing all files using forEach
-  files.forEach(function (file) {
-    // Do whatever you want to do with the file
-    projects.push(file.split('.')[0]);
+function readdirAsync(path) {
+  return new Promise(function (resolve, reject) {
+    fs.readdir(path, function (error, result) {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(result);
+      }
+    });
   });
-});
+}
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -159,34 +145,25 @@ export default {
   generate: {
     fallback: true,
     async routes() {
-      // const {$content} = require("@nuxt/content");
-      // console.log($content);
-      // let posts = await $content('blog')
-      //   .only(['slug'])
-      //   .fetch();
-      // let analysis = await $content('analysis')
-      //   .only(['slug'])
-      //   .fetch();
-      // let projects = await $content('project')
-      //   .only(['slug'])
-      //   .fetch();
-      // return [
-      //   ...posts.map(post => {
-      //     return '/blog/' + post.slug
-      //   }),
-      //   ...analysis.map(analyst => {
-      //     return '/analysis/' + analyst.slug
-      //   }),
-      //   ...projects.map(project => {
-      //     return '/project/' + project.slug
-      //   })
-      // ];
+      // Quickly read all  markdown files in blog and append to routes
+      let blogs = [];
+      let files = await readdirAsync(blogPath);
+
+      files.forEach(function (file) {
+        blogs.push(file.split('.')[0]);
+      });
+
+      files = await readdirAsync(projectPath);
+      let projects = [];
+      files.forEach(function (file) {
+        projects.push(file.split('.')[0]);
+      });
       return [
         ...blogs.map(blog => {
           return '/blog/' + blog
         }),
         ...projects.map(project => {
-          return '/project/' + project.slug
+          return '/project/' + project
         })
       ]
     }

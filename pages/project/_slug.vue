@@ -42,6 +42,12 @@
 <script>
 import ProjectFrame from "../../components/projectFrame";
 import ArrowLink from "../../components/arrowLink";
+import {VImg, VCol, VRow} from 'vuetify/lib/components'
+import Vue from 'vue' // needed to use Vue.component() function
+
+Vue.component("VImg", VImg) // adding component globally
+Vue.component("VCol", VCol)
+Vue.component("VRow", VRow)
 
 export default {
   components: {ArrowLink, ProjectFrame},
