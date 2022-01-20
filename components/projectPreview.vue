@@ -1,33 +1,34 @@
 <template>
   <v-row :class="{'inverted': position % 2 == 0}" class="project-row">
     <v-col cols="12" md="7" class="left">
-      <div class="phone-wrapper" v-if="project_type == 'phone'">
-        <img :src="pic" alt="" height="550px">
-        <img src="/projects/phone-frame.png" alt="" class="phone-frame">
-      </div>
-      <div class="desktop-wrapper" v-if="project_type == 'desktop'">
-        <img :src="pic" alt="" class="desktop-img">
-        <img src="/projects/desktop-frame.png" alt="" class="desktop-frame">
-      </div>
+      <project-frame :img="project.image" :alt="project.title" :type="project.type" :lazy="project.lazy"/>
     </v-col>
     <v-col cols="12" md="5" class="vertically-center">
-      <h2 class="project-title">{{ title }}</h2>
-      <div class="project-date"><v-icon color="#808080" size="1rem" class="mr-1">mdi-calendar</v-icon>{{ date }}</div>
-      <div class="project-description">{{ text }}</div>
+      <h2 class="project-title">{{ project.title }}</h2>
+      <div class="project-date">
+        <v-icon color="#808080" size="1rem" class="mr-1">mdi-calendar</v-icon>
+        {{ project.date }}
+      </div>
+      <div class="project-description">{{ project.description }}</div>
       <div class="check-it">
-        <arrowLink text="Check it out"></arrowLink>
+        <nuxt-link :to="`/project/${project.slug}`">
+          <arrowLink>Check it out</arrowLink>
+        </nuxt-link>
       </div>
       <div>
-        <v-chip v-for="tag in tags" outlined color="#daa520" class="mr-3" :key="tag">{{ tag }}</v-chip>
+        <v-chip v-for="tag in project.tags" outlined color="#daa520" class="mr-3" :key="tag">{{ tag }}</v-chip>
       </div>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import ProjectFrame from "./projectFrame";
+
 export default {
   name: "projectPreview",
-  props: ['project_type', 'title', 'pic', 'text', 'tags', 'date', "position"]
+  components: {ProjectFrame},
+  props: ['project', "position"]
 }
 </script>
 
@@ -45,39 +46,6 @@ export default {
   justify-content: center;
   position: relative;
   min-height: 450px;
-}
-
-.phone-frame {
-  height: 600px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 295px;
-}
-
-.desktop-frame {
-  width: 100%;
-  aspect-ratio: 726 / 460;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.desktop-wrapper {
-  padding: 25px 12px;
-}
-
-.desktop-img {
-  width: calc(100% - 10px);
-  position: absolute;
-  left: 8px;
-  top: 6px;
-}
-
-.phone-wrapper {
-  padding: 25px 12px;
-  height: 600px;
-  position: relative;
 }
 
 .vertically-center {

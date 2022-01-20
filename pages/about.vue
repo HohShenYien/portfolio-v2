@@ -33,7 +33,7 @@
           <div class="me disappear">
             <img src="/about/me.png" alt="">
           </div>
-          <hLink @click="goTo('section2')" class="point-down disappear">👇 Scroll down</hLink>
+          <h-link @click="goTo('section2')" class="point-down disappear">👇 Scroll down</h-link>
         </div>
       </section>
       <section class="section section2" id="section2">

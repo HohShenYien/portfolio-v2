@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="icon">
-      <a :href="`https://www.linkedin.com/sharing/share-offsite/?url={url}`" target="_blank">
+      <a :href="`https://www.linkedin.com/sharing/share-offsite/?url=${url}`" target="_blank">
         <v-icon color="#FFF">mdi-linkedin</v-icon>
       </a>
     </div>
@@ -72,6 +72,9 @@ export default {
 
   .icon {
     opacity: 0;
+  }
+
+  .icon a {
     pointer-events: none;
   }
 
@@ -79,6 +82,9 @@ export default {
     border-radius: 50%;
     margin: 0 0;
     opacity: 1;
+  }
+
+  &.active .icon a, &:hover .icon a {
     pointer-events: unset;
   }
 }

@@ -41,8 +41,10 @@ import SocialShareBtn from "../../components/socialShareBtn";
 
 export default {
   components: {SocialShareBtn},
-  async asyncData({$content, params}) {
-    const post = await $content(`blog/${params.slug}`).fetch()
+  async asyncData({$content, params, error}) {
+    const post = await $content(`blog/${params.slug}`).fetch().catch(e => {
+      return error({statusCode: 404, message: e.message})
+    })
     return {post}
   },
   head() {
@@ -96,7 +98,7 @@ export default {
         },
         {
           name: 'keywords',
-          content: this.post.tags.join(","),
+          content: this.post.title + ',' + this.post.tags.join(","),
           vmid: 'keywords'
         }
       ]

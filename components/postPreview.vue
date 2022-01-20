@@ -31,7 +31,7 @@
         <div class="post-preview-date">{{ post.date }} · {{ post.read }} min read</div>
         <v-row class="post-preview-bottom" no-gutters>
           <v-spacer/>
-          <arrowLink text="Read More"/>
+          <arrowLink>Read More</arrowLink>
         </v-row>
       </div>
     </div>

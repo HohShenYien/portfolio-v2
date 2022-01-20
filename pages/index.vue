@@ -12,11 +12,11 @@
     <div id="section2" class="section">
       <v-row>
         <v-col cols="12" md="8">
-          <h2 class="somewhat-big" data-aos="fade-right" data-aos-duration="300">I am a...
+          <h1 class="somewhat-big" data-aos="fade-right" data-aos-duration="300">I am a...
             <span style="color: white" class="strike">Student</span><br>
             <span class="big" data-aos="fade-right" data-aos-duration="400" data-aos-delay="1000"><span
               style="color: darkgoldenrod">future</span> developer /<br> data analyst</span>
-          </h2>
+          </h1>
           <div class="description">
             <span data-aos="fade-right" data-aos-duration="500" data-aos-delay="1400">
               As I progressed in my programming journey since 2019, I started to discover more and more fields, some of
@@ -27,8 +27,9 @@
             </span>
           </div>
           <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="2000">
-            <arrowLink text="Learn more about me" href="/about"
-                       style="font-weight: bold; margin-top: 80px;"></arrowLink>
+            <arrowLink href="/about"
+                       style="font-weight: bold; margin-top: 80px;">Learn more about me
+            </arrowLink>
           </div>
 
         </v-col>
@@ -56,7 +57,7 @@
             <nuxt-link :to="card.href">
               <v-card class="writing-cards" elevation="10px" outlined>
                 <img :src="card.img" alt="" height="300px">
-                <arrowLink :text="card.name"/>
+                <arrowLink>{{ card.name }}</arrowLink>
               </v-card>
             </nuxt-link>
 
@@ -80,7 +81,7 @@
             <v-spacer></v-spacer>
             <div data-aos="fade-left" data-aos-delay="800ms">
               <nuxt-link to="/goals">
-                <arrowLink text="Check them out"/>
+                <arrowLink>Check them out</arrowLink>
               </nuxt-link>
             </div>
             <div data-aos="fade-left" data-aos-delay="1200ms" class="sub-text">I have listed my annual resolutions and
@@ -493,12 +494,12 @@ export default {
 </style>
 <style lang="scss">
 .writing-cards {
-  a.link {
+  .link {
     font-size: 24px;
   }
 
   &:hover {
-    a.link {
+    .link {
       font-size: 27px;
       font-weight: bold;
 

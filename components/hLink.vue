@@ -1,10 +1,12 @@
 <template>
   <span>
-    <a :href="href" class="nice-link" @click="$emit('click')" :target="target">
+    <component :is="href != null ? 'a' : 'span'"
+               :href="href" class="nice-link" @click="$emit('click')"
+               :target="target != null ? target : '_blank'">
       <span class="link-txt">
         <slot></slot>
       </span>
-    </a>
+    </component>
   </span>
 </template>
 
@@ -32,6 +34,7 @@ export default {
   display: inline-block;
   position: relative;
   transition: color 0.3s;
+  cursor: pointer;
 }
 
 .nice-link::after {

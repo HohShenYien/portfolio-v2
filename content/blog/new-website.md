@@ -21,7 +21,7 @@ lazy="https://i.imgur.com/CL4y4RMt.png">
 This website is built with <h-link href="https://content.nuxtjs.org/" target="_blank"> Nuxt Content</h-link>
 </post-image>
 
-Unlike the old <h-link href="hohshenyien.github.io" target="_blank">CS Diary</h-link> which was based on Jekyll and Bootstrap 
+Unlike the old <h-link href="https://hohshenyien.github.io" target="_blank">CS Diary</h-link> which was based on Jekyll and Bootstrap 
 with the template from <h-link href="https://beautifuljekyll.com/" target="_blank">Beautiful Jekyll</h-link>,
 I have built this whole website with <h-link href="https://nuxtjs.org/" target="_blank">Nuxt</h-link> and
 <h-link href="https://vuetifyjs.com/" target="_blank">Vuetify</h-link>. The main reason of my rebuilding was due to

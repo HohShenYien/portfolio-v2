@@ -15,13 +15,9 @@
     </section>
     <section class="section" id="section2">
       <div v-for="(project,idx) in projects">
-        <projectPreview :key="project.slug"
-                        :title="project.title" :pic="project.image"
-                        :project_type="project.type"
-                        :text="project.description"
-                        :date="project.date"
-                        :tags="project.tags"
-                        :position="idx"
+        <project-preview :key="project.slug"
+                         :project="project"
+                         :position="idx"
         />
         <v-divider v-if="idx != projects.lastIndex" class="my-10"/>
       </div>
@@ -29,8 +25,11 @@
   </div>
 </template>
 <script>
+import ProjectPreview from "../components/projectPreview";
+
 export default {
   name: "projects",
+  components: {ProjectPreview},
   head() {
     return {
       title: 'Project Page',
@@ -140,7 +139,7 @@ export default {
     },
     async asyncData() {
       this.projects = await this.$content('project')
-        .only(['title', 'image', 'tags', 'slug', 'createdAt', 'type', 'description', 'date'])
+        .only(['title', 'image', 'tags', 'slug', 'createdAt', 'type', 'description', 'date', 'lazy'])
         .fetch()
       this.projects.sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
