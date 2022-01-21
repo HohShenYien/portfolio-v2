@@ -66,6 +66,12 @@ a {
   margin-bottom: 40px !important;
 }
 
+.v-application .markdown-content li {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .markdown-content strong {
   color: white;
 }

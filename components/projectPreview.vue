@@ -4,7 +4,9 @@
       <project-frame :img="project.image" :alt="project.title" :type="project.type" :lazy="project.lazy"/>
     </v-col>
     <v-col cols="12" md="5" class="vertically-center">
-      <h2 class="project-title">{{ project.title }}</h2>
+      <nuxt-link :to="`/project/${project.slug}`">
+        <h2 class="project-title">{{ project.title }}</h2>
+      </nuxt-link>
       <div class="project-date">
         <v-icon color="#808080" size="1rem" class="mr-1">mdi-calendar</v-icon>
         {{ project.date }}
@@ -57,6 +59,12 @@ export default {
 
 .project-title {
   font-size: 36px;
+  color: white;
+  transition: color 0.2s linear;
+
+  &:hover {
+    color: gold;
+  }
 }
 
 .project-date {

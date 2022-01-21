@@ -21,7 +21,7 @@
     </client-only>
     <article>
       <div class="project-wrapper">
-        <project-frame :img="project.image" :type="project.type"/>
+        <project-frame :img="project.image" :type="project.type" :alt="project.title"/>
       </div>
       <div class="inner-document">
         <nuxt-content :document="project"/>
@@ -43,11 +43,13 @@
 import ProjectFrame from "../../components/projectFrame";
 import ArrowLink from "../../components/arrowLink";
 import {VImg, VCol, VRow} from 'vuetify/lib/components'
+import postImage from "../../components/postImage";
 import Vue from 'vue' // needed to use Vue.component() function
 
 Vue.component("VImg", VImg) // adding component globally
 Vue.component("VCol", VCol)
 Vue.component("VRow", VRow)
+Vue.component("PostImage", postImage)
 
 export default {
   components: {ArrowLink, ProjectFrame},
@@ -194,6 +196,11 @@ article {
     font-size: 1rem;
     color: darkgoldenrod;
     text-transform: capitalize;
+    cursor: default;
+  }
+
+  &:hover h3 {
+    color: gold;
   }
 
   h3 {
@@ -203,6 +210,7 @@ article {
     letter-spacing: 5px;
     text-transform: uppercase;
     margin-top: 20px;
+    transition: color 0.2s linear;
   }
 }
 
@@ -211,13 +219,38 @@ article {
     padding-top: 0;
     padding-bottom: 40px;
   }
+  .markdown-content .project-wrapper {
+    width: 100%;
+  }
 }
 </style>
 
-<style>
+<style lang="scss">
 .wide {
   width: 80vw;
   margin-left: calc(calc(100vw - 100%) / -2 + 8px + 10vw);
+}
+
+.role {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+
+  .role-table {
+    text-align: center;
+    border-spacing: 50px 5px;
+
+    th {
+      font-size: 1.5rem;
+      color: goldenrod;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    td {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {

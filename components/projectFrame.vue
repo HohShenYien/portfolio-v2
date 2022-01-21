@@ -28,9 +28,9 @@ export default {
 .phone-frame {
   height: 600px;
   position: absolute;
-  left: calc(50% - 148px);
+  left: calc(50% - 149px);
   top: 0;
-  width: 296px;
+  width: 294px;
 }
 
 .desktop-frame {

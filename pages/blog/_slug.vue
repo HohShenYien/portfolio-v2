@@ -151,7 +151,7 @@ article {
     margin-top: 60px;
     margin-bottom: 60px;
     background-color: hsla(0, 100%, 100%, 0.15);
-    box-shadow: 0 0 10px 2px black;
+    box-shadow: 0 0 10px 4px black;
   }
 
   .inner-document {
