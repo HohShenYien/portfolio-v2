@@ -6,6 +6,7 @@ link: https://coffeeathome.quintagen.com
 date: 15 January 2022
 description: Coffee At Home is an event held by Starbucks in Malaysia, and this website is used by the customers and the staffs to conduct the event.
 type: phone
+cat: Web
 tags:
 - Vue
 - Laravel

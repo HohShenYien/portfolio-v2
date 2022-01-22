@@ -6,6 +6,7 @@ link: https://github.com/HohShenYien/Pokedex
 date: 22 June 2020
 description: The first Android app that I built with Java. This app implements a simple pokedex.
 type: phone
+cat: Android App
 tags:
 - Java
 - Android

@@ -8,6 +8,9 @@
       <v-img :src="img" :alt="alt" class="desktop-img" :lazy-src="lazy" :aspect-ratio="696 / 355"/>
       <img src="/projects/desktop-frame.png" alt="" class="desktop-frame">
     </div>
+    <div class="nothing-wrapper" v-if="type == 'none'">
+      <v-img :src="img" :alt="alt" contain :lazy-src="lazy" max-height="450px"/>
+    </div>
   </div>
 </template>
 

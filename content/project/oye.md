@@ -6,6 +6,7 @@ link: https://oye.events
 date: 31 August 2021
 description: OYE is an event planner website focusing on wedding. I was responsible in building a website editor for the E-Album section of the web app. 
 type: desktop
+cat: Web
 tags:
 - Vue
 - Laravel

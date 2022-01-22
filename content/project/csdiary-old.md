@@ -6,6 +6,7 @@ date: 3 July 2021
 description: This was the older version of my blog which I built from Jekyll that built my basics in web development.
 link: https://hohshenyien.github.io
 type: desktop
+cat: Web
 tags:
 - Jekyll
 - HTML
