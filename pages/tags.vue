@@ -14,7 +14,7 @@
         <h2 class="section-title">{{ cat }}</h2>
         <section :id="cat">
           <v-row>
-            <v-col cols="6" md="4" v-for="tag in tags[cat]" :key="tag.name">
+            <v-col cols="12" md="4" v-for="tag in tags[cat]" :key="tag.name">
               <nuxt-link :to="`/tag/${cat}/${tag.name}`">
                 <v-card class="blog-cards cards">
                   <div class="card-inner">
