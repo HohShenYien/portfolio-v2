@@ -24,7 +24,7 @@
               <div class="animate__fadeInLeft animate__animated animate-delay-3">Something went wrong here 😔</div>
               <div class="animate__fadeInLeft animate__animated animate-delay-5">Maybe you wanna head back to
                 <nuxt-link to="/">
-                  <arrowLink text="homepage" class="ml-2"></arrowLink>
+                  <arrowLink class="ml-2">homepage</arrowLink>
                 </nuxt-link>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default {
 }
 
 @media only screen and (max-width: 600px) {
-  #error-code h1{
+  #error-code h1 {
     font-size: 6rem;
   }
 
@@ -148,9 +148,11 @@ export default {
     h2 {
       font-size: 2rem;
     }
+
     div {
       font-size: 1.2rem;
     }
+
     a.link--arrowed {
       font-size: 1.2rem;
     }

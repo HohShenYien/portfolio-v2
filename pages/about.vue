@@ -225,7 +225,6 @@ export default {
       this.window.classList.add('popup')
       this.bottomBar.classList.add('solid');
       this.bottomBar.classList.add('start')
-      console.log(this.bottomBar);
       this.logo.classList.add("opened")
       setTimeout(this.cursorAway, 100);
       setTimeout(this.delayShow, 400);

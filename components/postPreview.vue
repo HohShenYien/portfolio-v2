@@ -3,28 +3,18 @@
     <div class="post-preview-card">
       <div class="no-overflow">
         <v-img :lazy-src="post.lazy" :src="post.image" alt="" class="post-preview-img">
-          <template v-slot:placeholder>
-            <v-row
-              class="fill-height ma-0"
-              align="center"
-              justify="center"
-              style="min-height: 150px;"
-            >
-              <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-              ></v-progress-circular>
-            </v-row>
-          </template>
         </v-img>
       </div>
       <div class="post-preview-content">
         <div class="tags">
           <span class="tag-label">Tags:</span>
-          <v-btn text v-for="tag in post.tags" color="#daa520" class="mr-1 post-preview-tags px-1" :key="tag" x-small>{{
-              tag
-            }}
-          </v-btn>
+          <nuxt-link :to="`/tag/blogs/${tag}`" v-for="tag in post.tags" :key="tag">
+            <v-btn text color="#daa520"
+                   class="mr-1 post-preview-tags px-1" x-small>
+              {{ tag }}
+            </v-btn>
+          </nuxt-link>
+
         </div>
         <h2 class="post-preview-title">{{ post.title }}</h2>
         <div class="post-preview-text">{{ post.description }}</div>

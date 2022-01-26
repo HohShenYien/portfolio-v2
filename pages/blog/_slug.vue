@@ -2,7 +2,7 @@
   <div class="markdown-content">
     <client-only>
       <div class="top-part">
-        <h1>{{ post.title }}</h1>
+        <h1 class="page-title">{{ post.title }}</h1>
         <div class="meta">
           Posted on {{ post.date }} · {{ post.read }} min read <br>
           Written by:
@@ -21,11 +21,13 @@
         <div class="bottom-part">
           <div class="tags">
             <span class="tag-label">Tags:</span>
-            <v-btn text v-for="(tag, idx) in post.tags" color="#daa520" class="mr-1 post-preview-tags px-1" :key="tag"
-                   small>{{
-                tag
-              }}
-            </v-btn>
+            <nuxt-link v-for="(tag, idx) in post.tags" :key="tag" :to="`/tag/blogs/${tag}`">
+              <v-btn text color="#daa520" class="mr-1 post-preview-tags px-1"
+                     small>
+                {{ tag }}
+              </v-btn>
+            </nuxt-link>
+
           </div>
           <social-share-btn :url="url"></social-share-btn>
         </div>
@@ -178,6 +180,9 @@ article {
 }
 
 @media only screen and (max-width: 600px) {
+  .markdown-content h1.page-title {
+    font-size: 3rem;
+  }
   .inner-document {
     .bottom-part {
       flex-direction: column;

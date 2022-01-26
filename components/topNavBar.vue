@@ -16,18 +16,10 @@
       </NuxtLink>
       <v-spacer></v-spacer>
       <nav>
-        <NuxtLink to="/csdiary">
-          <hLink class="nav-bar-link">CS Diary</hLink>
+        <NuxtLink v-for="link in links" :to="link.link" :key="link.name">
+          <hLink class="nav-bar-link">{{ link.name }}</hLink>
         </NuxtLink>
-        <NuxtLink to="/analysis">
-          <hLink class="nav-bar-link">Analysis</hLink>
-        </NuxtLink>
-        <NuxtLink to="/about">
-          <hLink class="nav-bar-link">About Me</hLink>
-        </NuxtLink>
-        <NuxtLink to="/projects">
-          <hLink class="nav-bar-link">Projects</hLink>
-        </NuxtLink>
+        <search></search>
       </nav>
     </v-app-bar>
     <v-app-bar v-else
@@ -75,37 +67,17 @@
         class="side-nav-drawer-items"
         style="margin-top: 0;"
       >
-        <v-list-item>
-          <NuxtLink to="/csdiary">
-            <v-btn text :ripple="false">
-              CS Diary
-            </v-btn>
-          </NuxtLink>
-        </v-list-item>
-        <v-divider class="nav-border"></v-divider>
-        <v-list-item>
-          <NuxtLink to="/analysis">
-            <v-btn text plain :ripple="false">
-              Analysis
-            </v-btn>
-          </NuxtLink>
-        </v-list-item>
-        <v-divider class="nav-border"></v-divider>
-        <v-list-item>
-          <NuxtLink to="/about">
-            <v-btn text plain :ripple="false">
-              About Me
-            </v-btn>
-          </NuxtLink>
-        </v-list-item>
-        <v-divider class="nav-border"></v-divider>
-        <v-list-item>
-          <NuxtLink to="/projects">
-            <v-btn text plain :ripple="false">
-              Projects
-            </v-btn>
-          </NuxtLink>
-        </v-list-item>
+        <div v-for="link in links" :key="link.name">
+          <v-list-item>
+            <NuxtLink :to="link.link">
+              <v-btn text :ripple="false">
+                {{ link.name }}
+              </v-btn>
+            </NuxtLink>
+          </v-list-item>
+          <v-divider class="nav-border"></v-divider>
+        </div>
+        <search></search>
         <v-divider class="nav-border"></v-divider>
       </v-list>
       <bottomBar :isDrawer="true"/>
@@ -122,7 +94,14 @@ export default {
   data() {
     return {
       drawer: false,
-      scrollChangeColor: 'rgba(0,0,0,0.2)'
+      scrollChangeColor: 'rgba(0,0,0,0.2)',
+      links: [
+        {name: "CS Diary", link: "/csdiary"},
+        {name: "Analysis", link: "/analysis"},
+        {name: "About Me", link: "/about"},
+        {name: "Projects", link: "/projects"},
+        {name: "Tags", link: "/tags"}
+      ]
     }
   },
   computed: {
@@ -205,18 +184,22 @@ a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover) .nav-ba
   justify-content: space-between;
 }
 
-.v-navigation-drawer .v-list--nav a span {
+.v-navigation-drawer .v-list--nav .v-btn__content {
   display: inline-block;
   transform: translateY(25px);
   transition: transform 0.2s ease-in;
   transition-delay: 0.2s;
 }
 
-.v-navigation-drawer--open .v-list--nav a span {
+.v-navigation-drawer--open .v-list--nav .v-btn__content {
   transform: translateY(0);
 }
 
 .v-navigation-drawer--open .v-list--nav a {
   overflow: hidden;
+}
+
+.side-nav-drawer-items {
+  text-align: center;
 }
 </style>

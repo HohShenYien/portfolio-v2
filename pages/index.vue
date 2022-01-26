@@ -27,9 +27,12 @@
             </span>
           </div>
           <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="2000">
-            <arrowLink href="/about"
-                       style="font-weight: bold; margin-top: 80px;">Learn more about me
-            </arrowLink>
+            <nuxt-link to="/about">
+              <arrowLink
+                style="font-weight: bold; margin-top: 80px;">Learn more about me
+              </arrowLink>
+            </nuxt-link>
+
           </div>
 
         </v-col>

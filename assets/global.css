@@ -120,5 +120,13 @@ a {
   .page-subtitle {
     font-size: 36px;
   }
+
+  .markdown-content h2 {
+    font-size: 2rem;
+  }
+
+  .markdown-content h3 {
+    font-size: 1.6rem;
+  }
 }
 

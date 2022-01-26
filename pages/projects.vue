@@ -13,23 +13,12 @@
         <img src="/projects/finger.svg" alt="" class="after" id="finger" ref="finger">
       </div>
     </section>
-    <section class="section" id="section2">
-      <div v-for="(project,idx) in projects">
-        <project-preview :key="project.slug"
-                         :project="project"
-                         :position="idx"
-        />
-        <v-divider v-if="idx != projects.lastIndex" class="my-10"/>
-      </div>
-    </section>
+    <project-list id="section2"></project-list>
   </div>
 </template>
 <script>
-import ProjectPreview from "../components/projectPreview";
-
 export default {
   name: "projects",
-  components: {ProjectPreview},
   head() {
     return {
       title: 'Project Page',
@@ -96,7 +85,6 @@ export default {
       canvas: null,
       drops: null,
       fontSize: 12,
-      projects: []
     }
   },
   methods: {
@@ -110,7 +98,6 @@ export default {
       this.canvas = document.querySelector('#matrix');
       this.canvas.height = this.canvas.offsetHeight;
       this.canvas.width = this.canvas.offsetWidth;
-      console.log(this.canvas.offsetHeight);
       this.ctx = this.canvas.getContext('2d');
       let columns = this.canvas.width / this.fontSize;
       this.drops = [];
@@ -137,18 +124,9 @@ export default {
     goTo(section) {
       this.$goTo(section);
     },
-    async asyncData() {
-      this.projects = await this.$content('project')
-        .only(['title', 'image', 'tags', 'slug', 'createdAt', 'type', 'description', 'date', 'lazy'])
-        .fetch()
-      this.projects.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date);
-      })
-    },
   },
   mounted() {
     this.initMatrix();
-    this.asyncData();
     this.startAnim();
   }
 }
@@ -272,7 +250,7 @@ export default {
 }
 
 .section {
-  min-height: max(100vh, 705px);
+  min-height: max(100vh, 740px);
   padding-top: 70px;
   overflow: hidden;
 }
@@ -325,3 +303,4 @@ export default {
   }
 }
 </style>
+

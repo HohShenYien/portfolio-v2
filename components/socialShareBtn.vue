@@ -52,7 +52,6 @@ export default {
   },
   mounted() {
     this.isMobile = this.$isMobile();
-    console.log(this.$isMobile());
   }
 }
 </script>

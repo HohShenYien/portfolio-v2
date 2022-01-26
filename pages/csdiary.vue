@@ -32,9 +32,7 @@
       </div>
 
     </section>
-    <section class="section" id="section2">
-      <postPreview v-for="post in posts" :key="post.slug" :post="post"></postPreview>
-    </section>
+    <blogs id="section2"></blogs>
   </div>
 </template>
 
@@ -131,14 +129,6 @@ export default {
     goTo(section) {
       this.$goTo(section);
     },
-    async asyncData() {
-      this.posts = await this.$content('blog')
-        .only(['title', 'image', 'tags', 'slug', 'createdAt', 'description', 'date', 'read', 'lazy'])
-        .fetch();
-      this.posts.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date);
-      })
-    },
   },
   computed: {
     isMobile: function () {
@@ -146,23 +136,12 @@ export default {
     },
   },
   mounted() {
-    this.asyncData();
     this.typing();
   }
 }
 </script>
 
 <style scoped lang="scss">
-#section2 {
-  @include section;
-  column-count: 2;
-  column-gap: 60px;
-
-  div {
-    margin-bottom: 60px;
-  }
-}
-
 #particle-bg {
   position: absolute;
   top: 0;
@@ -170,10 +149,6 @@ export default {
   bottom: 0;
   right: 0;
   z-index: 0;
-}
-
-.section {
-  min-height: max(100vh, 705px);
 }
 
 .subheader {

@@ -2,17 +2,17 @@
   <div class="markdown-content">
     <client-only>
       <div class="top-part">
-        <h1>{{ project.title }}</h1>
+        <h1 class="page-title">{{ project.title }}</h1>
         <div class="meta">
           Created on {{ project.date }}<br>
           <div class="techs">
-            <span class="d-inline-block px-1">Technologies:</span>
-            <v-btn text v-for="(tag, idx) in project.tags" color="#daa520" class="ml-1 px-1"
-                   :key="tag"
-                   small>{{
-                tag
-              }}
-            </v-btn>
+            <span class="d-inline-block pr-1">Technologies:</span>
+            <nuxt-link v-for="(tag, idx) in project.tags" :key="idx" :to="`/tag/projects/${tag}`">
+              <v-btn text color="#daa520" small>
+                {{ tag }}
+              </v-btn>
+            </nuxt-link>
+
           </div>
           Check it out
           <h-link :href="project.link" target="_blank">here</h-link>
@@ -221,6 +221,44 @@ article {
   }
   .markdown-content .project-wrapper {
     width: 100%;
+  }
+  .markdown-content {
+    .top-part {
+      padding-left: 15px;
+      padding-right: 15px;
+
+      h1.page-title {
+        font-size: 3rem;
+      }
+    }
+
+    .role .role-table {
+      text-align: center;
+      border-spacing: 20px 5px;
+
+      th {
+        font-size: 1.2rem;
+        color: goldenrod;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      td {
+        font-size: 1rem;
+      }
+    }
+  }
+  .bottom-part {
+
+    h3 {
+      font-size: 2.4rem;
+      color: white;
+      font-weight: bolder;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-top: 20px;
+      transition: color 0.2s linear;
+    }
   }
 }
 </style>

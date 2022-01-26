@@ -1,6 +1,6 @@
 ---
 title: Pomodoro Timer
-image: https://i.imgur.com/fL6TyI3l.`jpg`
+image: https://i.imgur.com/fL6TyI3l.jpg
 lazy: https://i.imgur.com/fL6TyI3t.jpg
 link: https://github.com/HohShenYien/Pomodoro-Timer
 date: 28 February 2021

@@ -1,27 +1,29 @@
 <template>
-  <v-row :class="{'inverted': position % 2 == 0}" class="project-row">
-    <v-col cols="12" md="7" class="left">
-      <project-frame :img="project.image" :alt="project.title" :type="project.type" :lazy="project.lazy"/>
-    </v-col>
-    <v-col cols="12" md="5" class="vertically-center">
-      <nuxt-link :to="`/project/${project.slug}`">
+  <nuxt-link :to="`/project/${project.slug}`">
+    <v-row :class="{'inverted': position % 2 == 0}" class="project-row">
+      <v-col cols="12" md="7" class="left">
+        <project-frame :img="project.image" :alt="project.title" :type="project.type" :lazy="project.lazy"/>
+      </v-col>
+      <v-col cols="12" md="5" class="vertically-center">
         <h2 class="project-title">{{ project.title }}</h2>
-      </nuxt-link>
-      <div class="project-date">
-        <v-icon color="#808080" size="1rem" class="mr-1">mdi-calendar</v-icon>
-        {{ project.date }}
-      </div>
-      <div class="project-description">{{ project.description }}</div>
-      <div class="check-it">
-        <nuxt-link :to="`/project/${project.slug}`">
-          <arrowLink>Check it out</arrowLink>
-        </nuxt-link>
-      </div>
-      <div>
-        <v-chip v-for="tag in project.tags" outlined color="#daa520" class="mr-3" :key="tag">{{ tag }}</v-chip>
-      </div>
-    </v-col>
-  </v-row>
+        <div class="project-date">
+          {{ project.date }}
+        </div>
+        <div class="project-description">{{ project.description }}</div>
+        <div class="check-it">
+          <nuxt-link :to="`/project/${project.slug}`">
+            <arrowLink>Check it out</arrowLink>
+          </nuxt-link>
+        </div>
+        <div>
+          <nuxt-link v-for="tag in project.tags" :key="tag" :to="`/tag/projects/${tag}`">
+            <v-chip outlined color="#daa520" class="mr-3 project-tags">{{ tag }}</v-chip>
+          </nuxt-link>
+        </div>
+      </v-col>
+    </v-row>
+  </nuxt-link>
+
 </template>
 
 <script>
@@ -37,6 +39,18 @@ export default {
 <style scoped lang="scss">
 .project-row {
   margin-bottom: 30px;
+
+  &:hover {
+    background-color: #FFFFFF02;
+
+    .project-title {
+      color: gold;
+    }
+  }
+
+  .project-tags {
+    cursor: pointer;
+  }
 }
 
 .inverted {
@@ -61,10 +75,6 @@ export default {
   font-size: 36px;
   color: white;
   transition: color 0.2s linear;
-
-  &:hover {
-    color: gold;
-  }
 }
 
 .project-date {
