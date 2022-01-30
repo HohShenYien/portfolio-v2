@@ -125,6 +125,7 @@ export default {
   z-index: 999;
   width: 100%;
   position: fixed;
+  display: none;
 
   .top-nav {
     width: 100%;
@@ -150,14 +151,14 @@ export default {
         width: 25px;
         height: 3px;
         position: relative;
-        background-color: gray;
+        background-color: white;
         transition: background-color 300ms linear;
 
         &::after {
           content: '';
           width: 25px;
           height: 3px;
-          background-color: gray;
+          background-color: white;
           position: absolute;
           top: -7px;
           left: 0;
@@ -168,7 +169,7 @@ export default {
           content: '';
           width: 25px;
           height: 3px;
-          background-color: gray;
+          background-color: white;
           position: absolute;
           bottom: -7px;
           left: 0;
@@ -226,9 +227,12 @@ export default {
   border-width: 7px 0 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 960px) {
   #desktop-nav {
     display: none;
+  }
+  #mobile-nav {
+    display: block;
   }
 }
 </style>
