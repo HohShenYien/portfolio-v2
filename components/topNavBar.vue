@@ -1,11 +1,6 @@
 <template>
-  <div>
-    <v-app-bar
-      fixed
-      :color="scrollChangeColor"
-      v-if="!isMobile"
-      style="transition: background-color 0.2s linear;"
-    >
+  <header>
+    <div id="desktop-nav" :style="{backgroundColor: scrollChangeColor}">
       <NuxtLink to="/" class="no-highlight">
         <v-btn text plain :ripple="false" class="no-highlight" color="white" style="opacity: 1 !important;">
           <img src="/favicon.ico" alt="" height="36px" class="mr-3">
@@ -14,75 +9,50 @@
           </v-toolbar-title>
         </v-btn>
       </NuxtLink>
-      <v-spacer></v-spacer>
       <nav>
-        <NuxtLink v-for="link in links" :to="link.link" :key="link.name">
-          <hLink class="nav-bar-link">{{ link.name }}</hLink>
+        <NuxtLink v-for="link in links" :to="link.link" :key="link.name" class="nav-bar-link">
+          <hLink>{{ link.name }}</hLink>
         </NuxtLink>
         <search></search>
       </nav>
-    </v-app-bar>
-    <v-app-bar v-else
-               fixed
-               :color="scrollChangeColor"
-               style="width: 100vw"
-    >
-      <NuxtLink to="/">
-        <v-btn text plain :ripple="false" class="no-highlight">
-          <v-toolbar-title class="bold-title navbar-title">
-            Hoh Shen Yien
-          </v-toolbar-title>
-        </v-btn>
-      </NuxtLink>
-      <v-spacer></v-spacer>
-      <v-btn text plain :ripple="false" @click="drawer = true">
-        <v-icon>mdi-menu</v-icon>
-        <div class="bold-title text-none">
-          Menu
+    </div>
+    <div id="mobile-nav">
+      <div class="top-nav" :style="{backgroundColor: drawer ? 'black' : scrollChangeColor}">
+        <NuxtLink to="/">
+          <v-btn text plain :ripple="false" class="no-highlight">
+            <v-toolbar-title class="bold-title navbar-title">
+              Hoh Shen Yien
+            </v-toolbar-title>
+          </v-btn>
+        </NuxtLink>
+        <div class="nav-btn-wrapper" @click="drawer=!drawer">
+          <span class="nav-btn" :class="{open: drawer}"/>
         </div>
-      </v-btn>
-    </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      temporary
-      fixed
-      app
-      width="100%"
-      color="#000"
-    >
-      <div class="drawer-bar">
-        <nuxt-link to="/">
-          <div class="bold-title navbar-title">Hoh Shen Yien</div>
-        </nuxt-link>
-        <v-btn text plain :ripple="false" @click="drawer = false">
-          <v-icon>mdi-close</v-icon>
-          <div class="bold-title text-none" style="font-size: 0.875rem">
-            Close
-          </div>
-        </v-btn>
       </div>
-      <v-list
-        nav
-        dense
-        class="side-nav-drawer-items"
-        style="margin-top: 0;"
-      >
-        <div v-for="link in links" :key="link.name">
-          <v-list-item>
-            <NuxtLink :to="link.link">
-              <v-btn text :ripple="false">
-                {{ link.name }}
-              </v-btn>
-            </NuxtLink>
-          </v-list-item>
+      <div class="drawer" :class="{show: drawer}">
+        <v-list
+          nav
+          dense
+          class="side-nav-drawer-items"
+          style="margin-top: 0;"
+        >
+          <div v-for="link in links" :key="link.name">
+            <v-list-item>
+              <NuxtLink :to="link.link">
+                <v-btn text :ripple="false">
+                  {{ link.name }}
+                </v-btn>
+              </NuxtLink>
+            </v-list-item>
+            <v-divider class="nav-border"></v-divider>
+          </div>
+          <search @click="drawer=false"></search>
           <v-divider class="nav-border"></v-divider>
-        </div>
-        <search></search>
-        <v-divider class="nav-border"></v-divider>
-      </v-list>
-      <bottomBar :isDrawer="true"/>
-    </v-navigation-drawer>
-  </div>
+        </v-list>
+        <bottomBar :isDrawer="true"/>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -91,6 +61,14 @@ import HLink from "./hLink";
 export default {
   name: "topNavBar",
   components: {HLink},
+  props: ['changing'],
+  watch: {
+    changing: function () {
+      if (this.changing == true) {
+        this.drawer = false;
+      }
+    }
+  },
   data() {
     return {
       drawer: false,
@@ -129,17 +107,112 @@ export default {
 }
 </script>
 
-<style scoped>
-.nav-bar-link {
-  margin: 0 16px;
-}
-
-.drawer-bar {
+<style scoped lang="scss">
+#desktop-nav {
+  height: 64px;
+  width: 100%;
+  position: fixed;
+  transition: background-color 0.2s linear;
+  z-index: 999;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  height: 56px;
-  padding: 10px 29px;
+  padding: 0 16px;
+}
+
+#mobile-nav {
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+
+  .top-nav {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.2s linear;
+    padding: 0 20px;
+
+    button {
+      padding: 0;
+    }
+
+    .nav-btn-wrapper {
+      display: flex;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+
+      .nav-btn {
+        display: inline-block;
+        width: 25px;
+        height: 3px;
+        position: relative;
+        background-color: gray;
+        transition: background-color 300ms linear;
+
+        &::after {
+          content: '';
+          width: 25px;
+          height: 3px;
+          background-color: gray;
+          position: absolute;
+          top: -7px;
+          left: 0;
+          transition: transform 200ms linear, top 150ms ease-in 200ms;
+        }
+
+        &::before {
+          content: '';
+          width: 25px;
+          height: 3px;
+          background-color: gray;
+          position: absolute;
+          bottom: -7px;
+          left: 0;
+          transition: transform 200ms linear, bottom 150ms ease-in 200ms;
+        }
+
+        &.open {
+          background-color: #00000000;
+
+          &::after {
+            top: 0;
+            transform: rotate(-45deg);
+            transition: top 150ms ease-in, transform 200ms linear 150ms;
+          }
+
+          &::before {
+            bottom: 0;
+            transform: rotate(45deg);
+            transition: bottom 150ms ease-in, transform 200ms linear 150ms;
+          }
+        }
+      }
+    }
+
+  }
+
+  .drawer {
+    background-color: black;
+    width: 100%;
+    height: 0;
+    transition: height 300ms ease-in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+
+    &.show {
+      height: calc(100vh - 64px);
+    }
+  }
+}
+
+.nav-bar-link {
+  margin: 0 16px;
 }
 
 .navbar-title {
@@ -148,13 +221,25 @@ export default {
 }
 
 .nav-border {
-  margin: 20px 160px;
-  border-width: 4px 0 0;
+  margin: 15px auto 40px;
+  width: 60px;
+  border-width: 7px 0 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #desktop-nav {
+    display: none;
+  }
 }
 </style>
 
 <style>
-a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover) .nav-bar-link span {
+
+.drawer .nuxt-link-exact-active.nuxt-link-active button span {
+  color: gold;
+}
+
+a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover).nav-bar-link span span span {
   color: gold !important;
 }
 
@@ -166,36 +251,32 @@ a:not(.no-highlight).nuxt-link-exact-active.nuxt-link-active:not(:hover) .nav-ba
   letter-spacing: 2px;
 }
 
-.nav-bar-link:hover span {
+.nav-bar-link:hover span span {
   color: goldenrod !important;
-}
-
-.side-nav-drawer-items .nuxt-link-exact-active.nuxt-link-active .v-btn span {
-  color: gold;
 }
 
 .v-list--nav .v-list-item {
   justify-content: center;
+  margin-top: 30px;
 }
 
-.v-navigation-drawer__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.drawer .v-list--nav {
+  background-color: black;
 }
 
-.v-navigation-drawer .v-list--nav .v-btn__content {
+.drawer .v-list--nav .v-btn__content {
   display: inline-block;
   transform: translateY(25px);
   transition: transform 0.2s ease-in;
   transition-delay: 0.2s;
+  font-size: 30px;
 }
 
-.v-navigation-drawer--open .v-list--nav .v-btn__content {
+.drawer.show .v-list--nav .v-btn__content {
   transform: translateY(0);
 }
 
-.v-navigation-drawer--open .v-list--nav a {
+.drawer.show .v-list--nav a {
   overflow: hidden;
 }
 

@@ -4,7 +4,7 @@
       <div class="top-part">
         <h1 class="page-title">{{ project.title }}</h1>
         <div class="meta">
-          Created on {{ project.date }}<br>
+          Completed on {{ project.date }}<br>
           <div class="techs">
             <span class="d-inline-block pr-1">Technologies:</span>
             <nuxt-link v-for="(tag, idx) in project.tags" :key="idx" :to="`/tag/projects/${tag}`">

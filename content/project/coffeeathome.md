@@ -27,7 +27,7 @@ tags:
 </div>
 
 Coffee At Home is an **experimental journey with Starbucks at home** held by none other than Starbucks. As of January 2022,
-there are **more than 9,000 users** have registered and joined this event with the website.
+**more than 9,000 users** have registered and joined this event with the website.
 
 <post-image img="https://i.imgur.com/J8tksS2h.jpg" lazy="https://i.imgur.com/J8tksS2t.jpg">
 Coffee At Home event at Queensbay Mall (source: <h-link href="https://penangfoodie.com/starbucks-is-giving-away-free-coffee-from-a-pop-up-store-at-queensbay-mall/">Penang Foodie</h-link>)

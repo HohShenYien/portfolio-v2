@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <div id="overlay" :class="{'show': changing}"></div>
-    <top-nav-bar/>
+    <top-nav-bar :changing="changing"/>
     <main>
       <Nuxt/>
     </main>
