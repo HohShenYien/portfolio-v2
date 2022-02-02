@@ -46,7 +46,17 @@ export default {
       },
       {
         property: 'og:image',
-        content: 'https://shenyien.cyou/favicon.ico',
+        content: 'https://i.imgur.com/cNJ3KGhl.png',
+        hid: 'og:image'
+      },
+      {
+        property: 'og:image:width',
+        content: '640',
+        hid: 'og:image'
+      },
+      {
+        property: 'og:image:height',
+        content: '640',
         hid: 'og:image'
       },
       {
@@ -68,7 +78,7 @@ export default {
       },
       {
         property: 'twitter:image',
-        content: 'https://shenyien.cyou/favicon.ico',
+        content: 'https://i.imgur.com/cNJ3KGhl.png',
         hid: 'twitter:image'
       },
       {

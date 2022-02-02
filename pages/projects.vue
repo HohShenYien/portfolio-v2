@@ -63,12 +63,12 @@ export default {
         },
         {
           property: 'twitter:image',
-          content: 'https://i.imgur.com/UG9AtP0m.png',
+          content: 'https://i.imgur.com/UG9AtP0l.png',
           hid: 'twitter:image'
         },
         {
           property: 'og:image',
-          content: 'https://i.imgur.com/UG9AtP0m.png',
+          content: 'https://i.imgur.com/UG9AtP0l.png',
           hid: 'og:image'
         },
         {

@@ -1,7 +1,8 @@
 ---
 title: CS Diary (Old)
 lazy: https://i.imgur.com/ZMRYt8it.png
-image: https://i.imgur.com/ZMRYt8i.png
+image: https://i.imgur.com/ZMRYt8ih.png
+thumbnail: https://i.imgur.com/ZMRYt8il.png
 date: 3 July 2021
 description: This was the older version of my blog which I built from Jekyll that built my basics in web development.
 link: https://hohshenyien.github.io

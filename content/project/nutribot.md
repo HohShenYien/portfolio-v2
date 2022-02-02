@@ -2,6 +2,7 @@
 title: Nutribot
 image: https://i.imgur.com/gF6flmzl.jpg
 lazy: https://i.imgur.com/gF6flmzt.jpg
+thumbnail: https://i.imgur.com/gF6flmzl.jpg
 link: https://github.com/HohShenYien/university_assignments/tree/main/year%201/sem%202/IAI
 date: 16 September 2021
 description: An AI chatbot that gives food recommendations to user based on their symptoms

@@ -96,12 +96,12 @@ export default {
         },
         {
           property: 'twitter:image',
-          content: 'https://i.imgur.com/0wuU2uXm.png',
+          content: 'https://i.imgur.com/0wuU2uXl.png',
           hid: 'twitter:image'
         },
         {
           property: 'og:image',
-          content: 'https://i.imgur.com/0wuU2uXm.png',
+          content: 'https://i.imgur.com/0wuU2uXl.png',
           hid: 'og:image'
         },
         {

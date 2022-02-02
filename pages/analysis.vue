@@ -75,12 +75,12 @@ export default {
         },
         {
           property: 'twitter:image',
-          content: 'https://i.imgur.com/4bbHVNym.png',
+          content: 'https://i.imgur.com/4bbHVNyl.png',
           hid: 'twitter:image'
         },
         {
           property: 'og:image',
-          content: 'https://i.imgur.com/4bbHVNym.png',
+          content: 'https://i.imgur.com/4bbHVNyl.png',
           hid: 'og:image'
         },
         {

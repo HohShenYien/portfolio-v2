@@ -306,12 +306,12 @@ export default {
         },
         {
           property: 'twitter:image',
-          content: 'https://i.imgur.com/neGo44Cm.png',
+          content: 'https://i.imgur.com/neGo44Cl.png',
           hid: 'twitter:image'
         },
         {
           property: 'og:image',
-          content: 'https://i.imgur.com/neGo44Cm.png',
+          content: 'https://i.imgur.com/neGo44Cl.png',
           hid: 'og:image'
         },
       ]

@@ -90,12 +90,12 @@ export default {
         },
         {
           property: 'twitter:image',
-          content: this.post.lazy,
+          content: this.post.thumbnail,
           hid: 'twitter:image'
         },
         {
           property: 'og:image',
-          content: this.post.lazy,
+          content: this.post.thumbnail,
           hid: 'og:image'
         },
         {

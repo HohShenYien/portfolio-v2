@@ -1,7 +1,8 @@
 ---
 title: OYE - Website Editor
-image: https://i.imgur.com/pXjMSHT.png
+image: https://i.imgur.com/pXjMSHTh.png
 lazy: https://i.imgur.com/pXjMSHTt.png
+thumbnail: https://i.imgur.com/pXjMSHTl.png
 link: https://oye.events
 date: 31 August 2021
 description: OYE is an event planner website focusing on wedding. I was responsible in building a website editor for the E-Album section of the web app. 

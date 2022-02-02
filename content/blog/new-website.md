@@ -1,7 +1,8 @@
 ---
 title: New Website 
-image: https://i.imgur.com/0wuU2uX.png
+image: https://i.imgur.com/0wuU2uXh.png
 lazy: https://i.imgur.com/0wuU2uXt.png
+thumbnail: https://i.imgur.com/0wuU2uXl.png
 date: 17 January 2022 
 description: I have rebuilt the blog from the scratch, here's how I did it. 
 read: 3
