@@ -117,32 +117,32 @@ export default {
         {
           property: 'og:title',
           content: 'Home Page',
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
           content: '',
-          vmid: 'og:url'
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: 'Home Page',
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         }
       ]
     }

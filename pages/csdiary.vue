@@ -65,49 +65,49 @@ export default {
         {
           property: 'og:title',
           content: 'CS Diary',
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: 'Here are where I write blogs about my journey in Computer Science. Read the stories / tips ' +
             'that I will post when I am free.',
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
           content: 'csdiary',
-          vmid: 'og:url'
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: 'CS Diary',
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: 'Here are where I write blogs about my journey in Computer Science. Read the stories / tips ' +
             'that I will post when I am free.',
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           property: 'twitter:image',
           content: 'https://i.imgur.com/0wuU2uXm.png',
-          vmid: 'twitter:image'
+          hid: 'twitter:image'
         },
         {
           property: 'og:image',
           content: 'https://i.imgur.com/0wuU2uXm.png',
-          vmid: 'og:image'
+          hid: 'og:image'
         },
         {
           name: 'keywords',
           content: `Blog,CS Diary`,
-          vmid: 'keywords'
+          hid: 'keywords'
         }
       ]
     }

@@ -42,51 +42,51 @@ export default {
         property: 'og:title',
         content: 'CS Diary',
         template: chunk => `${chunk} | Hoh Shen Yien`,
-        vmid: 'og:title'
+        hid: 'og:title'
       },
       {
         property: 'og:image',
-        content: '/favicon.ico',
-        vmid: 'og:image'
+        content: 'https://shenyien.cyou/favicon.ico',
+        hid: 'og:image'
       },
       {
         property: 'og:description',
         content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
-        vmid: 'og:description'
+        hid: 'og:description'
       },
       {
         property: 'og:url',
         content: '',
         template: chunk => `https://shenyien.cyou/${chunk}`,
-        vmid: 'og:url'
+        hid: 'og:url'
       },
       {
         property: 'twitter:title',
         content: 'CS Diary',
         template: chunk => `${chunk} | Hoh Shen Yien`,
-        vmid: 'twitter:title'
+        hid: 'twitter:title'
       },
       {
         property: 'twitter:image',
         content: 'https://shenyien.cyou/favicon.ico',
-        vmid: 'twitter:image'
+        hid: 'twitter:image'
       },
       {
         property: 'twitter:description',
         content: 'Hi, I am Shen Yien, an enthusiastic programmer (Computer Science student). You can learn all about me here!',
-        vmid: 'twitter:description'
+        hid: 'twitter:description'
       },
       {
         name: 'twitter:card',
         content: `summary_large_image`,
-        vmid: 'twitter:card'
+        hid: 'twitter:card'
       },
       {
         name: 'keywords',
         content: `Hoh Shen Yien`,
-        vmid: 'keywords'
+        hid: 'keywords'
       },
-      {property: "og:site_name", content: "I Love Painting"},
+      {property: "og:site_name", content: "Hoh Shen Yien"},
       {hid: "og:type", property: "og:type", content: "website"},
     ],
     link: [

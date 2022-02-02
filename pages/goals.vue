@@ -89,37 +89,37 @@ export default {
         {
           property: 'og:title',
           content: 'Goal Page',
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: 'My annual resolutions and reading list. You can view my goals and their progresses here!',
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
           content: 'goals',
-          vmid: 'og:url'
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: 'Goal Page',
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: 'My annual resolutions and reading list. You can view my goals and their progresses here!',
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           name: 'keywords',
           content: `Goals,2022 Resolutions`,
-          vmid: 'keywords'
+          hid: 'keywords'
         }
       ]
     }
@@ -183,7 +183,7 @@ export default {
         {
           name: 'Stop playing games',
           status: false,
-          description: "I get addicted with games easily, i.e., Tetris, Chess, Super Tux Kart. I hope to get my game" +
+          description: "I get addicted with games easily, i.e., Tetris, Chess, Super Tux Kart. I hope to get my game " +
             "addictions to be gone and read instead when I'm bored."
         },
         {

@@ -44,49 +44,49 @@ export default {
         {
           property: 'og:title',
           content: 'Analysis Page',
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: 'My data analysis projects on various topics that I am interested in. This is part of my journey' +
             'as a Data Analytics students.',
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
           content: 'analysis',
-          vmid: 'og:url'
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: 'Analysis Page',
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: 'My data analysis projects on various topics that I am interested in. This is part of my journey' +
             'as a Data Analytics students.',
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           property: 'twitter:image',
           content: 'https://i.imgur.com/4bbHVNym.png',
-          vmid: 'twitter:image'
+          hid: 'twitter:image'
         },
         {
           property: 'og:image',
           content: 'https://i.imgur.com/4bbHVNym.png',
-          vmid: 'og:image'
+          hid: 'og:image'
         },
         {
           name: 'keywords',
           content: `Data Analysis`,
-          vmid: 'keywords'
+          hid: 'keywords'
         }
       ]
     }

@@ -32,49 +32,49 @@ export default {
         {
           property: 'og:title',
           content: 'Project Page',
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: 'Some of my best / favourite projects that I have done before. You can also check out what I ' +
             'used to build them here!',
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
           content: 'projects',
-          vmid: 'og:url'
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: 'Project Page',
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: 'Some of my best / favourite projects that I have done before. You can also check out what I ' +
             'used to build them here!',
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           property: 'twitter:image',
           content: 'https://i.imgur.com/UG9AtP0m.png',
-          vmid: 'twitter:image'
+          hid: 'twitter:image'
         },
         {
           property: 'og:image',
           content: 'https://i.imgur.com/UG9AtP0m.png',
-          vmid: 'og:image'
+          hid: 'og:image'
         },
         {
           name: 'keywords',
           content: `Personal Projects`,
-          vmid: 'keywords'
+          hid: 'keywords'
         }
       ]
     }

@@ -61,54 +61,53 @@ export default {
         {
           property: 'og:title',
           content: this.post.title,
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: this.post.description,
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
-          content: this.url,
-          vmid: 'og:url'
+          content: 'blog/' + this.post.slug,
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: this.post.title,
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: this.post.description,
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           property: 'twitter:image',
           content: this.post.lazy,
-          vmid: 'twitter:image'
+          hid: 'twitter:image'
         },
         {
           property: 'og:image',
           content: this.post.lazy,
-          vmid: 'og:image'
+          hid: 'og:image'
         },
         {
           name: 'keywords',
           content: this.post.title + ',' + this.post.tags.join(","),
-          vmid: 'keywords'
+          hid: 'keywords'
         }
       ]
     }
   },
   data() {
     return {
-      url: "",
       posts: []
     }
   },
@@ -120,7 +119,6 @@ export default {
     },
   },
   mounted() {
-    this.url = window.location.href;
   },
   created() {
     this.getPosts();

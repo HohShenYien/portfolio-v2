@@ -65,47 +65,47 @@ export default {
         {
           property: 'og:title',
           content: this.project.title,
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: this.project.description,
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
-          content: this.url,
-          vmid: 'og:url'
+          content: 'project/' + this.project.slug,
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: this.project.title,
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: this.project.description,
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           property: 'twitter:image',
           content: this.project.lazy,
-          vmid: 'twitter:image'
+          hid: 'twitter:image'
         },
         {
           property: 'og:image',
           content: this.project.lazy,
-          vmid: 'og:image'
+          hid: 'og:image'
         },
         {
           name: 'keywords',
           content: this.project.title + ',' + this.project.tags.join(","),
-          vmid: 'keywords'
+          hid: 'keywords'
         }
       ]
     }
@@ -118,7 +118,6 @@ export default {
   },
   data() {
     return {
-      url: "",
       anotherProject: null
     }
   },
@@ -134,9 +133,6 @@ export default {
         this.anotherProject = projects[Math.floor(Math.random() * projects.length)];
       }
     },
-  },
-  mounted() {
-    this.url = window.location.href;
   },
   created() {
     this.getProjects();

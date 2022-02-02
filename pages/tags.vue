@@ -53,37 +53,37 @@ export default {
         {
           property: 'og:title',
           content: "Tags",
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: "Tag Index Page",
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
-          content: this.url,
-          vmid: 'og:url'
+          content: '/tags',
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: "Tag Index Page",
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: "Tag Index Page",
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           name: 'keywords',
           content: "Tags",
-          vmid: 'keywords'
+          hid: 'keywords'
         }
       ]
     }
@@ -94,7 +94,6 @@ export default {
       tagCats: [
         'blogs', 'projects'
       ],
-      url: ''
     }
   }
   ,
@@ -175,7 +174,6 @@ export default {
     setTimeout(() => {
       document.getElementById('title').classList.add('start');
     }, 200);
-    this.url = window.location.href;
   }
   ,
   created() {

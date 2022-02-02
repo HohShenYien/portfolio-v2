@@ -277,42 +277,42 @@ export default {
         {
           property: 'og:title',
           content: 'About Me',
-          vmid: 'og:title'
+          hid: 'og:title'
         },
         {
           property: 'og:description',
           content: 'Curious about who I am? Check out my skills and learn more about me here!',
-          vmid: 'og:description'
+          hid: 'og:description'
         },
         {
           property: 'og:url',
           content: 'about',
-          vmid: 'og:url'
+          hid: 'og:url'
         },
         {
           property: 'twitter:title',
           content: 'About Me',
-          vmid: 'twitter:title'
+          hid: 'twitter:title'
         },
         {
           property: 'twitter:description',
           content: 'Curious about who I am? Check out my skills and learn more about me here!',
-          vmid: 'twitter:description'
+          hid: 'twitter:description'
         },
         {
           name: 'twitter:card',
           content: `summary_large_image`,
-          vmid: 'twitter:card'
+          hid: 'twitter:card'
         },
         {
           property: 'twitter:image',
           content: 'https://i.imgur.com/neGo44Cm.png',
-          vmid: 'twitter:image'
+          hid: 'twitter:image'
         },
         {
           property: 'og:image',
           content: 'https://i.imgur.com/neGo44Cm.png',
-          vmid: 'og:image'
+          hid: 'og:image'
         },
       ]
     }
