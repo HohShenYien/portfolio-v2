@@ -2,20 +2,24 @@
   <div class="markdown-content">
     <client-only>
       <div class="top-part">
-        <h1 class="page-title">{{ post.title }}</h1>
-        <div class="meta">
-          Posted on {{ post.date }} · {{ post.read }} min read <br>
-          Written by:
-          <nuxt-link to="/about">
-            <hLink>Hoh Shen Yien</hLink>
-          </nuxt-link>
+        <div class="wrapper">
+          <h1 class="page-title">{{ post.title }}</h1>
+          <div class="meta">
+            Posted on {{ post.date }} · {{ post.read }} min read <br>
+            Written by:
+            <nuxt-link to="/about">
+              <hLink>Hoh Shen Yien</hLink>
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </client-only>
     <article>
-      <v-img :src="post.image"
-             :lazy-src="post.lazy" max-width="100%" class="mx-auto post-img"
-             gradient="to top right, rgba(255,255,255,.08), rgba(255,255,255,.08)"></v-img>
+      <v-row no-gutter justitfy="center">
+        <v-img :src="post.image"
+                 :lazy-src="post.lazy" max-width="100%" class="mx-auto post-img"
+                 max-height="600px" contain></v-img>
+      </v-row>
       <div class="inner-document">
         <nuxt-content :document="post"/>
         <div class="bottom-part">
@@ -40,6 +44,10 @@
 
 <script>
 import SocialShareBtn from "../../components/socialShareBtn";
+import {vDivider} from 'vuetify/lib/components';
+import Vue from "vue";
+
+Vue.component("vDivider", vDivider)
 
 export default {
   components: {SocialShareBtn},
@@ -108,7 +116,8 @@ export default {
   },
   data() {
     return {
-      posts: []
+      posts: [],
+      url: ""
     }
   },
   methods: {
@@ -119,6 +128,7 @@ export default {
     },
   },
   mounted() {
+    this.url = window.location.href;
   },
   created() {
     this.getPosts();
@@ -140,6 +150,14 @@ article {
     padding-top: 164px;
     background-color: black;
     padding-bottom: 100px;
+    .wrapper {
+      width: 80ch;
+      margin: 0 auto;
+      line-height: 4.8rem;
+      h1 {
+        margin-bottom: 1rem;
+      }
+    }
   }
 
   .meta {
@@ -150,17 +168,14 @@ article {
   .post-img {
     margin-top: 60px;
     margin-bottom: 60px;
-    background-color: hsla(0, 100%, 100%, 0.15);
-    box-shadow: 0 0 10px 4px black;
   }
 
   .inner-document {
-    width: min(45rem, 100%);
+    max-width: min(60ch, 100%);
     margin-left: auto;
     margin-right: auto;
 
     .tags {
-      margin-top: 20px;
       margin-bottom: 5px;
       font-size: 0.9rem;
 
@@ -173,11 +188,17 @@ article {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 20px;
     }
   }
 }
 
 @media only screen and (max-width: 600px) {
+  .markdown-content .top-part .wrapper {
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .markdown-content h1.page-title {
     font-size: 3rem;
   }
@@ -191,9 +212,16 @@ article {
       margin-bottom: 20px !important;
     }
   }
-  article {
-    padding-top: 0;
-    padding-bottom: 40px;
+  .post-img {
+    padding-left: 20px;
+    padding-right: 20px;
   }
+}
+</style>
+
+<style>
+.v-divider {
+  margin: 0 30% 40px;
+  border-top-width: 5px;
 }
 </style>

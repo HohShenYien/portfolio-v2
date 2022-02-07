@@ -1,4 +1,5 @@
 <template>
+<!--  This is search preview item-->
   <div @click="travel">
     <div class="preview-item">
       <div class="item-meta">

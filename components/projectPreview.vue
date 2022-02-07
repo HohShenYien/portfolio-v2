@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="`/project/${project.slug}`">
-    <v-row :class="{'inverted': position % 2 == 0}" class="project-row">
+    <v-row :class="{'inverted': position % 2 == 0}" class="project-row" @mouseenter="active = true" @mouseleave="active = false">
       <v-col cols="12" md="7" class="left">
         <project-frame :img="project.image" :alt="project.title" :type="project.type" :lazy="project.lazy"/>
       </v-col>
@@ -11,9 +11,7 @@
         </div>
         <div class="project-description">{{ project.description }}</div>
         <div class="check-it">
-          <nuxt-link :to="`/project/${project.slug}`">
-            <arrowLink>Check it out</arrowLink>
-          </nuxt-link>
+          <arrow-link :active="active">Check it out</arrow-link>
         </div>
         <div>
           <nuxt-link v-for="tag in project.tags" :key="tag" :to="`/tag/projects/${tag}`">
@@ -32,16 +30,22 @@ import ProjectFrame from "./projectFrame";
 export default {
   name: "projectPreview",
   components: {ProjectFrame},
-  props: ['project', "position"]
+  props: ['project', "position"],
+  data() {
+    return {
+      active: false
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .project-row {
   margin-bottom: 30px;
+  transition: background-color 250ms linear;
 
   &:hover {
-    background-color: #FFFFFF02;
+    background-color: #FFFFFF06;
 
     .project-title {
       color: gold;

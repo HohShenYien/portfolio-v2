@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="'/blog/' + post.slug">
-    <div class="post-preview-card">
+    <div class="post-preview-card" @mouseenter="active = true" @mouseleave="active = false">
       <div class="no-overflow">
         <v-img :lazy-src="post.lazy" :src="post.image" alt="" class="post-preview-img">
         </v-img>
@@ -21,7 +21,7 @@
         <div class="post-preview-date">{{ post.date }} · {{ post.read }} min read</div>
         <v-row class="post-preview-bottom" no-gutters>
           <v-spacer/>
-          <arrowLink>Read More</arrowLink>
+          <arrow-link :active="active">Read More</arrow-link>
         </v-row>
       </div>
     </div>
@@ -29,11 +29,15 @@
 </template>
 
 <script>
+import ArrowLink from "./arrowLink";
 export default {
   name: "postPreview",
+  components: {ArrowLink},
   props: ['post'],
   data() {
-    return {}
+    return {
+      active: false
+    }
   },
   methods: {}
 }
@@ -41,7 +45,7 @@ export default {
 
 <style scoped lang="scss">
 .post-preview-card {
-  border: $secondary 2px solid;
+  border: $secondary 3px solid;
   border-radius: 5px;
   overflow: hidden;
   transition: all 0.2s linear;
@@ -93,7 +97,6 @@ export default {
 }
 
 .post-preview-img {
-  width: 100%;
   height: auto;
 }
 </style>

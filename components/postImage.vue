@@ -1,12 +1,12 @@
 <template>
-  <div class="post-image">
+  <figure class="post-image">
     <v-img :lazy-src="lazy" :src="img" :alt="alt" class="mx-auto the-image" :width="computedWidth"
            gradient="to top right, rgba(255,255,255,.05), rgba(255,255,255,.05)">
     </v-img>
-    <div class="caption mx-auto" :style="{width: computedWidth}">
+    <figcaption class="post-image-caption mx-auto" :style="{width: computedWidth}">
       <slot></slot>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 
 </template>
 
@@ -30,10 +30,11 @@ export default {
 
 .the-image {
   box-shadow: 0 0 6px 5px black;
+  height: auto;
 }
 
-.caption {
-  font-size: 1rem;
+.post-image-caption {
+  font-size: 0.975rem;
   color: gray;
   text-align: center;
   margin-top: 5px;

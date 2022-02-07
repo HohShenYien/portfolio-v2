@@ -28,12 +28,14 @@
       </div>
     </article>
     <div class="bottom-part" v-if="anotherProject != null">
-      <h4>Another random project</h4>
       <nuxt-link :to="`/project/${anotherProject.slug}`">
-        <div class="wrapper">
-          <h3>{{ this.anotherProject.title }}</h3>
+        <div @mouseenter="active = true" @mouseleave="active = false">
+          <h4>Another random project</h4>
+          <div class="wrapper">
+            <h3>{{ this.anotherProject.title }}</h3>
+          </div>
+          <arrow-link :active="active">Check it out</arrow-link>
         </div>
-        <arrow-link>Check it out</arrow-link>
       </nuxt-link>
     </div>
   </div>
@@ -118,7 +120,8 @@ export default {
   },
   data() {
     return {
-      anotherProject: null
+      anotherProject: null,
+      active: false
     }
   },
   methods: {
@@ -176,7 +179,7 @@ article {
   }
 
   .inner-document {
-    width: min(45rem, 100%);
+    width: min(60ch, 100%);
     margin-left: auto;
     margin-right: auto;
   }
@@ -192,10 +195,9 @@ article {
     font-size: 1rem;
     color: darkgoldenrod;
     text-transform: capitalize;
-    cursor: default;
   }
 
-  &:hover h3 {
+  div:hover h3 {
     color: gold;
   }
 

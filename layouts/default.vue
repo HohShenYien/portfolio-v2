@@ -16,7 +16,10 @@ import topNavBar from "@/components/topNavBar";
 export default {
   component: {bottomBar, topNavBar},
   watch: {
-    '$route': function (search) {
+    $route (to, from){
+      if (from.path === to.path) {
+        return;
+      }
       this.changing = true;
       setTimeout(() => {
         this.changing = false;

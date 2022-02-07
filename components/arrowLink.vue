@@ -1,5 +1,5 @@
 <template>
-  <component :is="href != null ? 'a' : 'span'" class="link link--arrowed" :href="href" @click="$emit('click')">
+  <component :is="href != null ? 'a' : 'span'" class="link link--arrowed" :href="href" @click="$emit('click')" :class="{'active': active}">
     <slot></slot>
     <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
       <g fill="none" class="arrow-stroke" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: "arrowLink",
-  props: ['href']
+  props: ['href', 'active']
 }
 </script>
 
@@ -26,7 +26,7 @@ export default {
   font-size: 1rem;
 }
 
-.link:hover {
+.link:hover, .link.active {
   color: $primary;
 }
 
@@ -42,7 +42,6 @@ export default {
     top: -1px;
     -webkit-transition: -webkit-transform 0.3s ease;
     transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
     transition: transform 0.3s ease, -webkit-transform 0.3s ease;
     vertical-align: middle;
 
@@ -57,7 +56,7 @@ export default {
     stroke-dashoffset: 95;
   }
 
-  &:hover {
+  &:hover, &.active {
     font-size: 1.1rem;
 
     .arrow-icon {

@@ -25,6 +25,7 @@ export default {
       this.posts.sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
       })
+      console.log(this.posts);
     },
   },
   mounted() {
@@ -40,9 +41,14 @@ section {
   column-gap: 60px;
   min-height: max(100vh, 705px);
 
-  div {
+  a {
+    display: block;
     margin-bottom: 60px;
   }
+
+}
+
+@media only screen and (max-width: 600px) {
 
 }
 </style>

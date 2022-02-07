@@ -58,9 +58,10 @@
           <v-col cols="12" md="4" v-for="(card, idx) in cards" data-aos="flip-left" data-aos-duration="400"
                  :data-aos-delay="700 + 200 * idx" :key="idx">
             <nuxt-link :to="card.href">
-              <v-card class="writing-cards" elevation="10px" outlined>
+              <v-card class="writing-cards" elevation="10px" outlined @mouseenter="setCardActive(idx, true)"
+                      @mouseleave="setCardActive(idx, false)">
                 <img :src="card.img" alt="" height="300px">
-                <arrowLink>{{ card.name }}</arrowLink>
+                <arrow-link :active="card.active">{{ card.name }}</arrow-link>
               </v-card>
             </nuxt-link>
 
@@ -154,17 +155,20 @@ export default {
         {
           img: '/index/csdiary.svg',
           name: "CS Diary (Blog)",
-          href: "/csdiary"
+          href: "/csdiary",
+          active: false
         },
         {
           img: '/index/analysis.svg',
           name: "Analysis",
-          href: "/analysis"
+          href: "/analysis",
+          active: false,
         },
         {
           img: '/index/project.svg',
           name: "Projects",
-          href: "/projects"
+          href: "/projects",
+          active: false
         }
       ]
     }
@@ -172,6 +176,9 @@ export default {
   methods: {
     goTo(section) {
       this.$goTo(section);
+    },
+    setCardActive(idx, enter) {
+      this.$set(this.cards[idx], 'active', enter);
     }
   },
   mounted() {
@@ -505,14 +512,6 @@ export default {
     .link {
       font-size: 27px;
       font-weight: bold;
-
-      .arrow-icon {
-        transform: translate3d(5px, 0, 0);
-      }
-
-      .arrow-icon--circle {
-        stroke-dashoffset: 0;
-      }
     }
   }
 }

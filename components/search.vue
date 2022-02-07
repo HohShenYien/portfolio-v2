@@ -1,12 +1,12 @@
 <template>
   <div class="d-inline-block">
     <h-link
-      @click="dialog = true"
+      @click="openDialog"
       v-if="!isMobile"
     >
-      <v-icon>mdi-magnify</v-icon>
+      <v-icon class="hover-icon">mdi-magnify</v-icon>
     </h-link>
-    <v-btn text v-else class="overflow-hidden" @click="dialog = true">
+    <v-btn text v-else class="overflow-hidden" @click="openDialog">
       Search
     </v-btn>
     <v-dialog
@@ -29,6 +29,7 @@
                 v-model="keywords"
                 @change="search"
                 clearable
+                ref="searchField"
               >
                 <template v-slot:append-outer>
                   <v-icon size="30px" class="card-search" @click="search">mdi-magnify</v-icon>
@@ -80,6 +81,13 @@ export default {
     },
   },
   methods: {
+    openDialog() {
+      this.dialog = true;
+      setTimeout(() => {
+        this.$refs.searchField.$refs.input.focus();
+      }, 150);
+
+    },
     reset() {
       this.keywords = '';
       this.dialog = false;
@@ -117,6 +125,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.hover-icon:hover {
+  color: $secondary;
+}
 .card {
   padding: 60px 15px 15px;
 
