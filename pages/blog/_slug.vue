@@ -44,10 +44,10 @@
 
 <script>
 import SocialShareBtn from "../../components/socialShareBtn";
-import {vDivider} from 'vuetify/lib/components';
+import {VDivider} from 'vuetify/lib/components';
 import Vue from "vue";
 
-Vue.component("vDivider", vDivider)
+Vue.component("VDivider", VDivider)
 
 export default {
   components: {SocialShareBtn},
