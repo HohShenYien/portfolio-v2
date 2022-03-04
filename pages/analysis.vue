@@ -17,9 +17,11 @@
           <img src="/analysis/holding_magnifying.png" height="240px" alt="">
         </div>
       </div>
-      <hLink id="check-btn" ref="checkBtn">👇 Check them out</hLink>
+      <hLink id="check-btn" ref="checkBtn" @click="goto('section2')">👇 Check them out</hLink>
     </section>
-    <section class="section" id="section2"></section>
+    <section class="section" id="section2">
+      <analysis-post-list/>
+    </section>
   </div>
 
 </template>
@@ -28,9 +30,11 @@
 import * as THREE from 'three'
 import AOS from 'aos'
 import 'animate.css'
+import AnalysisPostList from "../components/analysisPostList";
 
 export default {
   name: "analysis",
+  components: {AnalysisPostList},
   head() {
     return {
       title: 'Analysis Page',
@@ -92,6 +96,9 @@ export default {
     }
   },
   methods: {
+    goto(id) {
+      document.getElementById(id).scrollIntoView({behavior: "smooth"});
+    },
     startBackground() {
       let scene = new THREE.Scene();
       let camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 2000);
@@ -151,7 +158,7 @@ export default {
 
 #check-btn {
   animation: fade-from-bottom 1s linear forwards;
-  animation-delay: 1.8s;
+  animation-delay: 600ms;
 }
 
 #hand {
@@ -200,6 +207,7 @@ export default {
 
 #section1 {
   background-color: black;
+  overflow-y: hidden;
 }
 
 #section1 .content {
@@ -226,6 +234,10 @@ export default {
 #canvas {
   height: 100%;
   width: 100%;
+}
+
+#section2 {
+  padding: 2rem 0;
 }
 
 @keyframes swingMag {

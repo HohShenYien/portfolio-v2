@@ -5,7 +5,7 @@
         <div class="wrapper">
           <h1 class="page-title">{{ post.title }}</h1>
           <div class="meta">
-            Posted on {{ post.date }} · {{ post.read }} min read <br>
+            Posted on {{ post.date }} · {{ post.read }} min{{post.read > 1 ? 's' : ''}} read <br>
             Written by:
             <nuxt-link to="/about">
               <hLink>Hoh Shen Yien</hLink>
@@ -20,29 +20,54 @@
                  :lazy-src="post.lazy" max-width="100%" class="mx-auto post-img"
                  max-height="600px" contain></v-img>
       </v-row>
-      <div class="inner-document">
-        <nuxt-content :document="post"/>
-        <div class="bottom-part">
-          <div class="tags">
-            <span class="tag-label">Tags:</span>
-            <nuxt-link v-for="(tag, idx) in post.tags" :key="tag" :to="`/tag/blogs/${tag}`">
-              <v-btn text color="#daa520" class="mr-1 post-preview-tags px-1"
-                     small>
-                {{ tag }}
-              </v-btn>
-            </nuxt-link>
+      <v-row>
+        <v-col md="8" class="d-flex justify-center">
+          <div class="inner-document">
+            <nuxt-content :document="post"/>
+            <div class="bottom-part">
+              <div class="tags">
+                <span class="tag-label">Tags:</span>
+                <nuxt-link v-for="(tag, idx) in post.tags" :key="tag" :to="`/tag/blogs/${tag}`">
+                  <v-btn text color="#daa520" class="mr-1 post-preview-tags px-1"
+                         small>
+                    {{ tag }}
+                  </v-btn>
+                </nuxt-link>
 
+              </div>
+              <social-share-btn :url="url"></social-share-btn>
+            </div>
           </div>
-          <social-share-btn :url="url"></social-share-btn>
-        </div>
-      </div>
+        </v-col>
+        <v-col md="4" class="toc-wrapper">
+          <aside class="toc">
+            <h3>Table of Contents</h3>
+            <nav>
+              <ul>
+                <li
+                  :class="{
+                'pl-4': link.depth === 3,
+                current: link.id === currentlyActiveToc
+              }"
+                  class="toc-list"
+                  v-for="link of post.toc"
+                  :key="link.id"
+                >
+                  <a
+                    @click="goTo(link.id)"
+                  >{{ link.text }}</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </aside>
+        </v-col>
+      </v-row>
     </article>
-
-
   </div>
 </template>
-
 <script>
+
 import SocialShareBtn from "../../components/socialShareBtn";
 import {VDivider} from 'vuetify/lib/components';
 import Vue from "vue";
@@ -117,7 +142,13 @@ export default {
   data() {
     return {
       posts: [],
-      url: ""
+      url: "",
+      currentlyActiveToc: "",
+      observer: null,
+      observerOptions: {
+        root: this.$refs.nuxtContent,
+        threshold: 0.3
+      }
     }
   },
   methods: {
@@ -126,9 +157,36 @@ export default {
         .only(['title', 'image', 'tags', 'slug', 'createdAt', 'description', 'date', 'read', 'lazy'])
         .fetch();
     },
+    goTo(id) {
+      let element = document.getElementById(id);
+      let headerOffset = 70;
+      let elementPosition = element.getBoundingClientRect().top;
+      let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
   },
   mounted() {
     this.url = window.location.href;
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute("id");
+        if (entry.isIntersecting) {
+          this.currentlyActiveToc = id;
+        }
+      });
+    }, this.observerOptions);
+    document
+      .querySelectorAll(".nuxt-content h2[id], .nuxt-content h3[id]")
+      .forEach(section => {
+        this.observer.observe(section);
+      });
+  },
+  beforeDestroy() {
+    this.observer.disconnect();
   },
   created() {
     this.getPosts();
@@ -141,6 +199,7 @@ article {
   @include smaller-section;
   padding-top: 0;
   padding-bottom: 40px;
+  position: relative;
 }
 
 .markdown-content {
@@ -172,8 +231,6 @@ article {
 
   .inner-document {
     max-width: min(60ch, 100%);
-    margin-left: auto;
-    margin-right: auto;
 
     .tags {
       margin-bottom: 5px;
@@ -192,6 +249,21 @@ article {
     }
   }
 }
+
+.toc-wrapper {
+  .toc  {
+    position: sticky;
+    top: 4rem;
+    .toc-list {
+      list-style: none;
+    }
+    .current a {
+      color: $secondary !important;
+    }
+  }
+}
+
+
 
 @media only screen and (max-width: 600px) {
   .markdown-content .top-part .wrapper {

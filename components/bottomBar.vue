@@ -10,7 +10,7 @@
     </div>
     <div id="footnote">
       <div>
-        © 2021 Hoh Shen Yien | No rights reserved.
+        © 2022 Hoh Shen Yien | No rights reserved.
       </div>
       <div>
         We live in a free world! <div id="peace-wrapper"><img src="/public/peace.svg" id="peace" alt=""></div>

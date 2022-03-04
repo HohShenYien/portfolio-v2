@@ -78,6 +78,7 @@ export default {
         {name: "Analysis", link: "/analysis"},
         {name: "About Me", link: "/about"},
         {name: "Projects", link: "/projects"},
+        {name: "Archives", link: "/archives"},
         {name: "Tags", link: "/tags"}
       ]
     }
@@ -227,7 +228,7 @@ export default {
   border-width: 7px 0 0;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1060px) {
   #desktop-nav {
     display: none;
   }

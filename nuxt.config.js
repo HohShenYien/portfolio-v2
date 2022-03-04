@@ -5,6 +5,7 @@ const fs = require('fs');
 
 let blogPath = path.join(__dirname, 'content/blog');
 let projectPath = path.join(__dirname, 'content/project');
+let analysisPath = path.join(__dirname, 'content/analysis');
 
 function readdirAsync(path) {
   return new Promise(function (resolve, reject) {
@@ -168,12 +169,22 @@ export default {
       files.forEach(function (file) {
         projects.push(file.split('.')[0]);
       });
+
+      files = await readdirAsync(analysisPath);
+      let analytics = [];
+      files.forEach(function (file) {
+        analytics.push(file.split('.')[0]);
+      });
+
       return [
         ...blogs.map(blog => {
           return '/blog/' + blog
         }),
         ...projects.map(project => {
           return '/project/' + project
+        }),
+        ...analytics.map(analytics => {
+          return '/analytics/' + analytics
         })
       ]
     }

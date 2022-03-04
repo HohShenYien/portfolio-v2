@@ -2,7 +2,7 @@
   <div>
     <section class="section" id="section1">
       <h1>2022 Resolutions</h1>
-      <div class="sub-text">Updated: <span class="white--text">7 Feb 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">27 Feb 2022</span></div>
       <div class="content">
         <v-list color="#00000000" class="list-row">
           <v-list-item
@@ -30,7 +30,7 @@
     <v-divider style="margin: 0 120px;"></v-divider>
     <section class="section" id="section2">
       <h1>Readings</h1>
-      <div class="sub-text">Updated: <span class="white--text">7 Feb 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">27 Feb 2022</span></div>
       <div class="sub-text">Since <span class="white--text">January 2022</span></div>
       <div class="content">
         <div v-for="(book, idx) in readings" :key="idx">
@@ -135,7 +135,8 @@ export default {
         {
           name: 'Maintain 3.70 CGPA in second year',
           status: false,
-          description: 'I hope to maintain a first class for this year as well.'
+          description: 'I hope to maintain a first class for this year as well. So far I have obtained a 3.95 for my' +
+            'first semester of second year'
         },
         {
           name: 'Finish the CLRS book',
@@ -176,7 +177,8 @@ export default {
           name: 'Complete 3 Machine Learning textbooks / courses',
           status: false,
           description: 'Currently I am following Deep Learning for Coders from' +
-            ' <a href="https://course.fast.ai/" target="_blank">fast.ai</a>'
+            ' <a href="https://course.fast.ai/" target="_blank">fast.ai</a>',
+          progress: '1/3'
         },
         {
           name: 'Stop playing games',
@@ -200,12 +202,13 @@ export default {
           name: 'Create 6 arts',
           status: false,
           description: 'I have just learned Inkscape early of this year, so I wanna try to draw more using it.',
-          progress: '1 / 6'
+          progress: '2 / 6'
         },
         {
           name: 'Workout more frequently',
           status: false,
-          description: "I have been gaining more weights since last year, so I will wanna workout whenever I'm free."
+          description: "I have been gaining more weights since last year, so I will wanna workout whenever I'm free." +
+            " The progress now is quite good, as long as I have the free time in the morning, I'll try to "
         },
         {
           name: 'Learn and get fluent with Linux commands and Vim',
@@ -215,7 +218,8 @@ export default {
         {
           name: 'Complete 2 Finance courses / textbooks',
           status: false,
-          description: ''
+          description: "As of now, I'm planning to read Introduction to Corporate Finance, but this book is quite heavy," +
+            " so I'll be taking more time to finish it than expected."
         }
       ],
       readings: [
@@ -230,7 +234,7 @@ export default {
         },
         {
           name: "Introduction to Statistical Learning",
-          status: 1,
+          status: 2,
         },
         {
           name: "Introduction to Algorithms",
@@ -379,6 +383,16 @@ export default {
   }
 }
 
+ul {
+  margin-bottom: 3px;
+}
+
+ul::before {
+  content: "⭐";
+  display: inline-block;
+  margin-right: 1em;
+}
+
 </style>
 
 <style>
@@ -400,16 +414,6 @@ export default {
   margin-right: 10px !important;
   margin-top: -2px;
   margin-bottom: 0;
-}
-
-ul {
-  margin-bottom: 3px;
-}
-
-ul::before {
-  content: "⭐";
-  display: inline-block;
-  margin-right: 1em;
 }
 
 </style>

@@ -92,7 +92,7 @@ export default {
     return {
       tags: {},
       tagCats: [
-        'blogs', 'projects'
+        'analysis', 'blogs', 'projects'
       ],
     }
   }
@@ -166,11 +166,39 @@ export default {
       this.$set(this.tags, 'projects', res);
     }
     ,
+    async getAnalysis() {
+      let analyticTags = {}
+      let analytics = await this.$content('analysis')
+        .only(['tags'])
+        .fetch();
+      for (let analytic of analytics) {
+        for (let tag of analytic.tags) {
+          if (tag in analyticTags) {
+            this.$set(analyticTags, tag, analyticTags[tag] + 1);
+          } else {
+            this.$set(analyticTags, tag, 1);
+          }
+        }
+      }
+      let res = [];
+      for (let key in analyticTags) {
+        res.push({
+          name: key,
+          val: analyticTags[key]
+        })
+      }
+      res.sort((a, b) => {
+        return b.val - a.val || this.compareStr(a.name, b.name);
+      })
+      this.$set(this.tags, 'analysis', res);
+      console.log(this.tags);
+    }
   }
   ,
   mounted() {
     this.getPosts();
     this.getProjects();
+    this.getAnalysis();
     setTimeout(() => {
       document.getElementById('title').classList.add('start');
     }, 200);

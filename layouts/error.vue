@@ -15,7 +15,7 @@
               </div>
               <div class="animate__fadeInLeft animate__animated animate-delay-5">Maybe you wanna head back to
                 <nuxt-link to="/">
-                  <arrowLink text="homepage" class="ml-2"></arrowLink>
+                  <arrowLink text="homepage" class="ml-2">homepage</arrowLink>
                 </nuxt-link>
               </div>
             </div>

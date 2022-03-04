@@ -50,11 +50,14 @@
               I am Shen Yien, currently studying Computer Science (Data Analytics) in Asia Pacific University, Malaysia.
             </div>
             <div data-aos="fade-left" data-aos-duration="400" data-aos-delay="400">
-              I seek to be a jack of all trades while constantly improving
-              on my current skills. I also enjoy using my skills to build anything that is useful.
+              I began my journey in computer science with Python to solve problems in
+              <h-link href="https://projecteuler.net/">Project Euler</h-link> which slowly expanded into other areas.
             </div>
             <div data-aos="fade-left" data-aos-duration="400" data-aos-delay="600">
-              I believe that continuous learning is the key to success in the world of computer science.
+              After inspiration from <h-link href="https://towardsdatascience.com/names-uniqueness-2a7cbd449447">
+              Name uniqueness
+            </h-link>, I began to delve into the world of Data Science so that I can achieve what has been done
+              in the post.
             </div>
           </div>
         </div>
@@ -119,7 +122,7 @@
                   <div class="d-flex">
                     <h4>{{ skill.name }}</h4>
                     <v-spacer/>
-                    <span>{{ skill.progress }}</span>
+                    <span>{{ skill.label }}</span>
                   </div>
                   <animate-progress-bar bar-height="10px" bar-width="100%" :progress="skill.progress"/>
                 </div>
@@ -128,7 +131,7 @@
           </v-col>
         </v-row>
         <div class="section4-note">
-          Updated on 26th December 2021.<br>Based on what I think how much more to know.
+          Updated on 4th March 2022.<br>Based on what I think how much more to know.
         </div>
       </section>
     </div>
@@ -161,42 +164,43 @@ export default {
       skills: {
         front: {
           name: "Front-end",
-          data: [{name: "HTML & CSS", img: "html_css.svg", progress: "80%"},
-            {name: "Javascript", img: "javascript.svg", progress: "70%"},
-            {name: "Bootstrap", img: "bootstrap.svg", progress: "70%"},
-            {name: "Vue & Vuetify", img: "vue.svg", progress: "65%"},
-            {name: "Nuxt", img: "nuxt.svg", progress: "50%"}
+          data: [{name: "HTML & CSS", img: "html_css.svg", progress: "80%", label: "Many Projects"},
+            {name: "Javascript", img: "javascript.svg", progress: "70%", label: "Many Projects"},
+            {name: "Vue & Vuetify", img: "vue.svg", progress: "65%", label: "3 Projects"},
+            {name: "React", img: "react.svg", progress: "60%", label: "1 Project"},
+            {name: "Nuxt", img: "nuxt.svg", progress: "50%", label: "1 Project"},
+            {name: "Next js", img: "next-js.svg", progress: "40%", label: "1 Project"}
           ]
         },
         back: {
           name: "Back-end",
-          data: [{name: "Laravel", img: "laravel.svg", progress: "50%"},
-            {name: "Flask", img: "flask.svg", progress: "40%"}]
+          data: [{name: "Laravel", img: "laravel.svg", progress: "60%", label: "3 Projects"},
+            {name: "Flask", img: "flask.svg", progress: "40%", label: "3 Projects"}]
         },
         data: {
           name: "Data Analysis",
-          data: [{name: "R", img: "rstudio.svg", progress: "70%"},
-            {name: "Excel", img: "excel.svg", progress: "50%"},
-            {name: "SAS", img: "sas.svg", progress: "45%"},
+          data: [{name: "R", img: "rstudio.svg", progress: "70%", label: "Many Projects"},
+            {name: "Excel", img: "excel.svg", progress: "50%", label: "Some Projects"},
+            {name: "SAS", img: "sas.svg", progress: "45%", label: "1 Project"},
             {name: "Machine Learning", img: "ml.svg", progress: "30%"}]
         },
         se: {
           name: "App Development",
-          data: [{name: "Android Studio (Java)", img: "android.svg", progress: "70%"},
-            {name: "Electron", img: "electron.svg", progress: "55%"},
-            {name: "QT", img: "qt.svg", progress: "45%"}
+          data: [{name: "Android Studio (Java)", img: "android.svg", progress: "70%", label: "4 Projects"},
+            {name: "Electron", img: "electron.svg", progress: "55%", label: "1 Project"},
+            {name: "QT", img: "qt.svg", progress: "45%", label: "1 Project"}
           ]
         },
         language: {
           name: "Other languages",
-          data: [{name: "Python", img: "python.svg", progress: "80%"},
+          data: [{name: "Python", img: "python.svg", progress: "80%", label: "Main language"},
             {name: "C++", img: "cpp.svg", progress: "55%"},
             {name: "C", img: "c.svg", progress: "50%"}]
         },
         misc: {
           name: "Others",
-          data: [{name: "Git", img: "git.svg", progress: "75%"},
-            {name: "Wordpress", img: "wordpress.svg", progress: "60%"},
+          data: [{name: "Git", img: "git.svg", progress: "75%", label: "Used often"},
+            {name: "Wordpress", img: "wordpress.svg", progress: "60%", label: "2 Projects"},
             {name: "Command lines", img: "cmd.svg", progress: "45%"}]
         },
       }

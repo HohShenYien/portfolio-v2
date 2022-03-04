@@ -102,6 +102,9 @@ export default {
       let projects = await this.$content('project')
         .only(['title', 'slug', 'description', 'date'])
         .search(this.keywords).fetch();
+      let analysis = await this.$content('analysis')
+        .only(['title', 'slug', 'description', 'date'])
+        .search(this.keywords).fetch();
       this.items = [];
       setTimeout(() => {
         this.searching = false;
@@ -113,6 +116,10 @@ export default {
         ...projects.map(project => {
           project['type'] = 'project';
           return project;
+        }),
+        ...analysis.map(analysis => {
+          analysis['type'] = "analysis";
+          return analysis;
         }))
 
       this.noresult = this.items.length == 0;
