@@ -15,17 +15,16 @@ export default {
   },
   methods: {
     async asyncData() {
-      this.analysis = this.$content('analysis')
+      let tmp = this.$content('analysis')
         .only(['title', 'thumbnail', 'tags', 'slug', 'createdAt', 'type', 'description', 'date', 'lazy']);
       if (this.filter != null) {
-        this.analysis = this.analysis.where({tags: {$contains: this.filter}});
+        tmp = tmp.where({tags: {$contains: this.filter}});
       }
-      this.analysis = await this.analysis.fetch();
+      this.analysis = await tmp.fetch();
       this.analysis.sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
       })
-      console.log(this.analysis);
-    },
+   },
   },
   created() {
     this.asyncData();
