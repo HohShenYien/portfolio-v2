@@ -83,7 +83,7 @@ export default {
         .only(['title', 'slug', 'description', 'date'])
         .fetch();
       let analysis = await this.$content('analysis')
-        .only(['title', 'slug', 'description', 'date'])
+        .only(['title', 'slug', 'description', 'date', 'link'])
         .fetch();
       let items = [];
       items.push(...posts.map(post => {
@@ -96,7 +96,6 @@ export default {
         }),
         ...analysis.map(analysis => {
           analysis['type'] = "analysis";
-          analysis['path'] = "/analytics/" + analysis['slug'];
           return analysis;
         }))
 

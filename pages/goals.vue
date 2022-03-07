@@ -161,12 +161,9 @@ export default {
         },
         {
           name: 'Complete setting up my blog',
-          status: false,
-          description: 'TODO:' +
-            '<li>' +
-            '<ul>Index page for each content</ul>' +
-            '<ul>Post page for each content</ul>' +
-            '</li>'
+          status: true,
+          description: 'Although the Analysis page is a bit not so nice, but this is the compromise I can get to have the' +
+            ' analysis to be put here.'
         },
         {
           name: 'Complete 2 machine learning projects',

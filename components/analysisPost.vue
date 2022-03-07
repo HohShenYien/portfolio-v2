@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="analysis-wrapper" :to="'/analytics/' + analysis.slug" no-prefetch>
+  <a class="analysis-wrapper" :href="analysis.link" target="_blank">
     <v-row>
       <v-col md="3" xs="12">
         <v-img :src="analysis.thumbnail"
@@ -20,7 +20,7 @@
         </div>
       </v-col>
     </v-row>
-  </nuxt-link>
+  </a>
 </template>
 
 <script>

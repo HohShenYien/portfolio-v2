@@ -26,7 +26,11 @@ export default {
   props: ['item'],
   methods: {
     travel() {
-      this.$router.push(this.item.path);
+      if (this.item.type == 'analysis') {
+        window.open(this.item.link, '_blank').focus();
+      } else {
+        this.$router.push(this.item.path);
+      }
       this.$emit('click');
     }
   }

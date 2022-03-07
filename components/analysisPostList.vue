@@ -15,15 +15,15 @@ export default {
   },
   methods: {
     async asyncData() {
-      // let tmp = this.$content('analysis')
-      //   .only(['title', 'thumbnail', 'tags', 'slug', 'createdAt', 'type', 'description', 'date', 'lazy']);
-      // if (this.filter != null) {
-      //   tmp = tmp.where({tags: {$contains: this.filter}});
-      // }
-      // this.analysis = await tmp.fetch();
-      // this.analysis.sort((a, b) => {
-      //   return new Date(b.date) - new Date(a.date);
-      // })
+      let tmp = this.$content('analysis')
+        .only(['title', 'thumbnail', 'tags', 'link', 'createdAt', 'type', 'description', 'date', 'lazy']);
+      if (this.filter != null) {
+        tmp = tmp.where({tags: {$contains: this.filter}});
+      }
+      this.analysis = await tmp.fetch();
+      this.analysis.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      })
    },
   },
   created() {

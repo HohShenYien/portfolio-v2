@@ -1,9 +1,12 @@
 <template>
   <div class="wrapper">
     <span class="day">{{ getDay() }}</span><span class="subscript">{{ getSubscript() }}</span>
-    <nuxt-link :to="item.path">
+    <nuxt-link :to="item.path" v-if="item.type != 'analysis'">
       <h-link>{{item.title}}</h-link>
     </nuxt-link>
+    <a v-else :href="item.link" target="_blank">
+      <h-link>{{item.title}}</h-link>
+    </a>
   </div>
 </template>
 

@@ -103,7 +103,7 @@ export default {
         .only(['title', 'slug', 'description', 'date'])
         .search(this.keywords).fetch();
       let analysis = await this.$content('analysis')
-        .only(['title', 'slug', 'description', 'date'])
+        .only(['title', 'slug', 'description', 'date', 'link'])
         .search(this.keywords).fetch();
       this.items = [];
       setTimeout(() => {
