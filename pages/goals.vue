@@ -173,7 +173,7 @@ export default {
         {
           name: 'Complete 3 Machine Learning textbooks / courses',
           status: false,
-          description: 'Currently I am following Deep Learning for Coders from' +
+          description: 'Currently, I am following Deep Learning for Coders from' +
             ' <a href="https://course.fast.ai/" target="_blank">fast.ai</a>',
           progress: '1/3'
         },
