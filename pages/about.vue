@@ -174,7 +174,8 @@ export default {
         },
         back: {
           name: "Back-end",
-          data: [{name: "Laravel", img: "laravel.svg", progress: "60%", label: "3 Projects"},
+          data: [ {name: "SQL", img: "mysql.svg", progress: "70%", label: "Many Projects"},
+            {name: "Laravel", img: "laravel.svg", progress: "60%", label: "3 Projects"},
             {name: "Flask", img: "flask.svg", progress: "40%", label: "3 Projects"}]
         },
         data: {

@@ -1,12 +1,17 @@
 <template>
   <div class="wrapper">
     <span class="day">{{ getDay() }}</span><span class="subscript">{{ getSubscript() }}</span>
-    <nuxt-link :to="item.path" v-if="item.type != 'analysis'">
-      <h-link>{{item.title}}</h-link>
-    </nuxt-link>
-    <a v-else :href="item.link" target="_blank">
-      <h-link>{{item.title}}</h-link>
-    </a>
+    <span v-if="item.type != 'analysis'">
+      <nuxt-link :to="item.path" >
+        <h-link>{{item.title}}</h-link>
+      </nuxt-link>
+    </span>
+    <span v-else>
+      <a :href="item.link" target="_blank">
+        <h-link>{{item.title}}</h-link>
+      </a>
+    </span>
+
   </div>
 </template>
 
@@ -29,6 +34,9 @@ export default {
         default: return "th";
       }
     }
+  },
+  mounted() {
+    console.log(this.item);
   }
 }
 </script>

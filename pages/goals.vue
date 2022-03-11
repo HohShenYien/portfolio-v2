@@ -16,7 +16,7 @@
             <v-list-item-content>
               <v-list-item-title>
                 <div class="resolution-row">
-                  <div class="resolution-title">{{ item.name }}</div>
+                  <div class="resolution-title" :class="{completed: item.status}">{{ item.name }}</div>
                   <v-spacer/>
                   <div class="resolution-progress" v-if="'progress' in item"> {{ item.progress }}</div>
                 </div>
@@ -136,7 +136,8 @@ export default {
           name: 'Maintain 3.70 CGPA in second year',
           status: false,
           description: 'I hope to maintain a first class for this year as well. So far I have obtained a 3.95 for my' +
-            'first semester of second year'
+            'first semester of second year',
+          progress: '1 / 2'
         },
         {
           name: 'Finish the CLRS book',
@@ -157,13 +158,14 @@ export default {
         {
           name: '1 Analysis project per month',
           status: false,
-          description: ''
+          progress: '1 / 12'
         },
         {
           name: 'Complete setting up my blog',
           status: true,
           description: 'Although the Analysis page is a bit not so nice, but this is the compromise I can get to have the' +
-            ' analysis to be put here.'
+            ' analysis to be put here.',
+          progress: "✅"
         },
         {
           name: 'Complete 2 machine learning projects',
@@ -175,7 +177,7 @@ export default {
           status: false,
           description: 'Currently, I am following Deep Learning for Coders from' +
             ' <a href="https://course.fast.ai/" target="_blank">fast.ai</a>',
-          progress: '1/3'
+          progress: '1 / 3'
         },
         {
           name: 'Stop playing games',
@@ -187,7 +189,7 @@ export default {
           name: 'Read 1 book monthly',
           status: false,
           description: 'A habit that I have been wanting to have.',
-          progress: '2 / 12'
+          progress: '3 / 12'
         },
         {
           name: "Meditate 30 mins once every 2 weeks",
@@ -199,7 +201,7 @@ export default {
           name: 'Create 6 arts',
           status: false,
           description: 'I have just learned Inkscape early of this year, so I wanna try to draw more using it.',
-          progress: '2 / 6'
+          progress: '3 / 6'
         },
         {
           name: 'Workout more frequently',
@@ -352,10 +354,24 @@ export default {
     margin-bottom: 8px;
     transition: all 0.2s linear;
     cursor: default;
+    position: relative;
 
     &:hover {
-      font-size: 1.35rem;
       color: darkgoldenrod;
+      &.completed::after {
+        background-color: darkgoldenrod;
+      }
+    }
+    &.completed::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 55%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 80%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.2s linear;
     }
   }
 

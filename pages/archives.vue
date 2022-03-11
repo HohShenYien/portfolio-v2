@@ -88,10 +88,14 @@ export default {
       let items = [];
       items.push(...posts.map(post => {
           post['type'] = 'blog';
+          post['link'] = '';
+          post['path'] = '/blog/' + post.slug;
           return post;
         }),
         ...projects.map(project => {
           project['type'] = 'project';
+          project['link'] = '';
+          project['path'] =  `/project/${project.slug}`;
           return project;
         }),
         ...analysis.map(analysis => {
@@ -108,6 +112,7 @@ export default {
         return r;
       }, {});
       this.items = Object.keys(groups).map(function(k){ return groups[k]; });
+      console.log(this.items)
     },
   },
   mounted() {
