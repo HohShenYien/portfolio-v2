@@ -3,7 +3,7 @@
     <v-icon size="90" id="up-btn" @click="goTop" v-if="!isDrawer">mdi-chevron-up</v-icon>
     <div class="quote">Stay Hungry, Stay Foolish</div>
     <div id="social-icons">
-      <v-btn fab class="social-btn" large color="#141314" :href="social.url"
+      <v-btn fab class="social-btn" large color="#252525" :href="social.url"
              v-for="social in socials" :key="social.url" target="_blank">
         <v-icon size="36" dark>{{social.icon}}</v-icon>
       </v-btn>
@@ -78,12 +78,12 @@ export default {
 #footer {
   position: relative;
   padding: 50px 130px;
-  background-color: #222;
+  background-color: #333;
 }
 #up-btn {
   position: absolute;
   left: calc(50% - 55px);
-  background-color: #222;
+  background-color: #333;
   border-radius: 50%;
   top: -55px;
   width: 110px;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="overflow-x: hidden">
     <div class="section" id="section1">
       <div class="enter-animation" v-if="start">
         <glitchText text="YOU FOUND ME"/>
@@ -255,7 +255,7 @@ export default {
 }
 
 #section3 {
-  background-color: black;
+  background-color: $black;
   padding-left: 0;
   padding-top: 70px;
   padding-right: 0;
@@ -356,7 +356,7 @@ export default {
 }
 
 #section1 {
-  background-color: black;
+  background-color: $black;
 
   .enter-animation {
     animation: ease-out enterAnim 0.8s;

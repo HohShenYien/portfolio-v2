@@ -213,7 +213,7 @@ export default {
 <style scoped lang="scss">
 
 .top-part {
-  background-color: black;
+  background-color: $black;
   @include section;
   text-align: center;
   margin-bottom: 120px;
@@ -295,6 +295,7 @@ section {
   padding: 20px 60px;
 
   .cards {
+    background-color: $black;
     display: flex;
     justify-content: center;
     align-items: center;

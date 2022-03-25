@@ -2,6 +2,11 @@
 
 html {
   font-size: 100% !important;
+  overflow-x: clip;
+}
+
+div.theme--dark.v-application#app{
+  background-color: #252525;
 }
 
 .bold-title {

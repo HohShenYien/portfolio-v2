@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page" style="overflow-x: hidden">
     <section class="top-part">
       <h1 class="page-title">
         Post Archives

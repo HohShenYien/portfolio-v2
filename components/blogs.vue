@@ -1,6 +1,14 @@
 <template>
   <section class="section">
-    <postPreview v-for="post in posts" :key="post.slug" :post="post"></postPreview>
+    <v-row>
+      <v-col cols="12" md="6" class="px-md-6">
+        <post-preview v-for="(post, idx) in posts" :key="post.slug" :post="post" v-if="idx % 2 === 0"/>
+      </v-col>
+      <v-col cols="12" md="6" class="px-md-6">
+        <post-preview v-for="(post, idx) in posts" :key="post.slug" :post="post" v-if="idx % 2 !== 0"/>
+      </v-col>
+    </v-row>
+
   </section>
 </template>
 
@@ -36,8 +44,6 @@ export default {
 <style scoped lang="scss">
 section {
   @include section;
-  column-count: 2;
-  column-gap: 60px;
   min-height: max(100vh, 705px);
 
   a {

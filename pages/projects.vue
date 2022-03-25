@@ -151,7 +151,7 @@ export default {
   z-index: 1;
   border: 1px white solid;
   overflow: hidden;
-  transition: all 0.6s cubic-bezier(1, 0, 0.55, 1);
+  transition: all 0.4s cubic-bezier(1, 0, 0.55, 1);
 }
 
 .down-btn span {
@@ -169,7 +169,7 @@ export default {
   bottom: 100%;
   border-radius: 0 0 100% 100%/0 0 100% 100%;
   background-color: white;
-  transition: all 0.6s cubic-bezier(1, 0, 0.55, 1);
+  transition: all 0.4s cubic-bezier(1, 0, 0.55, 1);
   z-index: 1;
 }
 
@@ -207,7 +207,7 @@ export default {
 }
 
 .down-btn .mdi {
-  transition: all 0.6s cubic-bezier(1, 0, 0.55, 1) !important;
+  transition: all 0.4s cubic-bezier(1, 0, 0.55, 1) !important;
 }
 
 .page-header {

@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <section class="section" ref="content">
+    <section class="section" ref="content" style="overflow-x: hidden;">
       <v-row>
         <v-col cols="12" md="7">
           <div class="error-wrapper">

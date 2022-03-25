@@ -206,7 +206,7 @@ export default {
 }
 
 #section1 {
-  background-color: black;
+  background-color: $black;
   overflow-y: hidden;
 }
 

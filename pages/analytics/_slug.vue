@@ -131,7 +131,7 @@ article {
 
   .top-part {
     padding-top: 164px;
-    background-color: black;
+    background-color: $black;
     padding-bottom: 100px;
     h1.page-title {
       font-size: 80px;

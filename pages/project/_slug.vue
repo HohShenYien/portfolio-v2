@@ -155,7 +155,7 @@ article {
 
   .top-part {
     padding-top: 164px;
-    background-color: black;
+    background-color: $black;
     padding-bottom: 100px;
   }
 
@@ -187,7 +187,7 @@ article {
 
 .bottom-part {
   margin-top: 60px;
-  background-color: black;
+  background-color: $black;
   padding: 80px 0 120px;
   text-align: center;
 

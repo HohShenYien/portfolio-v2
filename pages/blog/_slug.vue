@@ -20,8 +20,8 @@
                  :lazy-src="post.lazy" max-width="100%" class="mx-auto post-img"
                  max-height="600px" contain></v-img>
       </v-row>
-      <v-row>
-        <v-col md="8" class="d-flex justify-center">
+      <v-row class="reverse-phone">
+        <v-col md="8" cols="12" class="d-flex justify-center">
           <div class="inner-document">
             <nuxt-content :document="post"/>
             <div class="bottom-part">
@@ -39,7 +39,7 @@
             </div>
           </div>
         </v-col>
-        <v-col md="4" class="toc-wrapper">
+        <v-col md="4" cols="12" class="toc-wrapper">
           <aside class="toc">
             <h3>Table of Contents</h3>
             <nav>
@@ -207,7 +207,7 @@ article {
 
   .top-part {
     padding-top: 164px;
-    background-color: black;
+    background-color: $black;
     padding-bottom: 100px;
     .wrapper {
       width: 80ch;
@@ -263,7 +263,9 @@ article {
   }
 }
 
-
+.reverse-phone {
+  flex-direction: row;
+}
 
 @media only screen and (max-width: 600px) {
   .markdown-content .top-part .wrapper {
@@ -287,6 +289,9 @@ article {
   .post-img {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .reverse-phone {
+    flex-direction: column-reverse;
   }
 }
 </style>

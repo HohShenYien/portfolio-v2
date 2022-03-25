@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="overflow-x: hidden">
     <div>
       <section class="section section1" id="section1">
         <div id="bottom-bar">
@@ -324,7 +324,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 /* Style for fourth section */
 .section4-note {
   margin-top: 20px;
@@ -438,8 +438,8 @@ export default {
 
 .right-part div {
   margin-bottom: 15px;
-  font-size: 26px;
-  color: gray;
+  font-size: 22px;
+  color: lightgray;
 }
 
 .right-part {
@@ -460,7 +460,7 @@ export default {
 }
 
 .section3 {
-  background-color: black;
+  background-color: $black;
 }
 
 .myPic img:hover {
@@ -552,7 +552,7 @@ export default {
 }
 
 #bottom-bar.solid {
-  background-color: black;
+  background-color: $black;
 }
 
 .cursor {
