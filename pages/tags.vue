@@ -191,7 +191,6 @@ export default {
         return b.val - a.val || this.compareStr(a.name, b.name);
       })
       this.$set(this.tags, 'analysis', res);
-      console.log(this.tags);
     }
   }
   ,

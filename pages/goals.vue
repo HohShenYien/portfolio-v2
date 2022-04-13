@@ -2,7 +2,7 @@
   <div>
     <section class="section" id="section1">
       <h1>2022 Resolutions</h1>
-      <div class="sub-text">Updated: <span class="white--text">27 Feb 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">13 Apr 2022</span></div>
       <div class="content">
         <v-list color="#00000000" class="list-row">
           <v-list-item
@@ -30,7 +30,7 @@
     <v-divider style="margin: 0 120px;"></v-divider>
     <section class="section" id="section2">
       <h1>Readings</h1>
-      <div class="sub-text">Updated: <span class="white--text">27 Feb 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">13 Apr 2022</span></div>
       <div class="sub-text">Since <span class="white--text">January 2022</span></div>
       <div class="content">
         <div v-for="(book, idx) in readings" :key="idx">
@@ -153,12 +153,13 @@ export default {
         {
           name: 'Learn Node, React & Flutter',
           status: false,
-          description: 'At least build 1 project with each of them'
+          description: 'At least build 1 project with each of them',
+          progress: '1 / 3'
         },
         {
           name: '1 Analysis project per month',
           status: false,
-          progress: '1 / 12'
+          progress: '2 / 12'
         },
         {
           name: 'Complete setting up my blog',
@@ -183,13 +184,14 @@ export default {
           name: 'Stop playing games',
           status: false,
           description: "I get addicted with games easily, i.e., Tetris, Chess, Super Tux Kart. I hope to get my game " +
-            "addictions to be gone and read instead when I'm bored."
+            "addictions to be gone and read instead when I'm bored. It has gone now, and I am focusing more on other stuffs now!",
+          progress: "✅"
         },
         {
           name: 'Read 1 book monthly',
           status: false,
           description: 'A habit that I have been wanting to have.',
-          progress: '3 / 12'
+          progress: '4 / 12'
         },
         {
           name: "Meditate 30 mins once every 2 weeks",
@@ -201,7 +203,7 @@ export default {
           name: 'Create 6 arts',
           status: false,
           description: 'I have just learned Inkscape early of this year, so I wanna try to draw more using it.',
-          progress: '3 / 6'
+          progress: '4 / 6'
         },
         {
           name: 'Workout more frequently',
@@ -232,6 +234,10 @@ export default {
           status: 2,
         },
         {
+          name: "Designing User Interface",
+          status: 2,
+        },
+        {
           name: "Introduction to Statistical Learning",
           status: 2,
         },
@@ -253,6 +259,10 @@ export default {
         },
         {
           name: "The Design of Everyday Things",
+          status: 0,
+        },
+        {
+          name: "Head First Design Patterns",
           status: 0,
         },
         {

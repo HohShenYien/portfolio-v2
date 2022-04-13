@@ -27,6 +27,9 @@ export default {
     },
     getSubscript() {
       let day = this.getDay();
+      if (day.slice(-2, -1) == "2") {
+        return "th";
+      }
       switch (day.slice(-1)) {
         case "1": return "st";
         case "2": return "nd";
@@ -36,7 +39,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.item);
+
   }
 }
 </script>

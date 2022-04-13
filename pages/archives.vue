@@ -112,7 +112,7 @@ export default {
         return r;
       }, {});
       this.items = Object.keys(groups).map(function(k){ return groups[k]; });
-      console.log(this.items)
+
     },
   },
   mounted() {
