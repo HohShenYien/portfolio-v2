@@ -3,7 +3,7 @@ title: APAC Website
 image: https://i.imgur.com/CFDBiPsh.png
 lazy: https://i.imgur.com/CFDBiPst.png
 thumbnail: https://i.imgur.com/CFDBiPsl.png
-link: https://asiapacificanalyticsclub.netlify.app/
+link: https://apu-apac.netlify.app/
 date: 5 March 2022
 description: Asia Pacific Analytics Club is the club I am joining in university. I have decided to build a website for the club, so here it goes.
 type: desktop

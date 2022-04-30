@@ -5,7 +5,7 @@ lazy: https://i.imgur.com/nI0aKSIt.jpg
 thumbnail: https://i.imgur.com/nI0aKSIl.jpg
 date: 13 April 2022
 description: I have decided to proceed in a different field from my major
-read: 10
+read: 5
 tags:
 
 - Life

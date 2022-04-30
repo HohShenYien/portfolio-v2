@@ -2,7 +2,7 @@
   <div>
     <section class="section" id="section1">
       <h1>2022 Resolutions</h1>
-      <div class="sub-text">Updated: <span class="white--text">13 Apr 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">1 May 2022</span></div>
       <div class="content">
         <v-list color="#00000000" class="list-row">
           <v-list-item
@@ -30,7 +30,7 @@
     <v-divider style="margin: 0 120px;"></v-divider>
     <section class="section" id="section2">
       <h1>Readings</h1>
-      <div class="sub-text">Updated: <span class="white--text">13 Apr 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">1 May 2022</span></div>
       <div class="sub-text">Since <span class="white--text">January 2022</span></div>
       <div class="content">
         <div v-for="(book, idx) in readings" :key="idx">
@@ -159,7 +159,8 @@ export default {
         {
           name: '1 Analysis project per month',
           status: false,
-          progress: '2 / 12'
+          progress: '2 / 12',
+          description: "As I am starting to shift away from this path, looks like this goal will not be achieved."
         },
         {
           name: 'Complete setting up my blog',
@@ -191,7 +192,7 @@ export default {
           name: 'Read 1 book monthly',
           status: false,
           description: 'A habit that I have been wanting to have.',
-          progress: '4 / 12'
+          progress: '5 / 12'
         },
         {
           name: "Meditate 30 mins once every 2 weeks",
@@ -202,8 +203,8 @@ export default {
         {
           name: 'Create 6 arts',
           status: false,
-          description: 'I have just learned Inkscape early of this year, so I wanna try to draw more using it.',
-          progress: '4 / 6'
+          description: 'I have just learned Inkscape early of this year, so I wanna try to draw more using it. Now, I\'m getting very much better and comfortable using it.',
+          progress: "✅"
         },
         {
           name: 'Workout more frequently',
@@ -251,11 +252,15 @@ export default {
         },
         {
           name: "A Random Walk Down Wall Street",
-          status: 1,
+          status: 2,
         },
         {
           name: "Introduction to Corporate Finance",
           status: 1,
+        },
+        {
+          name: "The Pragmatic Programmer",
+          status: 0,
         },
         {
           name: "The Design of Everyday Things",
@@ -371,17 +376,6 @@ export default {
       &.completed::after {
         background-color: darkgoldenrod;
       }
-    }
-    &.completed::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 55%;
-      transform: translate3d(-50%, -50%, 0);
-      width: 80%;
-      height: 3px;
-      background-color: white;
-      transition: all 0.2s linear;
     }
   }
 
