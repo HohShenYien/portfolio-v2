@@ -2,7 +2,7 @@
   <div class="d-inline-block">
     <h-link
       @click="openDialog"
-      v-if="!isMobile"
+      v-if="!$vuetify.breakpoint.smAndDown"
     >
       <v-icon class="hover-icon">mdi-magnify</v-icon>
     </h-link>
@@ -74,11 +74,6 @@ export default {
       searching: false,
       noresult: false
     }
-  },
-  computed: {
-    isMobile() {
-      return this.$vuetify.breakpoint.smAndDown;
-    },
   },
   methods: {
     openDialog() {

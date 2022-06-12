@@ -31,6 +31,7 @@ export default {
 .the-image {
   box-shadow: 0 0 6px 5px black;
   height: auto;
+  background-color: #EAEAEA;
 }
 
 .post-image-caption {
