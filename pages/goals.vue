@@ -2,7 +2,7 @@
   <div>
     <section class="section" id="section1">
       <h1>2022 Resolutions</h1>
-      <div class="sub-text">Updated: <span class="white--text">1 May 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">11 July 2022</span></div>
       <div class="content">
         <v-list color="#00000000" class="list-row">
           <v-list-item
@@ -30,7 +30,7 @@
     <v-divider style="margin: 0 120px;"></v-divider>
     <section class="section" id="section2">
       <h1>Readings</h1>
-      <div class="sub-text">Updated: <span class="white--text">1 May 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">11 July 2022</span></div>
       <div class="sub-text">Since <span class="white--text">January 2022</span></div>
       <div class="content">
         <div v-for="(book, idx) in readings" :key="idx">
@@ -192,7 +192,7 @@ export default {
           name: 'Read 1 book monthly',
           status: false,
           description: 'A habit that I have been wanting to have.',
-          progress: '5 / 12'
+          progress: '6 / 12'
         },
         {
           name: "Meditate 30 mins once every 2 weeks",
@@ -251,11 +251,15 @@ export default {
           status: 2,
         },
         {
+          name: "Soft Skills - The software developer's life manual",
+          status: 2,
+        },
+        {
           name: "A Random Walk Down Wall Street",
           status: 2,
         },
         {
-          name: "Introduction to Corporate Finance",
+          name: "How to Win Friends and Influence People",
           status: 1,
         },
         {

@@ -5,7 +5,7 @@ lazy: https://i.imgur.com/z2QvK2at.jpg
 thumbnail: https://i.imgur.com/z2QvK2l.jpg
 date: 11 June 2022
 description: An update on my life recently and what I have been doing
-read: 10
+read: 7
 tags:
 
 - Life

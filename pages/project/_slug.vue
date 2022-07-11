@@ -25,6 +25,9 @@
       </div>
       <div class="inner-document">
         <nuxt-content :document="project"/>
+        <div class="d-flex justify-end">
+          <social-share-btn :url="url"></social-share-btn>
+        </div>
       </div>
     </article>
     <div class="bottom-part" v-if="anotherProject != null">
@@ -121,7 +124,8 @@ export default {
   data() {
     return {
       anotherProject: null,
-      active: false
+      active: false,
+      url: "",
     }
   },
   methods: {
@@ -139,6 +143,9 @@ export default {
   },
   created() {
     this.getProjects();
+  },
+  mounted() {
+    this.url = window.location.href;
   }
 }
 </script>

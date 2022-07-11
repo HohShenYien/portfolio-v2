@@ -131,7 +131,7 @@
           </v-col>
         </v-row>
         <div class="section4-note">
-          Updated on 4th March 2022.<br>Based on what I think how much more to know.
+          Updated on 11th July 2022.<br>Based on what I think how much more to know.
         </div>
       </section>
     </div>
@@ -164,45 +164,58 @@ export default {
       skills: {
         front: {
           name: "Front-end",
-          data: [{name: "HTML & CSS", img: "html_css.svg", progress: "80%", label: "Many Projects"},
-            {name: "Javascript", img: "javascript.svg", progress: "70%", label: "Many Projects"},
-            {name: "Vue & Vuetify", img: "vue.svg", progress: "65%", label: "3 Projects"},
+          data: [
+            {name: "HTML & CSS", img: "html_css.svg", progress: "80%", label: "Many Projects"},
+            {name: "Javascript", img: "javascript.svg", progress: "75%", label: "Many Projects"},
+            {name: "Vue & Vuetify", img: "vue.svg", progress: "70%", label: "5 Projects"},
             {name: "React", img: "react.svg", progress: "60%", label: "1 Project"},
+            {name: "Angular", img: "angular.svg", progress: "50%", label: "1 Project"},
             {name: "Nuxt", img: "nuxt.svg", progress: "50%", label: "1 Project"},
             {name: "Next js", img: "next-js.svg", progress: "40%", label: "1 Project"}
           ]
         },
         back: {
           name: "Back-end",
-          data: [ {name: "SQL", img: "mysql.svg", progress: "70%", label: "Many Projects"},
-            {name: "Laravel", img: "laravel.svg", progress: "60%", label: "3 Projects"},
-            {name: "Flask", img: "flask.svg", progress: "40%", label: "3 Projects"}]
+          data: [
+            {name: "SQL", img: "mysql.svg", progress: "70%", label: "Many Projects"},
+            {name: "Laravel", img: "laravel.svg", progress: "65%", label: "4 Projects"},
+            {name: "Flask", img: "flask.svg", progress: "50%", label: "4 Projects"}
+          ]
         },
         data: {
           name: "Data Analysis",
-          data: [{name: "R", img: "rstudio.svg", progress: "70%", label: "Many Projects"},
+          data: [
+            {name: "R", img: "rstudio.svg", progress: "70%", label: "Many Projects"},
             {name: "Excel", img: "excel.svg", progress: "50%", label: "Some Projects"},
             {name: "SAS", img: "sas.svg", progress: "45%", label: "1 Project"},
             {name: "Machine Learning", img: "ml.svg", progress: "30%"}]
         },
         se: {
           name: "App Development",
-          data: [{name: "Android Studio (Java)", img: "android.svg", progress: "70%", label: "4 Projects"},
+          data: [
+            {name: "Android Studio (Java)", img: "android.svg", progress: "70%", label: "4 Projects"},
+            {name: "Tauri", img: "tauri.svg", progress: "60%", label: "1 Project"},
             {name: "Electron", img: "electron.svg", progress: "55%", label: "1 Project"},
             {name: "QT", img: "qt.svg", progress: "45%", label: "1 Project"}
           ]
         },
         language: {
           name: "Other languages",
-          data: [{name: "Python", img: "python.svg", progress: "80%", label: "Main language"},
+          data: [
+            {name: "Python", img: "python.svg", progress: "80%", label: "Main language"},
+            {name: "Java", img: "java.svg", progress: "70%", label: "Numerous Projects"},
             {name: "C++", img: "cpp.svg", progress: "55%"},
-            {name: "C", img: "c.svg", progress: "50%"}]
+            {name: "C", img: "c.svg", progress: "50%"},
+            {name: "Rust", img: "rust.svg", progress: "20%", label: "1 Project"},
+          ]
         },
         misc: {
           name: "Others",
-          data: [{name: "Git", img: "git.svg", progress: "75%", label: "Used often"},
-            {name: "Wordpress", img: "wordpress.svg", progress: "60%", label: "2 Projects"},
-            {name: "Command lines", img: "cmd.svg", progress: "45%"}]
+          data: [
+            {name: "Git", img: "git.svg", progress: "75%", label: "Used often"},
+            {name: "Wordpress", img: "wordpress.svg", progress: "60%", label: "3 Projects"},
+            {name: "Command lines", img: "cmd.svg", progress: "45%"}
+          ]
         },
       }
     }
