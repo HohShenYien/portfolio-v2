@@ -69,10 +69,12 @@
 <script>
 
 import SocialShareBtn from "../../components/socialShareBtn";
-import {VDivider} from 'vuetify/lib/components';
+import {VDivider, VRating, VColorPicker} from 'vuetify/lib/components';
 import Vue from "vue";
 
-Vue.component("VDivider", VDivider)
+Vue.component("VDivider", VDivider);
+Vue.component("VRating", VRating);
+Vue.component("VColorPicker", VColorPicker);
 
 export default {
   components: {SocialShareBtn},
