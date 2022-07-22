@@ -1,4 +1,5 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors';
+import { getHighlighter } from 'shiki';
 
 const path = require('path');
 const fs = require('fs');
@@ -124,8 +125,21 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content"
-  ],
+  modules: ["@nuxt/content"],
+
+  // Markdown syntax highlighter
+  content: {
+    markdown: {
+      async highlighter() {
+        const highlighter = await getHighlighter({
+          theme: 'one-dark-pro'
+        })
+        return (rawCode, lang) => {
+          return `<div data-lang="${lang}" class="custom-codeblock">${highlighter.codeToHtml(rawCode, lang)}</div>`;
+        }
+      }
+    },
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

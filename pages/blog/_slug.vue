@@ -210,7 +210,7 @@ article {
     background-color: $black;
     padding-bottom: 100px;
     .wrapper {
-      width: 80ch;
+      width: 100ch;
       margin: 0 auto;
       line-height: 4.8rem;
       h1 {
