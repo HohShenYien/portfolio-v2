@@ -27,7 +27,7 @@ export default {
     },
     getSubscript() {
       let day = this.getDay();
-      if (day.slice(-2, -1) == "2") {
+      if (day.slice(-2, -1) === "1") {
         return "th";
       }
       switch (day.slice(-1)) {

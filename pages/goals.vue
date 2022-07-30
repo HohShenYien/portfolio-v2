@@ -2,7 +2,7 @@
   <div>
     <section class="section" id="section1">
       <h1>2022 Resolutions</h1>
-      <div class="sub-text">Updated: <span class="white--text">11 July 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">30 July 2022</span></div>
       <div class="content">
         <v-list color="#00000000" class="list-row">
           <v-list-item
@@ -30,7 +30,7 @@
     <v-divider style="margin: 0 120px;"></v-divider>
     <section class="section" id="section2">
       <h1>Readings</h1>
-      <div class="sub-text">Updated: <span class="white--text">11 July 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">30 July 2022</span></div>
       <div class="sub-text">Since <span class="white--text">January 2022</span></div>
       <div class="content">
         <div v-for="(book, idx) in readings" :key="idx">
@@ -134,10 +134,9 @@ export default {
         },
         {
           name: 'Maintain 3.70 CGPA in second year',
-          status: false,
-          description: 'I hope to maintain a first class for this year as well. So far I have obtained a 3.95 for my' +
-            'first semester of second year',
-          progress: '1 / 2'
+          status: true,
+          description: 'I managed to get a CGPA of 3.87 in the second year! The downfall was a research subject...',
+          progress: "✅"
         },
         {
           name: 'Finish the CLRS book',
@@ -183,16 +182,16 @@ export default {
         },
         {
           name: 'Stop playing games',
-          status: false,
+          status: true,
           description: "I get addicted with games easily, i.e., Tetris, Chess, Super Tux Kart. I hope to get my game " +
             "addictions to be gone and read instead when I'm bored. It has gone now, and I am focusing more on other stuffs now!",
           progress: "✅"
         },
         {
-          name: 'Read 1 book monthly',
+          name: 'Read at least 1 book monthly',
           status: false,
           description: 'A habit that I have been wanting to have.',
-          progress: '6 / 12'
+          progress: '7 / 12'
         },
         {
           name: "Meditate 30 mins once every 2 weeks",
@@ -243,10 +242,6 @@ export default {
           status: 2,
         },
         {
-          name: "Introduction to Algorithms",
-          status: 1,
-        },
-        {
           name: "How to Decide",
           status: 2,
         },
@@ -260,7 +255,11 @@ export default {
         },
         {
           name: "How to Win Friends and Influence People",
-          status: 1,
+          status: 2,
+        },
+        {
+          name: "Learn Ruby the Hard Way",
+          status: 2,
         },
         {
           name: "The Pragmatic Programmer",
@@ -272,7 +271,7 @@ export default {
         },
         {
           name: "Head First Design Patterns",
-          status: 0,
+          status: 1,
         },
         {
           name: "Introduction to Computing Systems",

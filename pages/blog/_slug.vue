@@ -64,6 +64,23 @@
         </v-col>
       </v-row>
     </article>
+    <v-snackbar
+      v-model="copyToast"
+      color="success"
+    >
+      <span class="font-weight-black text--plain-white">Link copied to clipboard</span>
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="red"
+          icon
+          v-bind="attrs"
+          @click="copyToast = false"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 <script>
@@ -71,6 +88,7 @@
 import SocialShareBtn from "../../components/socialShareBtn";
 import {VDivider, VRating, VColorPicker} from 'vuetify/lib/components';
 import Vue from "vue";
+import HeaderLink from "@/components/HeaderLink";
 
 Vue.component("VDivider", VDivider);
 Vue.component("VRating", VRating);
@@ -150,7 +168,8 @@ export default {
       observerOptions: {
         root: this.$refs.nuxtContent,
         threshold: 0.3
-      }
+      },
+      copyToast: false,
     }
   },
   methods: {
@@ -186,6 +205,19 @@ export default {
       .forEach(section => {
         this.observer.observe(section);
       });
+
+    const LinkClass = Vue.extend(HeaderLink);
+    document.querySelectorAll(".nuxt-content h2")
+      .forEach(h2 => {
+        const buttonInstance = new LinkClass({
+          propsData: {
+            id: h2.id,
+            onSuccess: () => this.copyToast = true
+          }
+        });
+        buttonInstance.$mount();
+        h2.appendChild(buttonInstance.$el)
+      })
   },
   beforeDestroy() {
     this.observer.disconnect();

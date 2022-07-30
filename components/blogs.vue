@@ -1,11 +1,16 @@
 <template>
   <section class="section">
-    <v-row>
+    <v-row v-if="$vuetify.breakpoint.mdAndUp">
       <v-col cols="12" md="6" class="px-md-6">
         <post-preview v-for="(post, idx) in posts" :key="post.slug" :post="post" v-if="idx % 2 === 0"/>
       </v-col>
       <v-col cols="12" md="6" class="px-md-6">
         <post-preview v-for="(post, idx) in posts" :key="post.slug" :post="post" v-if="idx % 2 !== 0"/>
+      </v-col>
+    </v-row>
+    <v-row v-else>
+      <v-col cols="12" >
+        <post-preview v-for="(post, idx) in posts" :key="post.slug" :post="post"/>
       </v-col>
     </v-row>
 
