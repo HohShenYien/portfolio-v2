@@ -105,8 +105,6 @@ All of these will then add up to the seconds.
 
 1. **Don’t use $append unless you are 100% sure it’s needed everywhere**. Otherwise, a lot of unnecessary queries will be made like above. Append them manually in Laravel Query.
 2. Use join instead of append. Append will result in n extra queries to be made in comparison to join which is relatively cheaper. A simple solution in Laravel is by <h-link href="https://laravel.com/docs/9.x/eloquent#local-scopes](https://laravel.com/docs/9.x/eloquent#local-scopes">adding scope</h-link>.
- 
-<br>
 
 ## Bonus
 

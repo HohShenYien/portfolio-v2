@@ -51,8 +51,6 @@ lazy="https://i.imgur.com/Zqt4KVOt.png">
 
    On the other hand, Tailwind is a CSS library. It provides utility classes like mx-2 or px-2 for margins and paddings.
 
-<br>
-
 ## Component Library
 
 <post-image img="https://i.imgur.com/BnThp6C.png" alt="Tailwindcss" class="mt-12"
@@ -187,14 +185,10 @@ lazy="https://i.imgur.com/kMsY1iSt.png">
 1. Write them out yourself - More customizability at the cost of time which I don’t think it’s worth it for small projects.
 2. External unstyled component libraries like Headless or Radix UI.
 
-<br>
-
 ### When to use
 
 1. When you know the project is going to have a mix of styles or requires a lot of customizations that a singled styled component library is not going to suffice.
 2. Suitable for larger projects so that it can be maintained more easily with standardized class names.
-
-<br>
 
 ## Bottom Line
 

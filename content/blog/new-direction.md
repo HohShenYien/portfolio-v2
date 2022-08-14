@@ -99,8 +99,6 @@ Of course, those aren't the only reasons, some other reasons being:
 - There is a feeling of emptiness when I'm doing DA, like the feeling of "what's next?" or "so?" hovering when I am doing it.
 - At this point, I've done so much more in Web Development that it'll provide me a much better head start in my career.
 
-<br>
-
 ## End Thoughts
 
 I do not know if at one point of my life I will regret my decision now. However, after careful

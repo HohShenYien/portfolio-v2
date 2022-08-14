@@ -81,6 +81,10 @@ a {
   margin-bottom: 40px !important;
 }
 
+.markdown-content ol, .markdown-content ul {
+  margin-bottom: 20px;
+}
+
 .v-application .markdown-content li {
   font-size: 1.125rem;
   line-height: 2rem;
