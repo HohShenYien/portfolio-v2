@@ -56,22 +56,22 @@ a {
 }
 
 .markdown-content h1 {
-  font-size: 4.5rem;
+  font-size: 3.6rem;
   text-align: center;
 }
 
 .markdown-content h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   position: relative;
 }
 
 .markdown-content h3 {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .markdown-content h4 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .v-application .markdown-content p {
@@ -113,13 +113,17 @@ a {
   opacity: 0;
 }
 
-.v-application .markdown-content li p {
+.v-application .markdown-content li p:first-child {
   margin-bottom: 0 !important;
 }
 
 .v-application .markdown-content code {
   background-color: transparent !important;
   padding: 0;
+}
+
+.markdown-content .nuxt-content-highlight {
+  margin-bottom: 12px;
 }
 
 .v-application .markdown-content li:not(:last-child):not(.toc-list){
