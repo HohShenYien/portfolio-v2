@@ -147,6 +147,7 @@ a {
 
 pre.shiki {
   padding: 1rem;
+  overflow-x: scroll;
 }
 
 .gray--text {
