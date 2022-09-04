@@ -78,7 +78,7 @@ a {
   font-size: 1.125rem;
   line-height: 2rem;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 40px !important;
+  margin-bottom: 32px !important;
 }
 
 .markdown-content ol, .markdown-content ul {
@@ -147,7 +147,7 @@ a {
 
 pre.shiki {
   padding: 1rem;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .gray--text {

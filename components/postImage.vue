@@ -39,6 +39,6 @@ export default {
   color: gray;
   text-align: center;
   margin-top: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 </style>

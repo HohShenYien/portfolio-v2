@@ -2,7 +2,7 @@
   <div>
     <section class="section" id="section1">
       <h1>2022 Resolutions</h1>
-      <div class="sub-text">Updated: <span class="white--text">30 July 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">4 September 2022</span></div>
       <div class="content">
         <v-list color="#00000000" class="list-row">
           <v-list-item
@@ -30,7 +30,7 @@
     <v-divider style="margin: 0 120px;"></v-divider>
     <section class="section" id="section2">
       <h1>Readings</h1>
-      <div class="sub-text">Updated: <span class="white--text">30 July 2022</span></div>
+      <div class="sub-text">Updated: <span class="white--text">4 September 2022</span></div>
       <div class="sub-text">Since <span class="white--text">January 2022</span></div>
       <div class="content">
         <div v-for="(book, idx) in readings" :key="idx">
@@ -147,7 +147,8 @@ export default {
         {
           name: 'Finish the book "Introduction to Mathematical Statistics"',
           status: false,
-          description: ''
+          description: 'I have decided to pursue another path, hence this goal will not be completed.',
+          progress: '❌'
         },
         {
           name: 'Learn Node, React & Flutter',
@@ -158,7 +159,7 @@ export default {
         {
           name: '1 Analysis project per month',
           status: false,
-          progress: '2 / 12',
+          progress: '2 / 12 ❌',
           description: "As I am starting to shift away from this path, looks like this goal will not be achieved."
         },
         {
@@ -171,14 +172,14 @@ export default {
         {
           name: 'Complete 2 machine learning projects',
           status: false,
-          description: ''
+          description: 'I have decided to pursue another path, hence this goal will not be completed.',
+          progress: "❌"
         },
         {
           name: 'Complete 3 Machine Learning textbooks / courses',
           status: false,
-          description: 'Currently, I am following Deep Learning for Coders from' +
-            ' <a href="https://course.fast.ai/" target="_blank">fast.ai</a>',
-          progress: '1 / 3'
+          description: 'I have decided to pursue another path, hence this goal will not be completed.',
+          progress: '1 / 3 ❌'
         },
         {
           name: 'Stop playing games',
@@ -191,7 +192,7 @@ export default {
           name: 'Read at least 1 book monthly',
           status: false,
           description: 'A habit that I have been wanting to have.',
-          progress: '7 / 12'
+          progress: '8 / 12'
         },
         {
           name: "Meditate 30 mins once every 2 weeks",
@@ -219,8 +220,8 @@ export default {
         {
           name: 'Complete 2 Finance courses / textbooks',
           status: false,
-          description: "As of now, I'm planning to read Introduction to Corporate Finance, but this book is quite heavy," +
-            " so I'll be taking more time to finish it than expected."
+          description: "I have decided to pursue another path, hence this goal will not be completed.",
+          progress: '❌'
         }
       ],
       readings: [
@@ -262,20 +263,20 @@ export default {
           status: 2,
         },
         {
-          name: "The Pragmatic Programmer",
+          name: "Dive into Refactoring",
           status: 0,
         },
         {
           name: "The Design of Everyday Things",
-          status: 0,
-        },
-        {
-          name: "Head First Design Patterns",
           status: 1,
         },
         {
-          name: "Introduction to Computing Systems",
-          status: 0
+          name: "Head First Design Patterns",
+          status: 2,
+        },
+        {
+          name: "Designing Data Intensive Application",
+          status: 1
         }
       ]
     }

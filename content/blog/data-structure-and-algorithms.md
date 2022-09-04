@@ -25,7 +25,7 @@ However, it seems that this subject doesn’t appeal and is very hard to most of
 and doesn’t seem to be important in our job, regardless of the fields (Software Engineering,
 Data Analysis, AI, etc.)
 
-Jump ahead to <h-link go-to="how-dsa-helps">Benefits of DSA</h-link> if you wanna skip my grandma stories 🧓.
+Jump ahead to <h-link go-to="how-dsa-helps">Benefits of DSA</h-link> if you wanna skip my grandma stories 🧓
 
 ## What is DSA?
 
