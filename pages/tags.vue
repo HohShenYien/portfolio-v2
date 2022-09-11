@@ -24,7 +24,7 @@
                       </h-link>
                     </h3>
                     <div>
-                      {{ tag.val }} {{ tag.val > 1 ? 'projects' : 'project' }}
+                      {{ tag.val }} {{cat === 'blogs' ? 'blog' : 'project' }}{{ tag.val > 1 ? 's' : '' }}
                     </div>
                   </div>
                 </v-card>
